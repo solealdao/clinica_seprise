@@ -1,9 +1,100 @@
+:root {
+	--primary-color: #000000;
+	--secondary-color: #ffffff;
+	--yellow-color: #bc9f2d;
+	--dark-green-color: #4b6367;
+	--light-green-color: #199f93;
+	--background-color: #bebebe;
+	--font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
 body {
 	padding: 50px;
-	font: 18px 'Lucida Grande', Helvetica, Arial, sans-serif;
-	background-color: #747272;
+	font: 18px var(--font-family);
+	background-color: var(--background-color);
 }
 
 a {
 	color: #00b7ff;
+}
+
+/* Acá empiezo con los estilos para el INDEX (log in) */
+.container {
+	display: flex;
+	width: 100%;
+	height: 100vh;
+}
+
+.left-section {
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.left-section img {
+	max-width: 100%;
+	height: auto;
+}
+
+.right-section {
+	width: 50%;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.image-container {
+	display: flex;
+	justify-content: center;
+}
+
+.right-section h1 {
+	margin: 25px;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	text-align: center;
+}
+
+.right-section .form-group {
+	margin-bottom: 40px;
+	padding: 0px 30px;
+}
+
+.right-section .form-group label {
+	color: var(--dark-green-color);
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.right-section .form-group input {
+	width: 100%;
+	font-size: 14px;
+	padding: 14px;
+	border: none;
+	border-radius: 8px;
+	box-sizing: border-box;
+}
+.button-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.right-section button {
+	font-weight: 800;
+	font-size: 16px;
+	padding: 10px 70px;
+	background-color: var(--light-green-color);
+	color: var(--yellow-color);
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+}
+
+.right-section button:hover {
+	background-color: darken(var(--primary-color), 10%);
 }
