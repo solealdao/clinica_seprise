@@ -4,17 +4,17 @@ var path = require('path');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	res.sendFile(path.join(__dirname, '../views/index.html'));
+	res.render('index');
 });
 
 /* GET admin home page. */
 router.get('/admin-home', function (req, res, next) {
-	res.sendFile(path.join(__dirname, '../views/admin-home.html'));
+	res.render('admin-home');
 });
 
 /* GET doctor home page. */
 router.get('/doctor-home', function (req, res, next) {
-	res.sendFile(path.join(__dirname, '../views/doctor-home.html'));
+	res.render('doctor-home');
 });
 
 module.exports = router;
