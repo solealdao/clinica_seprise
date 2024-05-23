@@ -2,7 +2,9 @@
 <html>
 <head>
 	<link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="/stylesheets/admin-home.css" />
+	
 	<title>Document</title>
 </head>
 <body>
@@ -10,12 +12,47 @@
 		<span class="nombre_admin">01 - Cristina Pérez</span>
 	</div>
 	<div class="reloj">
+		<p class="tiempo"></p>
+		<p class="fecha"></p>
 	</div>
 	<div class="foto_admin"></div>
 	<div class="button-container">
-        <button>Gestión De Turnos</button>
-        <button>Gestión De Usuarios</button>
-        <button>Gestión De Pacientes</button>
+        <button>Gestión de Turnos</button>
+        <button>Gestión de Usuarios</button>
+        <button>Gestión de Pacientes</button>
     </div>
+	
+	<script>
+		const $tiempo = document.querySelector('.tiempo'),
+		$fecha = document.querySelector('.fecha');
+
+		function digitalClock()
+		{
+			
+			let f = new Date(),
+			dia = f.getDate(),
+			mes = f.getMonth() + 1,
+			anio = f.getFullYear(),
+			diaSemana = f.getDay() - 1;
+
+			
+			dia = ('0' + dia).slice(-2);
+
+			let timeString = f.toLocaleTimeString();
+			$tiempo.innerHTML = timeString;
+
+			let semana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+			let showSemana = (semana[diaSemana]);
+			let meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+			let showMes = (meses[f.getMonth()]);
+
+			$fecha.innerHTML = `${showSemana} ${dia} de ${showMes} de ${anio}`
+		}
+
+		/*para actualizar cada 1 segundo el reloj digital*/
+		setInterval(() => {
+		digitalClock() 
+		}, 1000);
+	</script>
 </body>
 </html>
