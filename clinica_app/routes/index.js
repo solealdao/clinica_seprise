@@ -17,4 +17,9 @@ router.get('/doctor-home', function (req, res, next) {
 	res.render('doctor-home');
 });
 
+/* GET users home page. */
+router.get('/users-home', function (req, res, next) {
+	res.render('users-home');
+});
+
 module.exports = router;
