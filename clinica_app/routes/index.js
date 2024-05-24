@@ -16,11 +16,16 @@ router.get('/admin-home', function (req, res, next) {
 router.get('/doctor-home', function (req, res, next) {
 	res.render('doctor-home');
 });
+
+/* GET doctor home page. */
+router.get('/payment-method-home', function (req, res, next) {
+	res.render('payment-method-home');
+});
+
 /* GET shift-management page. */
 router.get('/shift-management', function (req, res, next) {
 	res.render('shift-management');
 });
-
 
 /* GET users home page. */
 router.get('/users-home', function (req, res, next) {
