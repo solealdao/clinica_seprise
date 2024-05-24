@@ -98,3 +98,69 @@ a {
 .right-section button:hover {
 	background-color: darken(var(--primary-color), 10%);
 }
+/* Estilos que agregue*/
+/*estilos gestion turnos*/
+
+.style-header{
+	background-color: #4B6367; /* Fondo gris */
+    border-bottom: 2px solid #FFFFFF; /* Borde blanco en la parte inferior */
+    border-bottom-left-radius: 200px; /* Radio del borde inferior izquierdo */
+	width: 100%; /* Ancho del 100% */
+	height: 20%;
+	padding: 50px; /* Ajusta según sea necesario */
+    margin-bottom: 20px; /* Margen inferior para separarlo del contenido siguiente */
+	display: flex;
+    justify-content: space-between;
+	color: #FFFFFF; /* Color del texto */
+    margin: 0px; /* Elimina los márgenes */
+
+}
+
+/* Establece el padding del body solo para otros elementos */
+body:not(.style-header) {
+    padding: 0px;
+}
+button {
+	padding: 10px 20px;
+	color: rgba(243,167,18,1);
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-family: Mulish;
+	font-weight: Bold;
+	font-size: 30px;
+	width: 250px;
+	height: 130px;
+	opacity: 1;
+	text-align: center;
+	background: rgba(31,199,184,1);
+	border-radius: 17px;
+	border:0px;
+	margin:10px;
+}
+/*Estilos para nuevo turno*/
+/*para pisar estilos de botom*/
+.custom-btn {
+	background-color: #323741;
+	border-color: #323741;
+	color: white;
+	padding: 5px 10px; /* Ajusta el padding para cambiar la altura */
+    height: auto; /* Asegura que la altura sea ajustada por el padding */
+	width: 240px;
+}
+
+.custom-btn:hover {
+	background-color: #282c34;
+	border-color: #282c34;
+}
+.dropdown-menu {
+	min-width: 240px; 
+}
+/*Estilos para consultar y modificar turno*/
+.text-input{
+	margin-top: 80px;
+}
+.style-input{
+	width: 40%;
+	height: 150%;
+	border-radius: 8px;
+	margin-top: 20px;
+}

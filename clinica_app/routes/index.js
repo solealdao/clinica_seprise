@@ -16,10 +16,27 @@ router.get('/admin-home', function (req, res, next) {
 router.get('/doctor-home', function (req, res, next) {
 	res.render('doctor-home');
 });
+/* GET shift-management page. */
+router.get('/shift-management', function (req, res, next) {
+	res.render('shift-management');
+});
+
 
 /* GET users home page. */
 router.get('/users-home', function (req, res, next) {
 	res.render('users-home');
+});
+/* GET new_shift page. */
+router.get('/new_shift', function (req, res, next) {
+	res.render('new_shift');
+});
+/* GET validate-shift page. */
+router.get('/validate-shift', function (req, res, next) {
+	res.render('validate-shift');
+});
+/* GET modify-shift page. */
+router.get('/modify-shift', function (req, res, next) {
+	res.render('modify-shift');
 });
 
 module.exports = router;
