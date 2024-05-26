@@ -1,10 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var path = require('path');
-var users = require('../clinica_seprise/data/login.json'); // Importa el archivo JSON de usuarios
-
-// Middleware para parsear datos del formulario
-router.use(express.urlencoded({ extended: true }));
+var usersController = require('../controllers/usersController');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -12,23 +8,7 @@ router.get('/', function (req, res, next) {
 });
 
 /* Manejar la solicitud de inicio de sesión */
-router.post('/login', function (req, res, next) {
-    const { email, password } = req.body;
-
-    const user = users.usuarios.find(user => user.email === email && user.password === password);
-
-    if (!user) {
-        return res.status(401).send('Credenciales inválidas');
-    }
-
-    if (user.permisos === 'admin') {
-        res.redirect('/admin-home');
-    } else if (user.permisos === 'medico') {
-        res.redirect('/doctor-home');
-    } else {
-        res.status(403).send('Acceso no autorizado');
-    }
-});
+router.post('/', usersController.login);
 
 /* GET admin home page. */
 router.get('/admin-home', function (req, res, next) {
