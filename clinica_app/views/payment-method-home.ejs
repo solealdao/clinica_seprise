@@ -5,57 +5,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="/stylesheets/payment-method-home.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 	
-	<title>Gestión Usuarios</title>
+	<title>Métodos de pago</title>
 </head>
 <body>
-	<div class="fondo_verde">
-		<div class="icono_persona"></div>
+	<div class="style-header">
+		<div class="icono_encabezado user"></div>
 		<span class="encabezado">Seleccionar forma <br> de pago</span>
 	</div>
 	<div class="reloj">
 		<p class="tiempo"></p>
 		<p class="fecha"></p>
 	</div>	
-	<div class="button-container">
-        <button>Efectivo</button>
-        <button>Tarjeta</button>
-        <button>Obra Social / <br> Prepaga</button>
+	<div class="button-container2 sin-foto justificado">
+        <button class="button-gral">Efectivo</button>
+        <button class="button-gral">Tarjeta</button>
+        <button class="button-gral">Obra Social / <br> Prepaga</button>
     </div>
-	
-	<script>
-		const $tiempo = document.querySelector('.tiempo'),
-		$fecha = document.querySelector('.fecha');
-
-		function digitalClock()
-		{
-			
-			let f = new Date(),
-			dia = f.getDate(),
-			mes = f.getMonth() + 1,
-			anio = f.getFullYear(),
-			diaSemana = f.getDay() - 1;
-
-			
-			dia = ('0' + dia).slice(-2);
-
-			let timeString = f.toLocaleTimeString();
-			$tiempo.innerHTML = timeString;
-
-			let semana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-			let showSemana = (semana[diaSemana]);
-			let meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-			let showMes = (meses[f.getMonth()]);
-
-			$fecha.innerHTML = `${showSemana} ${dia} de ${showMes} de ${anio}`
-		}
-
-		/*para actualizar cada 1 segundo el reloj digital*/
-		setInterval(() => {
-		digitalClock() 
-		}, 1000);
-	</script>
 </body>
+
+<script src="/scripts/reloj.js"></script>
+
 </html>
 

@@ -32,8 +32,8 @@ router.get('/users-home', function (req, res, next) {
 	res.render('users-home');
 });
 /* GET new_shift page. */
-router.get('/new_shift', function (req, res, next) {
-	res.render('new_shift');
+router.get('/new-shift', function (req, res, next) {
+	res.render('new-shift');
 });
 /* GET validate-shift page. */
 router.get('/validate-shift', function (req, res, next) {
