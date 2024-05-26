@@ -1,0 +1,11 @@
+{
+	"patients": [
+		{
+			"nombreCompleto": "Cosme Fulanito",
+			"email": "cosme@hotmail.com",
+			"fechaNacimiento": "12/04/2000",
+			"direccion": "Av. Siempre Viva 123",
+			"tipoCobertura": "osde"
+		}
+	]
+}

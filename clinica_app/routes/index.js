@@ -3,9 +3,7 @@ var router = express.Router();
 var usersController = require('../controllers/usersController');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-	res.render('index');
-});
+router.get('/', usersController.renderHome);
 
 /* Manejar la solicitud de inicio de sesión */
 router.post('/', usersController.login);
