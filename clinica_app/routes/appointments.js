@@ -11,6 +11,8 @@ router.get('/appointment-management', function (req, res, next) {
 /* GET new_appointment page. */
 router.get('/new-appointment', appointmentsController.renderNewAppointment);
 
+router.post('/new-appointment', appointmentsController.submitNewAppointment);
+
 /* GET validate-shift page. */
 router.get('/validate-shift', function (req, res, next) {
 	res.render('validate-shift');

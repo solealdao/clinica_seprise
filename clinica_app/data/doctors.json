@@ -5,35 +5,64 @@
 			"nombre": "Carla",
 			"apellido": "Gomez",
 			"especialidad": "Ginecología",
-			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"]
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "consultorio"
 		},
 		{
 			"idMedico": "M02",
 			"nombre": "Juan",
 			"apellido": "Garcia",
 			"especialidad": "Cardiología",
-			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"]
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "consultorio"
 		},
 		{
 			"idMedico": "M03",
 			"nombre": "Dora",
 			"apellido": "Gonzalez",
 			"especialidad": "Neurología",
-			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"]
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "consultorio"
 		},
 		{
 			"idMedico": "M04",
 			"nombre": "Agustin",
 			"apellido": "Lopez",
 			"especialidad": "Oftalmología",
-			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"]
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "consultorio"
 		},
 		{
 			"idMedico": "M05",
 			"nombre": "Dianela",
 			"apellido": "Gorini",
 			"especialidad": "Traumatología",
-			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"]
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "consultorio"
+		},
+		{
+			"idMedico": "M06",
+			"nombre": "Pedro",
+			"apellido": "Sanchez",
+			"especialidad": "Laboratorio",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "estudios"
+		},
+		{
+			"idMedico": "M07",
+			"nombre": "Laura",
+			"apellido": "Martinez",
+			"especialidad": "Radiología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "estudios"
+		},
+		{
+			"idMedico": "M08",
+			"nombre": "Alberto",
+			"apellido": "Fernandez",
+			"especialidad": "Ecografía",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "estudios"
 		}
 	]
 }
