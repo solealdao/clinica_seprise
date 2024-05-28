@@ -1,14 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var path = require('path');
 var appointmentsController = require('../controllers/appointmentsController');
 
-/* GET shift-management page. */
 router.get('/appointment-management', function (req, res, next) {
 	res.render('appointment-management');
 });
 
-/* GET new_appointment page. */
 router.get('/new-appointment', appointmentsController.renderNewAppointment);
 
 router.post('/new-appointment', appointmentsController.submitNewAppointment);
