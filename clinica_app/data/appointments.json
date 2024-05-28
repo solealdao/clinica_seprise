@@ -1,0 +1,80 @@
+{
+	"TurnosReservados": [
+		{
+			"idTurno": "T01",
+			"fechaTurno": "18/06/24",
+			"hora": "15:00",
+			"idPaciente": "P01",
+			"idMedico": "M01"
+		},
+		{
+			"idTurno": "T02",
+			"fechaTurno": "25/06/24",
+			"hora": "14:00",
+			"idPaciente": "P02",
+			"idMedico": "M02"
+		}
+	],
+	"turnosDisponibles": [
+		{
+			"idTurno": "T03",
+			"fechaTurno": "30/06/24",
+			"hora": "15:00",
+			"idMedico": "M01"
+		},
+		{
+			"idTurno": "T04",
+			"fechaTurno": "30/06/24",
+			"hora": "16:00",
+			"idMedico": "M01"
+		},
+		{
+			"idTurno": "T05",
+			"fechaTurno": "01/07/24",
+			"hora": "09:00",
+			"idMedico": "M02"
+		},
+		{
+			"idTurno": "T06",
+			"fechaTurno": "01/07/24",
+			"hora": "10:00",
+			"idMedico": "M02"
+		},
+		{
+			"idTurno": "T05",
+			"fechaTurno": "02/07/24",
+			"hora": "10:00",
+			"idMedico": "M03"
+		},
+		{
+			"idTurno": "T06",
+			"fechaTurno": "02/07/24",
+			"hora": "11:00",
+			"idMedico": "M03"
+		},
+		{
+			"idTurno": "T07",
+			"fechaTurno": "04/07/24",
+			"hora": "10:00",
+			"idMedico": "M04"
+		},
+		{
+			"idTurno": "T08",
+			"fechaTurno": "04/07/24",
+			"hora": "11:00",
+			"idMedico": "M04"
+		},
+		{
+			"idTurno": "T09",
+			"fechaTurno": "03/07/24",
+			"hora": "10:00",
+			"idMedico": "M05"
+		},
+		{
+			"idTurno": "T05",
+			"fechaTurno": "03/07/24",
+			"hora": "11:00",
+			"idMedico": "M05"
+		}
+	]
+}

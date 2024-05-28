@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Nuevo turno</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado turnos"></div>
+			<span class="encabezado">Nuevo turno</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+		<form action="/submit-new-appointment" method="post">
+			<div class="new-appointment-container">
+				<div class="input-container">
+					<label for="dni" class="input-label"
+						>Ingrese el DNI del paciente</label
+					>
+					<input
+						class="input-custom"
+						type="text"
+						id="dni"
+						name="dni"
+						placeholder="Ejemplo: 34356789"
+					/>
+				</div>
+				<div class="radio-button-group-container">
+					<label class="input-label"
+						>Seleccionar tipo de turno médico</label
+					>
+					<div class="radio-button-group">
+						<div class="radio-button">
+							<input
+								type="radio"
+								id="consultorio"
+								name="tipoTurno"
+								value="consultorio"
+							/>
+							<label for="consultorio">Consultorio médico</label><br />
+						</div>
+						<div class="radio-button">
+							<input
+								type="radio"
+								id="estudios"
+								name="tipoTurno"
+								value="estudios"
+							/>
+							<label for="estudios">Estudios o análisis</label><br />
+						</div>
+					</div>
+				</div>
+				<div class="select-container">
+					<label for="medicos" class="input-label"
+						>Seleccionar médico</label
+					>
+					<select id="medicos" name="medicos" class="dropdown-spacing">
+						<% doctors.forEach(doctor => { %>
+						<option value="<%= doctor.idMedico %>">
+							<%= doctor.nombre %> <%= doctor.apellido %> - <%=
+							doctor.especialidad %>
+						</option>
+						<% }); %>
+					</select>
+				</div>
+				<div class="select-container">
+					<label for="turnosDisponibles" class="input-label"
+						>Seleccionar turno disponible</label
+					>
+					<select
+						id="turnosDisponibles"
+						name="turnosDisponibles"
+						class="dropdown-spacing"
+					>
+						<% appointments.forEach(turno => { %>
+						<option value="<%= turno.idTurno %>">
+							<%= turno.fechaTurno %> - <%= turno.hora %> - <%=
+							turno.idMedico %>
+						</option>
+						<% }); %>
+					</select>
+				</div>
+				<div class="button-container-3">
+					<button class="button-gral">Cancelar</button>
+					<button type="submit" class="button-gral">Confirmar</button>
+				</div>
+			</div>
+		</form>
+	</body>
+	<script src="/scripts/reloj.js"></script>
+</html>

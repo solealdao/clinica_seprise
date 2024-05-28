@@ -212,6 +212,14 @@ a {
 	position: relative;
 }
 
+.button-container-3 {
+	display: flex;
+	justify-content: space-around;
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px;
+}
+
 .justificado {
 	display: flex;
 }
@@ -338,13 +346,53 @@ select {
 		visibility: hidden;
 	}
 }
-.dropdown-spacing{
+
+/* NUEVO TURNO- TURNOS DISPONIBLES */
+.dropdown-spacing {
 	margin-bottom: 40px;
+	width: 400px;
+	font-size: 20px;
 }
-.new-shift-container{
-  display: flex;
-  flex-direction: column; /* Alinea los elementos uno debajo del otro */
-  align-items: center; /* Centra los elementos horizontalmente */
-  gap: 20px; /* Espacio entre los elementos */
-  padding: 20px;
+.new-appointment-container {
+	width: 80%;
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+}
+.input-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px auto;
+}
+.input-label {
+	color: var(--dark-green-color);
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.input-custom {
+	font-size: 20px;
+	padding: 10px;
+	width: 380px;
+}
+.select-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px auto;
+}
+.radio-button-group-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 20px auto;
+}
+.radio-button-group {
+	display: flex;
+	justify-content: center;
+}
+
+.radio-button {
+	margin: 20px;
+	font-size: 16px;
 }

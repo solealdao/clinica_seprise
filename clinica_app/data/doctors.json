@@ -1,0 +1,39 @@
+{
+	"doctors": [
+		{
+			"idMedico": "M01",
+			"nombre": "Carla",
+			"apellido": "Gomez",
+			"especialidad": "Ginecología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"]
+		},
+		{
+			"idMedico": "M02",
+			"nombre": "Juan",
+			"apellido": "Garcia",
+			"especialidad": "Cardiología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"]
+		},
+		{
+			"idMedico": "M03",
+			"nombre": "Dora",
+			"apellido": "Gonzalez",
+			"especialidad": "Neurología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"]
+		},
+		{
+			"idMedico": "M04",
+			"nombre": "Agustin",
+			"apellido": "Lopez",
+			"especialidad": "Oftalmología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"]
+		},
+		{
+			"idMedico": "M05",
+			"nombre": "Dianela",
+			"apellido": "Gorini",
+			"especialidad": "Traumatología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"]
+		}
+	]
+}
