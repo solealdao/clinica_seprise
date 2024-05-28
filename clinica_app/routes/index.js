@@ -44,5 +44,8 @@ router.get('/validate-shift', function (req, res, next) {
 router.get('/modify-shift', function (req, res, next) {
 	res.render('modify-shift');
 });
-
+/* GET available-shifts page. */
+router.get('/available-shifts', function (req, res, next) {
+	res.render('available-shifts');
+});
 module.exports = router;

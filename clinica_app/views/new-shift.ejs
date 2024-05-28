@@ -17,9 +17,9 @@
       <p class="fecha"></p>
   </div>
 
-  <div class="button-container2 sin-foto">
+  <div class="new-shift-container">
     <div style="align-items: center;">
-    <select id="especialidades" name="especialidades">
+    <select id="especialidades" name="especialidades"  class="dropdown-spacing">
       <option value="">Seleccione una especialidad</option>
       <option value="ginecologia">Ginecología</option>
       <option value="cardiologia">Cardiología</option>
@@ -28,9 +28,22 @@
       <option value="traumatologia">Traumatología</option>
     </select>
   </div>
+    <button class="button-gral" onclick="seleccionarEspecialidad()"> Buscar</button>
   </div>
-</body>
+  <script>
+    function seleccionarEspecialidad() {
+      var especialidad = document.getElementById('especialidades').value;
+      console.log('Especialidad seleccionada:', especialidad);
 
+      if (especialidad) {
+        localStorage.setItem('especialidadSeleccionada', especialidad);
+        location.href = '/available-shifts';
+      } else {
+        alert('Seleccione una especialidad');
+      }
+    }
+  </script>
+</body>
 <script src="/scripts/reloj.js"></script>
 
 </html>

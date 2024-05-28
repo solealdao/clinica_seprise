@@ -5,7 +5,18 @@
 			"email": "cosme@hotmail.com",
 			"fechaNacimiento": "12/04/2000",
 			"direccion": "Av. Siempre Viva 123",
-			"tipoCobertura": "osde"
+			"tipoCobertura": "osde",
+			"idPaciente": "P01",
+			"dniPaciente":"34951895"
+		},
+		{
+			"nombreCompleto": "Juana Garcia",
+			"email": "Juana@hotmail.com",
+			"fechaNacimiento": "13/04/2000",
+			"direccion": "Av. sin nombre 123",
+			"tipoCobertura": "osde",
+			"idPaciente": "P02",
+			"dniPaciente":"34951896"
 		}
 	]
 }
