@@ -15,16 +15,17 @@
             "idMedico": "M07",
             "tipoTurno": "estudios",
             "idPaciente": "35379710"
-        }
-    ],
-    "turnosDisponibles": [
+        },
         {
             "idTurno": "T02",
             "fechaTurno": "25/06/24",
             "hora": "14:00",
             "idMedico": "M02",
-            "tipoTurno": "consultorio"
-        },
+            "tipoTurno": "consultorio",
+            "idPaciente": "20044099"
+        }
+    ],
+    "turnosDisponibles": [
         {
             "idTurno": "T04",
             "fechaTurno": "30/06/24",

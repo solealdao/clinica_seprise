@@ -29,11 +29,15 @@
 				Gestión de Turnos
 			</button>
 			<button class="button-gral">Gestión de Usuarios</button>
-			<button class="button-gral">Gestión de Pacientes</button>
+			<button class="button-gral" onclick="patientsPage()">Gestión de Pacientes</button>
 		</div>
 		<script>
 			function appointmentsPage() {
 				window.location.href = '/appointments/appointment-management';
+			}
+
+			function patientsPage() {
+				window.location.href = '/patients/patient-home';
 			}
 		</script>
 
