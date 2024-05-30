@@ -18,13 +18,67 @@
 		<p class="tiempo"></p>
 		<p class="fecha"></p>
 	</div>	
-	<!--<div class="button-container2 sin-foto justificado">
-        <button class="button-gral">Pacientes</button>
-        <button class="button-gral">Cobrar<br>consulta</button>
-    </div>-->
-    <div style="text-align: center;">
-        <h1><b>Registro de paciente</b></h1>
+
+    <div>
+        <h1><b>Datos del paciente</b></h1>
     </div>
+    <form action="/" method="post">
+        <div class="form-container">
+            <table>
+                <tr>
+                    <td>
+                        <div class="form-input-container">
+                            <label for="dniPaciente" class="form-input-label">DNI</label>
+                            <input type="text" class="form-input-custom" id="dniPaciente" name="dniPaciente" placeholder="Ingrese DNI" required>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-input-container">
+                            <label for="nombreCompleto" class="form-input-label">Nombre y apellido</label>
+                            <input type="text" class="form-input-custom" id="nombreCompleto" name="nombreCompleto" placeholder="Ingrese nombre" required>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-input-container">
+                            <label for="email" class="form-input-label">Email</label>
+                            <input type="email" class="form-input-custom" id="email" name="email" placeholder="Ingrese Email" required>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-input-container">
+                            <label for="fechaNacimiento" class="form-input-label">Fecha nacimiento</label>
+                            <input type="text" class="form-input-custom" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingrese fecha nacimiento" required>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-input-container">
+                            <label for="direccion" class="form-input-label">Dirección</label>
+                            <input type="text" class="form-input-custom" id="direccion" name="direccion" placeholder="Ingrese dirección" required>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-input-container">
+                            <label for="tipoCobertura" class="form-input-label">Tipo de cobertura</label>
+                            <input type="text" class="form-input-custom" id="tipoCobertura" name="tipoCobertura" placeholder="Ingrese cobertura" required>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="button-container-3">
+                <button type="button" class="button-gral" onclick="Cancelar()">Consultar</button>
+                <button type="submit" class="button-gral">Guardar</button>
+                <button type="button" class="button-gral" onclick="Eliminar()">Eliminar</button>
+            </div>
+        </div>
+    </form>
+
+
+    
+    
 	
 	<script src="/scripts/reloj.js"></script>
 </body>
