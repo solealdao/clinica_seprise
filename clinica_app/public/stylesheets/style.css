@@ -398,3 +398,16 @@ select {
 	margin: 20px;
 	font-size: 16px;
 }
+
+/* VALIDAR TURNOS */
+.turnos-encontrados {
+	display: none;
+}
+
+.result-list {
+	margin-top: 10px;
+}
+
+.no-results {
+	color: red;
+}
