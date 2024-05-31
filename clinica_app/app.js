@@ -10,7 +10,6 @@ var appointmentsRouter = require('./routes/appointments');
 var doctorsRouter = require('./routes/doctors');
 var patientsRouter = require('./routes/patients');
 
-
 var app = express();
 
 // view engine setup
@@ -29,11 +28,15 @@ app.use('/appointments', appointmentsRouter);
 // app.use('/doctors', doctorsRouter);
 app.use('/patients', patientsRouter);
 
-
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	next(createError(404));
+});
+
+//Middleware para evitar el cache
+app.use((req, res, next) => {
+	res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+	next();
 });
 
 // error handler

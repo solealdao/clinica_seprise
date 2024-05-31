@@ -43,16 +43,17 @@
             "idMedico": "M02",
             "tipoTurno": "consultorio",
             "dniPaciente": "34951895"
-        }
-    ],
-    "turnosDisponibles": [
+        },
         {
             "idTurno": "T06",
             "fechaTurno": "01/07/24",
             "hora": "10:00",
             "idMedico": "M02",
-            "tipoTurno": "consultorio"
-        },
+            "tipoTurno": "consultorio",
+            "dniPaciente": "35379710"
+        }
+    ],
+    "turnosDisponibles": [
         {
             "idTurno": "T08",
             "fechaTurno": "04/07/24",

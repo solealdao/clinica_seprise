@@ -1,80 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
-	
-	<title>Gestión de pacientes</title>
-</head>
-<body>
-	<div class="style-header">
-		<div class="icono_encabezado user"></div>
-		<span class="encabezado">Gestión de pacientes</span>
-	</div>
-	<div class="reloj">
-		<p class="tiempo"></p>
-		<p class="fecha"></p>
-	</div>	
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 
-    <div>
-        <h1><b>Datos del paciente</b></h1>
-    </div>
-    <form action="/" method="post">
-        <div class="form-container">
-            <table class="tableGris">
-                <tr>
-                    <td>
-                        <div class="form-input-container">
-                            <label for="dniPaciente" class="form-input-label">DNI</label>
-                            <input type="text" class="form-input-custom" id="dniPaciente" name="dniPaciente" placeholder="Ingrese DNI" required>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-input-container">
-                            <label for="nombreCompleto" class="form-input-label" >Nombre y apellido</label>
-                            <input type="text" class="form-input-custom" id="nombreCompleto" name="nombreCompleto" placeholder="Ingrese nombre" required disabled>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-input-container">
-                            <label for="email" class="form-input-label">Email</label>
-                            <input type="email" class="form-input-custom" id="email" name="email" placeholder="Ingrese Email" required disabled>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-input-container">
-                            <label for="fechaNacimiento" class="form-input-label">Fecha nacimiento</label>
-                            <input type="text" class="form-input-custom" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingrese fecha nacimiento" required disabled>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-input-container">
-                            <label for="direccion" class="form-input-label">Dirección</label>
-                            <input type="text" class="form-input-custom" id="direccion" name="direccion" placeholder="Ingrese dirección" required disabled>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-input-container">
-                            <label for="tipoCobertura" class="form-input-label">Tipo de cobertura</label>
-                            <input type="text" class="form-input-custom" id="tipoCobertura" name="tipoCobertura" placeholder="Ingrese cobertura" required disabled>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <div class="button-container-3">
-                <button type="submit" class="button-gral">Consultar</button>
-                <button type="button" class="button-gral" disabled>Guardar</button>
-                <button type="button" class="button-gral" onclick="Eliminar()">Eliminar</button>
-            </div>
-        </div>
-    </form>
-	<script src="/scripts/reloj.js"></script>
-</body>
+		<title>Gestión de pacientes</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado user"></div>
+			<span class="encabezado">Gestión de pacientes</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+
+		<div>
+			<h1><b>Datos del paciente</b></h1>
+		</div>
+		<!-- Acá el 'action' , que es a donde apunta el formulario, esta en la raíz '/', por eso te manda al login, 
+        porque la raiz es la tura index, la primer pantalla, lo cambio a la ruta que corresponde que es /patient-management' -->
+		<!-- <form action="/" method="post"> -->
+		<form action="/patient-management" method="post">
+			<div class="form-container">
+				<table class="tableGris">
+					<tr>
+						<td>
+							<div class="form-input-container">
+								<label for="dniPaciente" class="form-input-label"
+									>DNI</label
+								>
+								<input
+									type="text"
+									class="form-input-custom"
+									id="dniPaciente"
+									name="dniPaciente"
+									placeholder="Ingrese DNI"
+									required
+								/>
+							</div>
+						</td>
+						<td>
+							<div class="form-input-container">
+								<label for="nombreCompleto" class="form-input-label"
+									>Nombre y apellido</label
+								>
+								<input
+									type="text"
+									class="form-input-custom"
+									id="nombreCompleto"
+									name="nombreCompleto"
+									placeholder="Ingrese nombre"
+									required
+									disabled
+								/>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="form-input-container">
+								<label for="email" class="form-input-label"
+									>Email</label
+								>
+								<input
+									type="email"
+									class="form-input-custom"
+									id="email"
+									name="email"
+									placeholder="Ingrese Email"
+									required
+									disabled
+								/>
+							</div>
+						</td>
+						<td>
+							<div class="form-input-container">
+								<label for="fechaNacimiento" class="form-input-label"
+									>Fecha nacimiento</label
+								>
+								<input
+									type="text"
+									class="form-input-custom"
+									id="fechaNacimiento"
+									name="fechaNacimiento"
+									placeholder="Ingrese fecha nacimiento"
+									required
+									disabled
+								/>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="form-input-container">
+								<label for="direccion" class="form-input-label"
+									>Dirección</label
+								>
+								<input
+									type="text"
+									class="form-input-custom"
+									id="direccion"
+									name="direccion"
+									placeholder="Ingrese dirección"
+									required
+									disabled
+								/>
+							</div>
+						</td>
+						<td>
+							<div class="form-input-container">
+								<label for="tipoCobertura" class="form-input-label"
+									>Tipo de cobertura</label
+								>
+								<input
+									type="text"
+									class="form-input-custom"
+									id="tipoCobertura"
+									name="tipoCobertura"
+									placeholder="Ingrese cobertura"
+									required
+									disabled
+								/>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<div class="button-container-3">
+					<button type="submit" class="button-gral">Consultar</button>
+					<button type="button" class="button-gral" disabled>
+						Guardar
+					</button>
+					<button type="button" class="button-gral" onclick="Eliminar()">
+						Eliminar
+					</button>
+				</div>
+			</div>
+		</form>
+		<!-- Acá hay que hacer un tag 'script' con la logica que queres que haga al hacer click en el boton 'Consultar'
+        ahí tiene puesta que al hacer click ejecute una funcion 'Eliminar()' que no está definida, eso lo hacemos en el script
+        Yo aconsejo sacar los input de los campos que estan disabled, dejando solo el del DNI para hacer la Consulta
+        y cuando se haga click, que aparezca un listado con los datos del paciente. -->
+		<script src="/scripts/reloj.js"></script>
+	</body>
 </html>
