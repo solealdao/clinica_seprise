@@ -95,7 +95,9 @@ let controllerAppointment = {
 	},
 		/*agregue yo */
 		renderShiftHistory: (req, res) => {
-			res.render('shift-history');
+			let ReservedAppointments = (loadAppointments().turnosReservados);
+			res.render('shift-history', {appointments: ReservedAppointments}
+		);
 		},
 		getReservedAppointments: (req, res) => {
 			try {

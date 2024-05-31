@@ -18,18 +18,22 @@
 		<p class="tiempo"></p>
 		<p class="fecha"></p>
 	</div>	
-    <!--
-    <% if (turnosReservados) { %>
-        <h2>Turnos Reservados</h2>
-        <ul>
-            <% turnosReservados.forEach(turno => { %>
-                <li>ID: <%= turno.idTurno %>, Paciente: <%= turno.dniPaciente %>, Fecha: <%= turno.fechaTurno %></li>
-            <% }); %>
-        </ul>
-    <% } else if (message) { %>
-        <p><%= message %></p>
-    <% } %>
-    -->
+    <div class="turnos-container">
+        <% if (appointments && appointments.length > 0) { %>
+            <ul>
+                <% appointments.forEach(appointment => { %>
+                    <li>
+                        <p>Fecha: <%= appointment.fecha %></p>
+                        <p>Hora: <%= appointment.hora %></p>
+                        <p>Cliente: <%= appointment.cliente %></p>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No hay turnos reservados</p>
+            <% } %>
+    </div>
+
 </body>
 <script src="/scripts/reloj.js"></script>
 
