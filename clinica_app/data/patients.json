@@ -16,7 +16,25 @@
 			"direccion": "Av. sin nombre 123",
 			"tipoCobertura": "osde",
 			"idPaciente": "P02",
-			"dniPaciente":"34951896"
+			"dniPaciente":"11111111"
+		},
+		{
+			"nombreCompleto": "Florencia Gomez",
+			"email": "Florencia@hotmail.com",
+			"fechaNacimiento": "15/04/2000",
+			"direccion": "Av. Pellegrini 123",
+			"tipoCobertura": "Federada",
+			"idPaciente": "P03",
+			"dniPaciente":"35379710"
+		}, 
+		{
+			"nombreCompleto": "Laura Rodriguez",
+			"email": "Laura@hotmail.com",
+			"fechaNacimiento": "15/27/2000",
+			"direccion": "Av. San juan 123",
+			"tipoCobertura": "Particular",
+			"idPaciente": "P04",
+			"dniPaciente":"35379825"
 		}
 	]
 }

@@ -3,12 +3,19 @@ const path = require('path');
 
 const appointmentsFilePath = path.join(__dirname, '../data/appointments.json');
 const doctorsFilePath = path.join(__dirname, '../data/doctors.json');
+const patientsFilePath = path.join(__dirname, '../data/patients.json');
+
 
 function loadDoctors() {
 	const data = fs.readFileSync(doctorsFilePath, 'utf-8');
 	return JSON.parse(data).doctors;
-}
 
+}
+/*Agregue yo */
+function loadPatients() {
+    const data = fs.readFileSync(patientsFilePath, 'utf-8');
+    return JSON.parse(data).patients;
+}
 function loadAppointments() {
 	const data = fs.readFileSync(appointmentsFilePath, 'utf-8');
 	return JSON.parse(data);
@@ -96,8 +103,10 @@ let controllerAppointment = {
 		/*agregue yo */
 		renderShiftHistory: (req, res) => {
 			let ReservedAppointments = (loadAppointments().turnosReservados);
-			res.render('shift-history', {appointments: ReservedAppointments}
-		);
+			let patients = loadPatients();
+			let doctors = loadDoctors();
+        res.render('shift-history', {appointments: ReservedAppointments,patients: patients, doctors: doctors
+        });
 		},
 		getReservedAppointments: (req, res) => {
 			try {
