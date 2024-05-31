@@ -6,9 +6,13 @@ router.get('/appointment-management', function (req, res, next) {
 	res.render('appointment-management');
 });
 
-router.get('/new-appointment', appointmentsController.renderNewAppointment);
+router.get('/new-appointment', appointmentsController.submitNewAppointment);
 
-router.post('/new-appointment', appointmentsController.submitNewAppointment);
+/*agregue yo */
+router.get('/reserved', appointmentsController.renderShiftHistory);
+
+/*router.post('/reserved', appointmentsController.getReservedAppointments);*/
+
 
 router.get('/validate-appointment', function (req, res, next) {
 	res.render('validate-appointment');
@@ -26,5 +30,7 @@ router.get('/modify-shift', function (req, res, next) {
 router.get('/available-shifts', function (req, res, next) {
 	res.render('available-shifts');
 });
+
+
 
 module.exports = router;

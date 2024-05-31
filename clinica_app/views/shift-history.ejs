@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <title>Historial de turnos</title>
+
+</head>
+<body>
+    <div class="style-header">
+		<div class="icono_encabezado user"></div>
+		<span class="encabezado">Historial de turnos</span>
+	</div>
+	<div class="reloj">
+		<p class="tiempo"></p>
+		<p class="fecha"></p>
+	</div>	
+    <!--
+    <% if (turnosReservados) { %>
+        <h2>Turnos Reservados</h2>
+        <ul>
+            <% turnosReservados.forEach(turno => { %>
+                <li>ID: <%= turno.idTurno %>, Paciente: <%= turno.dniPaciente %>, Fecha: <%= turno.fechaTurno %></li>
+            <% }); %>
+        </ul>
+    <% } else if (message) { %>
+        <p><%= message %></p>
+    <% } %>
+    -->
+</body>
+<script src="/scripts/reloj.js"></script>
+
+</html>

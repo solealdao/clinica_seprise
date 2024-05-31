@@ -10,6 +10,7 @@ var appointmentsRouter = require('./routes/appointments');
 var doctorsRouter = require('./routes/doctors');
 var patientsRouter = require('./routes/patients');
 
+
 var app = express();
 
 // view engine setup
@@ -27,6 +28,8 @@ app.use('/users', usersRouter);
 app.use('/appointments', appointmentsRouter);
 // app.use('/doctors', doctorsRouter);
 app.use('/patients', patientsRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

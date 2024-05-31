@@ -29,6 +29,7 @@ let controllerAppointment = {
 			appointments: loadAppointments().turnosDisponibles,
 		});
 	},
+	
 	getDoctors: (req, res) => {
 		try {
 			const doctors = loadDoctors();
@@ -42,7 +43,7 @@ let controllerAppointment = {
 		try {
 			const appointments = loadAppointments().turnosDisponibles;
 			res.render('new-appointment', { appointments });
-		} catch (err) {
+	} catch (err) {
 			console.error(err);
 			res.status(500).send('Error al leer el archivo de turnos médicos.');
 		}
@@ -92,6 +93,33 @@ let controllerAppointment = {
 			});
 		}
 	},
+		/*agregue yo */
+		renderShiftHistory: (req, res) => {
+			res.render('shift-history');
+		},
+		getReservedAppointments: (req, res) => {
+			try {
+				const appointments = loadAppointments();
+				const turnosReservados = appointments.turnosReservados;
+	
+				if (turnosReservados.length === 0) {
+					return res.status(404).render('shift-history', {
+						message: 'No hay turnos reservados',
+						turnosReservados: null,
+					});
+				}
+	
+				res.render('shift-history', { turnosReservados });
+			} catch (error) {
+				console.error(error);
+				res.status(500).render('shift-history', {
+					message: 'Error al obtener turnos reservados',
+					turnosReservados: null,
+				});
+			}
+		}
+
+	
 };
 
 module.exports = controllerAppointment;
