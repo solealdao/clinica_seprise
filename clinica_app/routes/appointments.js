@@ -10,10 +10,14 @@ router.get('/new-appointment', appointmentsController.renderNewAppointment);
 
 router.post('/new-appointment', appointmentsController.submitNewAppointment);
 
-/* GET validate-shift page. */
-router.get('/validate-shift', function (req, res, next) {
-	res.render('validate-shift');
+router.get('/validate-appointment', function (req, res, next) {
+	res.render('validate-appointment');
 });
+
+router.post(
+	'/validate-appointment',
+	appointmentsController.getAppointmentByDni
+);
 /* GET modify-shift page. */
 router.get('/modify-shift', function (req, res, next) {
 	res.render('modify-shift');

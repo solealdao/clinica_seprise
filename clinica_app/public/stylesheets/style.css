@@ -399,6 +399,19 @@ select {
 	font-size: 16px;
 }
 
+/* VALIDAR TURNOS */
+.turnos-encontrados {
+	display: none;
+}
+
+.result-list {
+	margin-top: 10px;
+}
+
+.no-results {
+	color: red;
+}
+
 .form-container {
 	width: 90%;
 	margin: 30px auto;

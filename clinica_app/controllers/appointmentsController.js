@@ -56,7 +56,7 @@ let controllerAppointment = {
 		);
 
 		if (turnoSeleccionado) {
-			turnoSeleccionado.idPaciente = dni;
+			turnoSeleccionado.dniPaciente = dni;
 			appointmentsData.turnosDisponibles =
 				appointmentsData.turnosDisponibles.filter(
 					(turno) => turno.idTurno !== turnosDisponibles
@@ -66,6 +66,30 @@ let controllerAppointment = {
 			res.redirect('/appointments/appointment-management');
 		} else {
 			res.status(400).send('El turno seleccionado no está disponible');
+		}
+	},
+	getAppointmentByDni: (req, res) => {
+		const dniPaciente = req.body.dniPaciente;
+
+		try {
+			const appointments = loadAppointments();
+			const turnos = appointments.turnosReservados.filter(
+				(turno) => turno.dniPaciente === dniPaciente
+			);
+
+			if (turnos.length === 0) {
+				return res.status(404).json({
+					message: 'No se encontraron turnos para el DNI proporcionado',
+				});
+			}
+
+			res.render('validate-appointment', { turnos });
+		} catch (error) {
+			console.error(error);
+			res.status(500).json({
+				message: 'Error al buscar turnos',
+				error: error.message,
+			});
 		}
 	},
 };
