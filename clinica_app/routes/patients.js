@@ -8,6 +8,6 @@ router.get('/patient-home', function (req, res, next) {
 
 router.get('/patient-management', patientsController.renderPatient);
 
-//router.post('/patient-management', patientsController.submitNewAppointment);
+router.post('/patient-management', patientsController.getPatientByDni);
 
 module.exports = router;

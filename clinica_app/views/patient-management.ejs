@@ -24,7 +24,7 @@
     </div>
     <form action="/" method="post">
         <div class="form-container">
-            <table>
+            <table class="tableGris">
                 <tr>
                     <td>
                         <div class="form-input-container">
@@ -34,8 +34,8 @@
                     </td>
                     <td>
                         <div class="form-input-container">
-                            <label for="nombreCompleto" class="form-input-label">Nombre y apellido</label>
-                            <input type="text" class="form-input-custom" id="nombreCompleto" name="nombreCompleto" placeholder="Ingrese nombre" required>
+                            <label for="nombreCompleto" class="form-input-label" >Nombre y apellido</label>
+                            <input type="text" class="form-input-custom" id="nombreCompleto" name="nombreCompleto" placeholder="Ingrese nombre" required disabled>
                         </div>
                     </td>
                 </tr>
@@ -43,13 +43,13 @@
                     <td>
                         <div class="form-input-container">
                             <label for="email" class="form-input-label">Email</label>
-                            <input type="email" class="form-input-custom" id="email" name="email" placeholder="Ingrese Email" required>
+                            <input type="email" class="form-input-custom" id="email" name="email" placeholder="Ingrese Email" required disabled>
                         </div>
                     </td>
                     <td>
                         <div class="form-input-container">
                             <label for="fechaNacimiento" class="form-input-label">Fecha nacimiento</label>
-                            <input type="text" class="form-input-custom" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingrese fecha nacimiento" required>
+                            <input type="text" class="form-input-custom" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingrese fecha nacimiento" required disabled>
                         </div>
                     </td>
                 </tr>
@@ -57,29 +57,24 @@
                     <td>
                         <div class="form-input-container">
                             <label for="direccion" class="form-input-label">Dirección</label>
-                            <input type="text" class="form-input-custom" id="direccion" name="direccion" placeholder="Ingrese dirección" required>
+                            <input type="text" class="form-input-custom" id="direccion" name="direccion" placeholder="Ingrese dirección" required disabled>
                         </div>
                     </td>
                     <td>
                         <div class="form-input-container">
                             <label for="tipoCobertura" class="form-input-label">Tipo de cobertura</label>
-                            <input type="text" class="form-input-custom" id="tipoCobertura" name="tipoCobertura" placeholder="Ingrese cobertura" required>
+                            <input type="text" class="form-input-custom" id="tipoCobertura" name="tipoCobertura" placeholder="Ingrese cobertura" required disabled>
                         </div>
                     </td>
                 </tr>
             </table>
             <div class="button-container-3">
-                <button type="button" class="button-gral" onclick="Cancelar()">Consultar</button>
-                <button type="submit" class="button-gral">Guardar</button>
+                <button type="submit" class="button-gral">Consultar</button>
+                <button type="button" class="button-gral" disabled>Guardar</button>
                 <button type="button" class="button-gral" onclick="Eliminar()">Eliminar</button>
             </div>
         </div>
     </form>
-
-
-    
-    
-	
 	<script src="/scripts/reloj.js"></script>
 </body>
 </html>
