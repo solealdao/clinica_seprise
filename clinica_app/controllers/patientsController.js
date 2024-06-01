@@ -7,8 +7,16 @@ function loadPatients() {
 	const data = fs.readFileSync(patientsFilePath, 'utf-8');
 	return JSON.parse(data).patients;
 }
-debugger;
+
+function savePatients(patients) {
+	const data = JSON.stringify({ patients }, null, 2);
+	fs.writeFileSync(patientsFilePath, data, 'utf-8');
+}
+
 let controllerPatient = {
+	renderNewPatient: (req, res) => {
+		res.render('new-patient');
+	},
 	renderPatient: (req, res) => {
 		res.render('patient-management', {
 			patients: loadPatients(),
@@ -28,17 +36,16 @@ let controllerPatient = {
 
 		try {
 			const patients = loadPatients();
-			const paciente = patients.filter(
+			const pacienteFiltrado = patients.filter(
 				(pac) => pac.dniPaciente === dniPaciente
 			);
 
-			if (paciente.length === 0) {
+			if (pacienteFiltrado.length === 0) {
 				return res.status(404).json({
 					message: 'No se encontraron datos para el DNI proporcionado',
 				});
 			}
-
-			res.render('patient-management', { paciente });
+			res.render('patient-management', { pacienteFiltrado });
 		} catch (error) {
 			console.error(error);
 			res.status(500).json({
@@ -47,5 +54,49 @@ let controllerPatient = {
 			});
 		}
 	},
-}
+	addPatient: (req, res) => {
+		try {
+			const {
+				nombreCompleto,
+				email,
+				fechaNacimiento,
+				direccion,
+				tipoCobertura,
+				dniPaciente,
+			} = req.body;
+
+			const patients = loadPatients();
+			const pacienteExistente = patients.find(
+				(patient) => patient.dniPaciente === dniPaciente
+			);
+
+			if (pacienteExistente) {
+				return res.status(400).json({
+					message: 'Ya existe un paciente con el mismo DNI.',
+				});
+			}
+
+			const idPaciente =
+				'P' + (patients.length + 1).toString().padStart(2, '0');
+			const newPatient = {
+				nombreCompleto,
+				email,
+				fechaNacimiento,
+				direccion,
+				tipoCobertura,
+				idPaciente,
+				dniPaciente,
+			};
+			patients.push(newPatient);
+			savePatients(patients);
+			res.redirect('/patients/patient-home');
+		} catch (error) {
+			console.error(error);
+			res.status(500).render('/patients/new-patient', {
+				message: 'Error al agregar nuevo paciente',
+				error: error.message,
+			});
+		}
+	},
+};
 module.exports = controllerPatient;
