@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var appointmentsRouter = require('./routes/appointments');
+var doctorsRouter = require('./routes/doctors');
+var patientsRouter = require('./routes/patients');
 
 var app = express();
 
@@ -21,10 +24,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/appointments', appointmentsRouter);
+// app.use('/doctors', doctorsRouter);
+app.use('/patients', patientsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	next(createError(404));
+});
+
+//Middleware para evitar el cache
+app.use((req, res, next) => {
+	res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+	next();
 });
 
 // error handler

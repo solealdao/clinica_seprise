@@ -13,33 +13,32 @@
 		/>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 
-		<title>Principal Administrativo</title>
+		<title>Gestión de pacientes</title>
 	</head>
 	<body>
 		<div class="style-header">
-			<span class="nombre_admin">01 - Cristina Pérez</span>
+			<div class="icono_encabezado user"></div>
+			<span class="encabezado">Gestión de pacientes</span>
 		</div>
 		<div class="reloj">
 			<p class="tiempo"></p>
 			<p class="fecha"></p>
 		</div>
-		<div class="foto_admin"></div>
-		<div class="button-container2 con-foto justificado">
-			<button type="button" class="button-gral" onclick="appointmentsPage()">
-				Gestión de Turnos
+		<div class="button-container2 sin-foto justificado">
+			<button
+				class="button-gral"
+				onclick="location.href='/patients/patient-register'"
+			>
+				Agregar Paciente
 			</button>
-			<button class="button-gral">Gestión de Usuarios</button>
-			<button class="button-gral" onclick="patientsPage()">Gestión de Pacientes</button>
+			<button
+				class="button-gral"
+				onclick="location.href='/patients/patient-management'"
+			>
+				Consultar Pacientes
+			</button>
+			<button class="button-gral">Cobrar<br />consulta</button>
 		</div>
-		<script>
-			function appointmentsPage() {
-				window.location.href = '/appointments/appointment-management';
-			}
-
-			function patientsPage() {
-				window.location.href = '/patients/patient-home';
-			}
-		</script>
 
 		<script src="/scripts/reloj.js"></script>
 	</body>

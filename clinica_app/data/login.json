@@ -9,6 +9,11 @@
             "email": "juan@hotmail.com",
             "password": "123",
             "permisos": "medico"
+        },
+        {
+            "email": "alana@hotmail.com",
+            "password": "123",
+            "permisos": "tecnico"
         }
     ]
 }

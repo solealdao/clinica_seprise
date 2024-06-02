@@ -1,0 +1,60 @@
+{
+	"doctors": [
+		{
+			"idMedico": "M01",
+			"nombre": "Carla Gomez",
+			"especialidad": "Ginecología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "consultorio"
+		},
+		{
+			"idMedico": "M02",
+			"nombre": "Juan Garcia",
+			"especialidad": "Cardiología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "consultorio"
+		},
+		{
+			"idMedico": "M03",
+			"nombre": "Dora Gonzalez",
+			"especialidad": "Neurología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "consultorio"
+		},
+		{
+			"idMedico": "M04",
+			"nombre": "Agustin Lopez",
+			"especialidad": "Oftalmología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "consultorio"
+		},
+		{
+			"idMedico": "M05",
+			"nombre": "Dianela Gorini",
+			"especialidad": "Traumatología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "consultorio"
+		},
+		{
+			"idMedico": "M06",
+			"nombre": "Pedro Sanchez",
+			"especialidad": "Laboratorio",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "estudios"
+		},
+		{
+			"idMedico": "M07",
+			"nombre": "Laura Martinez",
+			"especialidad": "Radiología",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "estudios"
+		},
+		{
+			"idMedico": "M08",
+			"nombre": "Alberto Fernandez",
+			"especialidad": "Ecografía",
+			"obras sociales": ["Osde", "Federada", "Avalian", "Particular"],
+			"tipo": "estudios"
+		}
+	]
+}

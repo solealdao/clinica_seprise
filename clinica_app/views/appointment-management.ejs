@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Gestion de turnos</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado turnos"></div>
+			<span class="encabezado">Gestión de turnos</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+		<div class="button-container2 sin-foto justificado">
+			<button
+				class="button-gral"
+				onclick="location.href='/appointments/new-appointment'"
+			>
+				Nuevo<br />turno
+			</button>
+			<button class="button-gral" onclick="location.href='/validate-shift'">
+				Consultar<br />turno
+			</button>
+		</div>
+		<div class="button-container2 sin-foto" style="text-align: center">
+			<button class="button-gral" onclick="location.href='/modify-shift'">
+				Modificar<br />turno
+			</button>
+		</div>
+		<div class="button-container2 sin-foto justificado">
+			<button class="button-gral">Validar<br />turno</button>
+			<button class="button-gral" onclick="location.href='/appointments/reserved'">Historial<br />de turnos</button>
+		</div>
+
+		<!--<div class="row">
+            <div class="col md-12 text-center">
+                <button class="button-gral">Modificar<br>turno</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col md-6 text-center">
+                <button class="button-gral">Validar<br>turno</button>
+            </div>
+            <div class="col md-6 text-center">
+                <button class="button-gral">Historial<br>de turnos</button>
+            </div>
+        </div>-->
+	</body>
+	<script src="/scripts/reloj.js"></script>
+</html>

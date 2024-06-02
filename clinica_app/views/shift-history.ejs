@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <title>Historial de turnos</title>
+
+</head>
+<body>
+    <div class="style-header">
+		<div class="icono_encabezado turnos"></div>
+		<span class="encabezado">Historial de turnos</span>
+	</div>
+	<div class="reloj">
+		<p class="tiempo"></p>
+		<p class="fecha"></p>
+	</div>	
+    <div class="button-container2">
+        <% if (appointments && appointments.length > 0) { %>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Nombre del Paciente</th>
+                        <th>Cobertura</th>
+                        <th>Nombre del Doctor</th>
+                        <th>Especialidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% appointments.forEach(appointment => { %>
+                        <tr>
+                            <td><%= appointment.fechaTurno %></td>
+                            <td><%= appointment.hora %></td>
+                            <% const patient = patients.find(patient => patient.dniPaciente === appointment.dniPaciente); %>
+                            <% if (patient) { %>
+                                <td><%= patient.nombreCompleto %></td>
+                                <td><%= patient.tipoCobertura %></td>
+                            <% } else { %>
+                                <td>No se encontró información del paciente</td>
+                                <td>-</td>
+                            <% } %>
+                            <% const doctor = doctors.find(doctor => doctor.idMedico === appointment.idMedico); %>
+                            <% if (doctor) { %>
+                                <td><%= doctor.nombre %></td>
+                                <td><%= doctor.especialidad %></td>
+                            <% } else { %>
+                                <td>No se encontró información del doctor</td>
+                                <td>-</td>
+                            <% } %>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No hay turnos reservados</p>
+        <% } %>
+    </div>
+
+</body>
+<script src="/scripts/reloj.js"></script>
+
+</html>

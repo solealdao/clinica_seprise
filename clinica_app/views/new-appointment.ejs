@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Nuevo turno</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado turnos"></div>
+			<span class="encabezado">Nuevo turno</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+		<form action="/appointments/new-appointment" method="post">
+			<div class="new-appointment-container">
+				<div class="input-container">
+					<label for="dni" class="input-label"
+						>Ingrese el DNI del paciente</label
+					>
+					<input
+						class="input-custom"
+						type="text"
+						id="dni"
+						name="dni"
+						placeholder="Ejemplo: 34356789"
+					/>
+				</div>
+				<div class="radio-button-group-container">
+					<label class="input-label"
+						>Seleccionar tipo de turno médico</label
+					>
+					<div class="radio-button-group">
+						<div class="radio-button">
+							<input
+								type="radio"
+								id="consultorio"
+								name="tipoTurno"
+								value="consultorio"
+							/>
+							<label for="consultorio">Consultorio médico</label><br />
+						</div>
+						<div class="radio-button">
+							<input
+								type="radio"
+								id="estudios"
+								name="tipoTurno"
+								value="estudios"
+							/>
+							<label for="estudios">Estudios o análisis</label><br />
+						</div>
+					</div>
+				</div>
+				<div class="select-container">
+					<label for="medicos" class="input-label"
+						>Seleccionar médico</label
+					>
+					<select
+						id="medicos"
+						name="medicos"
+						class="dropdown-spacing"
+						disabled
+					>
+						<option value="" disabled selected>
+							Seleccione un médico
+						</option>
+						<% doctors.forEach(doctor => { %>
+						<option
+							value="<%= doctor.idMedico %>"
+							data-tipo="<%= doctor.tipo %>"
+						>
+							<%= doctor.nombre %> <%= doctor.apellido %> - <%=
+							doctor.especialidad %>
+						</option>
+						<% }); %>
+					</select>
+				</div>
+				<div class="select-container">
+					<label for="turnosDisponibles" class="input-label"
+						>Seleccionar un turno</label
+					>
+					<select
+						id="turnosDisponibles"
+						name="turnosDisponibles"
+						class="dropdown-spacing"
+						disabled
+					>
+						<option value="" disabled selected>
+							Seleccione un turno
+						</option>
+						<% appointments.forEach(turno => { const doctor =
+						doctors.find(doc => doc.idMedico === turno.idMedico); %>
+						<option
+							value="<%= turno.idTurno %>"
+							data-tipo="<%= turno.tipoTurno %>"
+							data-medico="<%= turno.idMedico %>"
+						>
+							<%= turno.fechaTurno %> - <%= turno.hora %> - <%= doctor ?
+							doctor.apellido : 'Desconocido' %>
+						</option>
+						<% }); %>
+					</select>
+				</div>
+				<div class="button-container-3">
+					<button type="button" class="button-gral" onclick="cancelar()">
+						Cancelar
+					</button>
+					<button type="submit" class="button-gral">Confirmar</button>
+				</div>
+			</div>
+		</form>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const tipoTurnoRadios = document.querySelectorAll(
+					'input[name="tipoTurno"]'
+				);
+				const turnosSelect = document.getElementById('turnosDisponibles');
+				const turnosOptions = turnosSelect.querySelectorAll('option');
+				const medicosSelect = document.getElementById('medicos');
+				const medicosOptions = medicosSelect.querySelectorAll('option');
+
+				function filterTurnos() {
+					const selectedTipo = document.querySelector(
+						'input[name="tipoTurno"]:checked'
+					);
+					const selectedMedico = medicosSelect.value;
+					turnosOptions.forEach((option) => {
+						const tipo = option.getAttribute('data-tipo');
+						const medico = option.getAttribute('data-medico');
+						if (
+							(!selectedTipo || tipo === selectedTipo.value) &&
+							(!selectedMedico ||
+								medico === selectedMedico ||
+								medico === '')
+						) {
+							option.style.display = '';
+						} else {
+							option.style.display = 'none';
+						}
+					});
+					turnosSelect.value = '';
+					turnosSelect.disabled = !selectedTipo || !selectedMedico;
+				}
+
+				function filterMedicos() {
+					const selectedTipo = document.querySelector(
+						'input[name="tipoTurno"]:checked'
+					);
+					medicosOptions.forEach((option) => {
+						const tipo = option.getAttribute('data-tipo');
+						if (!selectedTipo || tipo === selectedTipo.value) {
+							option.style.display = '';
+						} else {
+							option.style.display = 'none';
+						}
+					});
+					medicosSelect.value = '';
+					medicosSelect.disabled = !selectedTipo;
+					filterTurnos();
+				}
+
+				tipoTurnoRadios.forEach((radio) => {
+					radio.addEventListener('change', () => {
+						filterMedicos();
+					});
+				});
+				medicosSelect.addEventListener('change', () => {
+					filterTurnos();
+				});
+				if (document.querySelector('input[name="tipoTurno"]:checked')) {
+					filterMedicos();
+				}
+			});
+		</script>
+		<script>
+			function cancelar() {
+				window.location.href = '/appointments/appointment-management';
+			}
+		</script>
+	</body>
+	<script src="/scripts/reloj.js"></script>
+</html>
