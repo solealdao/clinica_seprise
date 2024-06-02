@@ -256,6 +256,20 @@ a {
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
+.button-gral-enlaces {
+	display: inline-block; 
+    background-color: var(--light-green-color);
+    color: var(--yellow-color);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    padding: 10px 20px; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+}
+
+
 .button-gral:hover {
 	background-color: var(--dark-green-color);
 }
@@ -287,6 +301,10 @@ a {
 
 .turnos {
 	background-image: url('../images/icono_calendario.svg');
+}
+
+.supplies {
+	background-image: url('../images/jeringa.png');
 }
 
 /* Establece el padding del body solo para otros elementos */
@@ -491,3 +509,36 @@ table {
 .responsive-table {
 	overflow-x: auto;
 }
+
+/*Estilos de stock-update*/
+#update-stock-form {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+	text-align: center;
+}
+
+#update-stock-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#update-stock-form select {
+    width: 50%; 
+    padding: 10px;
+    margin-bottom: 50px;
+    margin-right: 10px; 
+    margin: 0 auto; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#update-stock-form button {
+	margin-top: 120px;
+}
+
+
+

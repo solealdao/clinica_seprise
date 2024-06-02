@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <title>Actualizar Stock</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="style-header">
+		<div class="icono_encabezado supplies"></div>
+		<span class="encabezado">Actualización de stock</span>
+	</div>
+	<div class="reloj">
+		<p class="tiempo"></p>
+		<p class="fecha"></p>
+	</div>	
+        <form id="update-stock-form">
+            <label for="clinical-study">Seleccionar estudio clínico realizado:</label>
+            <select id="clinical-study" name="clinical-study">
+                <option value="hemograma_completo">Hemograma Completo</option>
+                <option value="electrocardiograma">Electrocardiograma</option>
+                <option value="radiografia">Radiografía</option>
+                <option value="ecografia">Ecografía</option>
+            </select>
+            <button class="button-gral" type="submit">Actualizar Stock</button>
+        </form>
+    </div>
+    <script src="/scripts/stockUpdater.js"></script>
+    <script src="/scripts/reloj.js"></script>
+</body>
+</html>
