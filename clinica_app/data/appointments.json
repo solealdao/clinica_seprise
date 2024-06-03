@@ -51,6 +51,14 @@
             "idMedico": "M02",
             "tipoTurno": "consultorio",
             "dniPaciente": "35379710"
+        },
+        {
+            "idTurno": "T03",
+            "fechaTurno": "30/06/24",
+            "hora": "15:00",
+            "idMedico": "M04",
+            "tipoTurno": "consultorio",
+            "dniPaciente": "35263549"
         }
     ],
     "turnosDisponibles": [
@@ -60,13 +68,6 @@
             "hora": "11:00",
             "idMedico": "M08",
             "tipoTurno": "estudios"
-        },
-        {
-            "idTurno": "T03",
-            "fechaTurno": "30/06/24",
-            "hora": "15:00",
-            "idMedico": "M04",
-            "tipoTurno": "consultorio"
         },
         {
             "idTurno": "T09",
