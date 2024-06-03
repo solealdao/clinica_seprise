@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+		<title>Stock de insumos</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado supplies"></div>
+			<span class="encabezado">Consulta de stock</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+		<div class="button-container2">
+			<table class="stock-table" border="1">
+				<thead>
+					<tr>
+						<th>Estudio</th>
+						<th>Insumo</th>
+						<th>Cantidad</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for (let estudio in stock) { %>
+					<tr>
+						<td class="estudio" rowspan="<%= stock[estudio].length %>">
+							<%= estudio %>
+						</td>
+						<% let isFirst = true; %> <% stock[estudio].forEach(insumo =>
+						{ %> <% if (!isFirst) { %>
+					</tr>
+
+					<tr>
+						<% } %>
+						<td><%= insumo.insumo %></td>
+						<td><%= insumo.cantidad %></td>
+						<% isFirst = false; %> <% }); %>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+		</div>
+		<div class="button-container-3">
+			<button type="button" class="button-gral" onclick="volver()">
+				Volver
+			</button>
+		</div>
+	</body>
+	<script>
+		function volver() {
+			window.location.href = '/supplies/supplies-management';
+		}
+	</script>
+	<script src="/scripts/reloj.js"></script>
+</html>

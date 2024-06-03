@@ -2,17 +2,11 @@ var express = require('express');
 var router = express.Router();
 var suppliesController = require('../controllers/suppliesController');
 
-/* GET stock update home page. */
-router.get('/stock-update', function (req, res, next) {
-    res.render('stock-update');
-});
+router.get('/supplies-management', suppliesController.renderSupplies);
 
-router.post('/stock-update/update-supplies', (req, res) => {
-    const selectedOption = req.body.clinical_study;
+router.get('/stock-update', suppliesController.renderUpdateSupplies);
+router.post('/stock-update', suppliesController.updateSupplies);
 
-    suppliesController.updateSupplies(selectedOption);
-
-    res.send('Suministros actualizados correctamente.');
-});
+router.get('/stock-status', suppliesController.renderStockStatus);
 
 module.exports = router;

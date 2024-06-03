@@ -13,27 +13,31 @@
 		/>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 
-		<title>Principal Médico</title>
+		<title>Gestión de pacientes</title>
 	</head>
 	<body>
 		<div class="style-header">
-			<span class="nombre_admin">01 - Valentina Gómez</span>
+			<div class="icono_encabezado supplies"></div>
+			<span class="encabezado">Gestión de stock</span>
 		</div>
 		<div class="reloj">
 			<p class="tiempo"></p>
 			<p class="fecha"></p>
 		</div>
-		<div class="foto_doctor"></div>
-		<div class="button-container2 con-foto justificado">
-			<button class="button-gral">Gestión de Historias Clínicas</button>
+		<div class="button-container2 sin-foto justificado">
 			<button
 				class="button-gral"
-				onclick="location.href='/supplies/supplies-management'"
+				onclick="location.href='/supplies/stock-status'"
 			>
-				Gestión de Stock
+				Consultar Stock
+			</button>
+			<button
+				class="button-gral"
+				onclick="location.href='/supplies/stock-update'"
+			>
+				Actualizar Stock
 			</button>
 		</div>
+		<script src="/scripts/reloj.js"></script>
 	</body>
-
-	<script src="/scripts/reloj.js"></script>
 </html>

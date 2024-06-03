@@ -17,7 +17,7 @@
 		<p class="tiempo"></p>
 		<p class="fecha"></p>
 	</div>	
-        <form id="update-stock-form" action="/stock-update/update-supplies" method="post">
+        <form id="update-stock-form" action="/supplies/stock-update" method="post">
             <label for="clinical-study">Seleccionar estudio clínico realizado:</label>
             <select id="clinical-study" name="clinical-study">
                 <option value="hemograma_completo">Hemograma Completo</option>
@@ -25,10 +25,46 @@
                 <option value="radiografia">Radiografía</option>
                 <option value="ecografia">Ecografía</option>
             </select>
-            <button class="button-gral" type="submit">Actualizar Stock</button>
+            <div class="button-container-3">
+                <button type="button" class="button-gral" onclick="volver()">
+                    Volver
+                </button>
+                <button type="submit" class="button-gral">Actualizar Stock</button>
+            </div>
         </form>
     </div>
-    <script src="/scripts/stockUpdater.js"></script>
+    <script>
+        function volver() {
+            window.location.href = '/supplies/supplies-management';
+        }
+    </script>
+    <script>
+        document.getElementById('update-stock-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = new URLSearchParams(formData);
+
+            fetch('/supplies/stock-update', {
+                method: 'POST',
+                body: data
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la solicitud: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(result => {
+                alert(result.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ocurrió un error al actualizar los suministros.');
+            });
+        });
+    </script>
     <script src="/scripts/reloj.js"></script>
 </body>
 </html>
