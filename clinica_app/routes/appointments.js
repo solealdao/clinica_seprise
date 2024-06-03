@@ -27,5 +27,8 @@ router.get('/modify-shift', function (req, res, next) {
 router.get('/available-shifts', function (req, res, next) {
 	res.render('available-shifts');
 });
-
+/* GET shift-receipt page. */
+router.get('/shift-receipt', function (req, res, next) {
+	res.render('shift-receipt');
+});
 module.exports = router;
