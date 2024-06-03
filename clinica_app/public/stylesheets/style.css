@@ -306,6 +306,9 @@ a {
 	background-image: url('../images/jeringa.png');
 }
 
+.hc {
+	background-image: url('../images/hc.png');
+}
 /* Establece el padding del body solo para otros elementos */
 body:not(.style-header) {
 	padding: 0px;
@@ -561,3 +564,66 @@ td {
 	padding: 4px;
 	text-align: center;
 }
+
+/*Medical-record*/
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; 
+}
+
+.search-container label {
+    margin-right: 10px; 
+}
+
+.search-container input[type="text"] {
+    padding: 5px;
+    width: 200px;
+}
+
+.search-container button {
+    height: 25px; 
+    line-height: 15px; 
+    padding: 0 10px; 
+	font-size: 14px;
+}
+
+.form-section-hc {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 5px; 
+	justify-items: center; 
+    align-items: center;
+}
+
+.form-section-hc h3 {
+    grid-column: 1 / -1; 
+    text-align: center; 
+}
+
+.form-section-hc label {
+    grid-column: 1 / 2; 
+    grid-row: span 1; 
+}
+
+.form-section-hc input,
+.form-section-hc textarea {
+    grid-column: 2 / 3; 
+    grid-row: span 1;
+    width: 100%; 
+}
+
+.button-gral-hc {
+    width: 20%; 
+    height: 50px; 
+    display: block; 
+    margin: 0 auto; 
+	margin-top: 20px;
+	font-size: 1em; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+}
+
+

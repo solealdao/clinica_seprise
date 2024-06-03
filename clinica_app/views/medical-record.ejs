@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Historia Clínica</title>
+    <link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="style-header">
+        <div class="icono_encabezado hc medical-record"></div>
+        <span class="encabezado">Registrar Historia Clínica</span>
+    </div>
+    <div class="reloj">
+        <p class="tiempo"></p>
+        <p class="fecha"></p>
+    </div>  
+    <div class="search-container">
+        <label for="patient-id-input">Ingrese el ID del paciente:</label>
+        <input type="text" id="patient-id-input">
+        <button id="search-button">Buscar</button>
+    </div>
+    <div class="table-container">
+        <table id="patients-table">
+            <thead>
+                <tr>
+                    <th>Nombre Completo</th>
+                    <th>Email</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Dirección</th>
+                    <th>Tipo de Cobertura</th>
+                    <th>ID Paciente</th>
+                    <th>DNI Paciente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se agregarán las filas de la tabla dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+    
+        
+        <div class="form-section-hc">
+            <h3>Detalles de la Consulta</h3>
+            <label for="consultation-date">Fecha de la Consulta:</label>
+            <input type="date" id="consultation-date" name="consultation-date" required>
+            
+            <label for="consultation-reason">Motivo de la Consulta:</label>
+            <textarea id="consultation-reason" name="consultation-reason" rows="4" required></textarea>
+            
+            <label for="symptoms">Síntomas:</label>
+            <textarea id="symptoms" name="symptoms" rows="4" required></textarea>
+            
+            <label for="diagnosis">Diagnóstico:</label>
+            <textarea id="diagnosis" name="diagnosis" rows="4" required></textarea>
+            
+            <label for="treatment">Tratamiento:</label>
+            <textarea id="treatment" name="treatment" rows="4" required></textarea>
+        </div>
+        
+        <button class="button-gral-hc" type="submit">Registrar Historia Clínica</button>
+    </form>
+    
+    <script src="/scripts/reloj.js"></script>
+    <script src="/scripts/patients.js"></script>
+</body>
+</html>

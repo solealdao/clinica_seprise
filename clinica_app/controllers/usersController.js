@@ -17,7 +17,7 @@ let controllerUsers = {
 		} else if (userlogged.permisos === 'medico') {
 			res.redirect('/doctor-home');
 		} else if (userlogged.permisos === 'tecnico') {
-			res.redirect('/technician-home');
+			res.redirect('/supplies/supplies-management');
 		} else {
 			res.status(403).send('Acceso no autorizado');
 		}

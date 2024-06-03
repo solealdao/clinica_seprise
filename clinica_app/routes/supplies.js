@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var suppliesController = require('../controllers/suppliesController');
 
+
 router.get('/supplies-management', suppliesController.renderSupplies);
 
 router.get('/stock-update', suppliesController.renderUpdateSupplies);

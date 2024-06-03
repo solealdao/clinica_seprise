@@ -1,50 +1,50 @@
 {
-	"hemograma_completo": [
-		{
-			"insumo": "Tubo de extracción de sangre (vacutainer)",
-			"cantidad": 50
-		},
-		{
-			"insumo": "Anticoagulante (EDTA)",
-			"cantidad": 50
-		},
-		{
-			"insumo": "Reactivos para la tinción de células sanguíneas",
-			"cantidad": 50
-		}
-	],
-	"electrocardiograma": [
-		{
-			"insumo": "Electrodos",
-			"cantidad": 99
-		},
-		{
-			"insumo": "Gel conductor",
-			"cantidad": 49
-		},
-		{
-			"insumo": "Toallitas o alcohol para limpiar la piel",
-			"cantidad": 49
-		},
-		{
-			"insumo": "Papel para imprimir los resultados del electrocardiograma",
-			"cantidad": 49
-		}
-	],
-	"radiografia": [
-		{
-			"insumo": "Película radiográfica o sistema de captura digital",
-			"cantidad": 50
-		}
-	],
-	"ecografia": [
-		{
-			"insumo": "Gel ultrasonográfico",
-			"cantidad": 49
-		},
-		{
-			"insumo": "Toallitas o paños para limpiar el gel",
-			"cantidad": 49
-		}
-	]
+  "hemograma_completo": [
+    {
+      "insumo": "Tubo de extracción de sangre (vacutainer)",
+      "cantidad": 50
+    },
+    {
+      "insumo": "Anticoagulante (EDTA)",
+      "cantidad": 50
+    },
+    {
+      "insumo": "Reactivos para la tinción de células sanguíneas",
+      "cantidad": 50
+    }
+  ],
+  "electrocardiograma": [
+    {
+      "insumo": "Electrodos",
+      "cantidad": 98
+    },
+    {
+      "insumo": "Gel conductor",
+      "cantidad": 48
+    },
+    {
+      "insumo": "Toallitas o alcohol para limpiar la piel",
+      "cantidad": 48
+    },
+    {
+      "insumo": "Papel para imprimir los resultados del electrocardiograma",
+      "cantidad": 48
+    }
+  ],
+  "radiografia": [
+    {
+      "insumo": "Película radiográfica o sistema de captura digital",
+      "cantidad": 50
+    }
+  ],
+  "ecografia": [
+    {
+      "insumo": "Gel ultrasonográfico",
+      "cantidad": 49
+    },
+    {
+      "insumo": "Toallitas o paños para limpiar el gel",
+      "cantidad": 49
+    }
+  ]
 }

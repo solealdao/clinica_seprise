@@ -18,11 +18,6 @@ router.get('/doctor-home', function (req, res, next) {
 	res.render('doctor-home');
 });
 
-/* GET technician home page. */
-router.get('/technician-home', function (req, res, next) {
-	res.render('technician-home');
-});
-
 /* GET doctor home page. */
 router.get('/payment-method-home', function (req, res, next) {
 	res.render('payment-method-home');
