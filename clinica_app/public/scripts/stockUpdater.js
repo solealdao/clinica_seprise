@@ -1,0 +1,1 @@
+document.getElementById('clinical-study').addEventListener('change', updateSupplies);
