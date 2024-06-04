@@ -28,16 +28,24 @@
 			<button type="button" class="button-gral" onclick="appointmentsPage()">
 				Gestión de Turnos
 			</button>
-			<button class="button-gral">Gestión de Usuarios</button>
-			<button class="button-gral" onclick="patientsPage()">Gestión de Pacientes</button>
+			<button class="button-gral" onclick="usersPage()">
+				Gestión de Usuarios
+			</button>
+			<button class="button-gral" onclick="patientsPage()">
+				Gestión de Pacientes
+			</button>
 		</div>
 		<script>
 			function appointmentsPage() {
 				window.location.href = '/appointments/appointment-management';
 			}
 
+			function usersPage() {
+				window.location.href = '/appointments/user-management';
+			}
+
 			function patientsPage() {
-				window.location.href = '/patients/patient-home';
+				window.location.href = '/patients/patient-management';
 			}
 		</script>
 

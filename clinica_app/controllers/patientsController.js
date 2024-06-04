@@ -15,17 +15,17 @@ function savePatients(patients) {
 
 let controllerPatient = {
 	renderNewPatient: (req, res) => {
-		res.render('new-patient');
+		res.render('patient-new');
 	},
 	renderPatient: (req, res) => {
-		res.render('patient-management', {
+		res.render('patient-search', {
 			patients: loadPatients(),
 		});
 	},
 	getPatients: (req, res) => {
 		try {
 			const patients = loadPatients();
-			res.render('patient-management', { patients });
+			res.render('patient-search', { patients });
 		} catch (err) {
 			console.error(err);
 			res.status(500).send('Error al leer el archivo de pacientes.');
@@ -45,7 +45,7 @@ let controllerPatient = {
 					message: 'No se encontraron datos para el DNI proporcionado',
 				});
 			}
-			res.render('patient-management', { pacienteFiltrado });
+			res.render('patient-search', { pacienteFiltrado });
 		} catch (error) {
 			console.error(error);
 			res.status(500).json({
@@ -89,10 +89,10 @@ let controllerPatient = {
 			};
 			patients.push(newPatient);
 			savePatients(patients);
-			res.redirect('/patients/patient-home');
+			res.redirect('/patients/patient-management');
 		} catch (error) {
 			console.error(error);
-			res.status(500).render('/patients/new-patient', {
+			res.status(500).render('/patients/patient-new', {
 				message: 'Error al agregar nuevo paciente',
 				error: error.message,
 			});

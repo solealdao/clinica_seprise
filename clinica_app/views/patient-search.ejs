@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Gestión de pacientes</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado user"></div>
+			<span class="encabezado">Gestión de pacientes</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+
+		<div class="button-container2 sin-foto">
+			<label for="dniPaciente">Ingrese el DNI del paciente</label>
+			<br />
+			<form
+				id="searchPatientForm"
+				action="/patients/patient-search"
+				method="post"
+			>
+				<input
+					type="text"
+					name="dniPaciente"
+					class="style-input"
+					placeholder="Ingrese el DNI del paciente"
+					required
+				/>
+				<button type="submit" class="button-gral">Buscar</button>
+			</form>
+		</div>
+		<% if (pacienteFiltrado && pacienteFiltrado.length > 0) { %>
+		<div id="pacienteEncontrado" class="paciente-encontrado">
+			<h2>Datos del paciente</h2>
+			<p>
+				<strong>Nombre:</strong> <%= pacienteFiltrado[0].nombreCompleto %>
+			</p>
+			<p><strong>Email:</strong> <%= pacienteFiltrado[0].email %></p>
+			<p>
+				<strong>Fecha de Nacimiento:</strong> <%=
+				pacienteFiltrado[0].fechaNacimiento %>
+			</p>
+			<p><strong>Dirección:</strong> <%= pacienteFiltrado[0].direccion %></p>
+			<p>
+				<strong>Tipo de Cobertura:</strong> <%=
+				pacienteFiltrado[0].tipoCobertura %>
+			</p>
+			<p>
+				<strong>ID del Paciente:</strong> <%= pacienteFiltrado[0].idPaciente
+				%>
+			</p>
+			<p>
+				<strong>DNI del Paciente:</strong> <%=
+				pacienteFiltrado[0].dniPaciente %>
+			</p>
+		</div>
+		<% } %>
+
+		<script src="/scripts/reloj.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const searchForm = document.getElementById('searchPatientForm');
+				const pacienteEncontrado =
+					document.getElementById('pacienteEncontrado');
+				searchForm.addEventListener('submit', function (event) {
+					event.preventDefault();
+					pacienteEncontrado.style.display = 'block';
+				});
+			});
+		</script>
+	</body>
+</html>

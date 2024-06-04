@@ -6,30 +6,33 @@ router.get('/appointment-management', function (req, res, next) {
 	res.render('appointment-management');
 });
 
-router.get('/new-appointment', appointmentsController.renderNewAppointment);
-router.post('/new-appointment', appointmentsController.submitNewAppointment);
-router.get('/shift-receipt', appointmentsController.renderShiftReceipt);
+router.get('/appointment-new', appointmentsController.renderNewAppointment);
+router.post('/appointment-new', appointmentsController.submitNewAppointment);
 
-router.get('/validate-appointment', function (req, res, next) {
-	res.render('validate-appointment');
+router.get('/appointment-receipt', appointmentsController.renderShiftReceipt);
+
+router.get('/appointment-search', function (req, res, next) {
+	res.render('appointment-search');
 });
-router.post(
-	'/validate-appointment',
-	appointmentsController.getAppointmentByDni
-);
+router.post('/appointment-search', appointmentsController.getAppointmentByDni);
 
 router.get('/reserved', appointmentsController.renderShiftHistory);
 
 /* GET modify-shift page. */
-router.get('/modify-shift', function (req, res, next) {
-	res.render('modify-shift');
+router.get('/appointment-update', function (req, res, next) {
+	res.render('appointment-update');
 });
 /* GET available-shifts page. */
 router.get('/available-shifts', function (req, res, next) {
 	res.render('available-shifts');
 });
 /* GET shift-receipt page. */
-router.get('/shift-receipt', function (req, res, next) {
-	res.render('shift-receipt');
+router.get('/appointment-receipt', function (req, res, next) {
+	res.render('appointment-receipt');
 });
+
+router.get('/user-management', function (req, res, next) {
+	res.render('user-management');
+});
+
 module.exports = router;

@@ -1,6 +1,9 @@
 const users = require('../data/login.json');
 
 let controllerUsers = {
+	renderHome: (req, res) => {
+		res.render('index');
+	},
 	login: (req, res) => {
 		const { email, password } = req.body;
 
@@ -13,17 +16,14 @@ let controllerUsers = {
 		}
 
 		if (userlogged.permisos === 'admin') {
-			res.redirect('/admin-home');
+			res.redirect('/home-admin');
 		} else if (userlogged.permisos === 'medico') {
-			res.redirect('/doctor-home');
+			res.redirect('/home-doctor');
 		} else if (userlogged.permisos === 'tecnico') {
 			res.redirect('/supplies/supplies-management');
 		} else {
 			res.status(403).send('Acceso no autorizado');
 		}
-	},
-	renderHome: (req, res) => {
-		res.render('index');
 	},
 };
 
