@@ -59,6 +59,38 @@
             "idMedico": "M04",
             "tipoTurno": "consultorio",
             "dniPaciente": "35263549"
+        },
+        {
+            "idTurno": "T13",
+            "fechaTurno": "05/07/24",
+            "hora": "09:00",
+            "idMedico": "M04",
+            "tipoTurno": "consultorio",
+            "dniPaciente": "34951895"
+        },
+        {
+            "idTurno": "T14",
+            "fechaTurno": "06/07/24",
+            "hora": "08:00",
+            "idMedico": "M03",
+            "tipoTurno": "consultorio",
+            "dniPaciente": "34951895"
+        },
+        {
+            "idTurno": "T20",
+            "fechaTurno": "10/07/24",
+            "hora": "08:00",
+            "idMedico": "M02",
+            "tipoTurno": "consultorio",
+            "dniPaciente": "34951895"
+        },
+        {
+            "idTurno": "T09",
+            "fechaTurno": "03/07/24",
+            "hora": "10:00",
+            "idMedico": "M06",
+            "tipoTurno": "estudios",
+            "dniPaciente": "34951895"
         }
     ],
     "turnosDisponibles": [
@@ -70,11 +102,75 @@
             "tipoTurno": "estudios"
         },
         {
-            "idTurno": "T09",
-            "fechaTurno": "03/07/24",
+            "idTurno": "T15",
+            "fechaTurno": "06/07/24",
             "hora": "10:00",
+            "idMedico": "M07",
+            "tipoTurno": "estudios"
+        },
+        {
+            "idTurno": "T16",
+            "fechaTurno": "07/07/24",
+            "hora": "11:00",
+            "idMedico": "M05",
+            "tipoTurno": "consultorio"
+        },
+        {
+            "idTurno": "T17",
+            "fechaTurno": "07/07/24",
+            "hora": "13:00",
             "idMedico": "M06",
             "tipoTurno": "estudios"
+        },
+        {
+            "idTurno": "T18",
+            "fechaTurno": "08/07/24",
+            "hora": "09:00",
+            "idMedico": "M08",
+            "tipoTurno": "estudios"
+        },
+        {
+            "idTurno": "T19",
+            "fechaTurno": "09/07/24",
+            "hora": "14:00",
+            "idMedico": "M01",
+            "tipoTurno": "consultorio"
+        },
+        {
+            "idTurno": "T20",
+            "fechaTurno": "10/07/24",
+            "hora": "15:00",
+            "idMedico": "M02",
+            "tipoTurno": "consultorio"
+        },
+        {
+            "idTurno": "T21",
+            "fechaTurno": "11/07/24",
+            "hora": "16:00",
+            "idMedico": "M03",
+            "tipoTurno": "estudios"
+        },
+        {
+            "idTurno": "T22",
+            "fechaTurno": "12/07/24",
+            "hora": "17:00",
+            "idMedico": "M04",
+            "tipoTurno": "consultorio"
+        },
+        {
+            "idTurno": "T23",
+            "fechaTurno": "13/07/24",
+            "hora": "18:00",
+            "idMedico": "M05",
+            "tipoTurno": "estudios"
+        },
+        {
+            "idTurno": "T24",
+            "fechaTurno": "14/07/24",
+            "hora": "09:00",
+            "idMedico": "M06",
+            "tipoTurno": "consultorio"
         }
+
     ]
 }

@@ -71,11 +71,18 @@ let controllerAppointment = {
 				);
 			appointmentsData.turnosReservados.push(turnoSeleccionado);
 			saveAppointments(appointmentsData);
-			res.redirect('/appointments/appointment-management');
+			//agregue yo
+			res.redirect(`/appointments/shift-receipt?dni=${dni}&idTurno=${turnoSeleccionado.idTurno}`);
+    } else {
+        res.status(400).send('El turno seleccionado no está disponible');
+    }
+},
+
+		/*  	res.redirect('/appointments/appointment-management');
 		} else {
 			res.status(400).send('El turno seleccionado no está disponible');
 		}
-	},
+	},*/
 	getAppointmentByDni: (req, res) => {
 		const dniPaciente = req.body.dniPaciente;
 
@@ -128,7 +135,38 @@ let controllerAppointment = {
 					turnosReservados: null,
 				});
 			}
+		},
+		renderShiftReceipt: (req, res) => {
+			const { dni, idTurno } = req.query;
+		
+			try {
+				const appointments = loadAppointments();
+				const turno = appointments.turnosReservados.find(turno => turno.idTurno === idTurno);
+		
+				if (!turno) {
+					return res.status(404).send('Turno no encontrado');
+				}
+		
+				const doctors = loadDoctors();
+				const doctor = doctors.find(doc => doc.idMedico === turno.idMedico);
+				const patients = loadPatients();
+				const patient = patients.find(pat => pat.dniPaciente === dni);
+		
+				if (!doctor || !patient) {
+					return res.status(404).send('Doctor o Paciente no encontrado');
+				}
+		
+				res.render('shift-receipt', {
+					turno,
+					doctor,
+					patient
+				});
+			} catch (error) {
+				console.error(error);
+				res.status(500).send('Error al obtener los datos del turno');
+			}
 		}
+
 
 	
 };

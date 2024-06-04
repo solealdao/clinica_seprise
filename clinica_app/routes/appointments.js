@@ -8,6 +8,7 @@ router.get('/appointment-management', function (req, res, next) {
 
 router.get('/new-appointment', appointmentsController.renderNewAppointment);
 router.post('/new-appointment', appointmentsController.submitNewAppointment);
+router.get('/shift-receipt', appointmentsController.renderShiftReceipt);
 
 router.get('/validate-appointment', function (req, res, next) {
 	res.render('validate-appointment');
