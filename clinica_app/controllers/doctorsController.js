@@ -1,17 +1,18 @@
-// const fs = require('fs');
-// const shifts = require('../data/doctors.json');
+const fs = require('fs');
 
-// let controllerDoctors = {
-// 	getDoctors: (req, res) => {
-// 		fs.readFile('doctors.json', 'utf8', (err, data) => {
-// 			if (err) {
-// 				console.error(err);
-// 				return res.status(500).send('Error al leer el archivo de médicos.');
-// 			}
-// 			const doctors = JSON.parse(data).doctors;
-// 			res.render('new-shift', { doctors });
-// 		});
-// 	// },
-// };
+let controllerDoctors = {
+	renderDoctorManagement: (req, res) => {
+		res.render('doctor-clinical-history-management');
+	},
+	renderDoctorNew: (req, res) => {
+		res.render('doctor-clinical-history-new');
+	},
+	renderDoctorUpdate: (req, res) => {
+		res.render('doctor-clinical-history-update');
+	},
+	renderDoctorSearch: (req, res) => {
+		res.render('doctor-clinical-history-search');
+	},
+};
 
-// module.exports = controllerDoctors;
+module.exports = controllerDoctors;

@@ -9,7 +9,7 @@ function loadDoctors() {
 	const data = fs.readFileSync(doctorsFilePath, 'utf-8');
 	return JSON.parse(data).doctors;
 }
-/*Agregue yo */
+
 function loadPatients() {
 	const data = fs.readFileSync(patientsFilePath, 'utf-8');
 	return JSON.parse(data).patients;
@@ -34,7 +34,6 @@ let controllerAppointment = {
 			appointments: loadAppointments().turnosDisponibles,
 		});
 	},
-
 	getDoctors: (req, res) => {
 		try {
 			const doctors = loadDoctors();
@@ -69,7 +68,6 @@ let controllerAppointment = {
 				);
 			appointmentsData.turnosReservados.push(turnoSeleccionado);
 			saveAppointments(appointmentsData);
-			//agregue yo
 			res.redirect(
 				`/appointments/appointment-receipt?dni=${dni}&idTurno=${turnoSeleccionado.idTurno}`
 			);
@@ -77,12 +75,6 @@ let controllerAppointment = {
 			res.status(400).send('El turno seleccionado no está disponible');
 		}
 	},
-
-	/*  	res.redirect('/appointments/appointment-management');
-		} else {
-			res.status(400).send('El turno seleccionado no está disponible');
-		}
-	},*/
 	getAppointmentByDni: (req, res) => {
 		const dniPaciente = req.body.dniPaciente;
 
@@ -107,7 +99,6 @@ let controllerAppointment = {
 			});
 		}
 	},
-	/*agregue yo */
 	renderShiftHistory: (req, res) => {
 		let ReservedAppointments = loadAppointments().turnosReservados;
 		let patients = loadPatients();
@@ -170,6 +161,12 @@ let controllerAppointment = {
 			console.error(error);
 			res.status(500).send('Error al obtener los datos del turno');
 		}
+	},
+	renderSearchAppointment: (req, res) => {
+		res.render('appointment-search');
+	},
+	renderUpdateAppointment: (req, res) => {
+		res.render('appointment-update');
 	},
 };
 

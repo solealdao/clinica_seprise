@@ -91,6 +91,14 @@
             "idMedico": "M06",
             "tipoTurno": "estudios",
             "dniPaciente": "34951895"
+        },
+        {
+            "idTurno": "T19",
+            "fechaTurno": "09/07/24",
+            "hora": "14:00",
+            "idMedico": "M01",
+            "tipoTurno": "consultorio",
+            "dniPaciente": "35379710"
         }
     ],
     "turnosDisponibles": [
@@ -130,13 +138,6 @@
             "tipoTurno": "estudios"
         },
         {
-            "idTurno": "T19",
-            "fechaTurno": "09/07/24",
-            "hora": "14:00",
-            "idMedico": "M01",
-            "tipoTurno": "consultorio"
-        },
-        {
             "idTurno": "T20",
             "fechaTurno": "10/07/24",
             "hora": "15:00",
@@ -171,6 +172,5 @@
             "idMedico": "M06",
             "tipoTurno": "consultorio"
         }
-
     ]
 }

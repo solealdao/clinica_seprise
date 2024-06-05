@@ -1,12 +1,22 @@
-// var express = require('express');
-// var router = express.Router();
-// var path = require('path');
-// var doctorsController = require('../controllers/doctorsController');
+var express = require('express');
+var router = express.Router();
+var doctorsController = require('../controllers/doctorsController');
 
-// router.get('/', function (req, res, next) {
-// 	res.sendFile(path.join(__dirname, '../data/doctor.json'));
-// });
+router.get(
+	'/doctor-clinical-history-management',
+	doctorsController.renderDoctorManagement
+);
 
-// router.get('/', doctorsController.getDoctors);
+router.get('/doctor-clinical-history-new', doctorsController.renderDoctorNew);
 
-// module.exports = router;
+router.get(
+	'/doctor-clinical-history-update',
+	doctorsController.renderDoctorUpdate
+);
+
+router.get(
+	'/doctor-clinical-history-search',
+	doctorsController.renderDoctorSearch
+);
+
+module.exports = router;

@@ -11,28 +11,21 @@ router.post('/appointment-new', appointmentsController.submitNewAppointment);
 
 router.get('/appointment-receipt', appointmentsController.renderShiftReceipt);
 
-router.get('/appointment-search', function (req, res, next) {
-	res.render('appointment-search');
-});
+router.get(
+	'/appointment-search',
+	appointmentsController.renderSearchAppointment
+);
 router.post('/appointment-search', appointmentsController.getAppointmentByDni);
 
 router.get('/reserved', appointmentsController.renderShiftHistory);
 
-/* GET modify-shift page. */
-router.get('/appointment-update', function (req, res, next) {
-	res.render('appointment-update');
-});
-/* GET available-shifts page. */
-router.get('/available-shifts', function (req, res, next) {
-	res.render('available-shifts');
-});
-/* GET shift-receipt page. */
-router.get('/appointment-receipt', function (req, res, next) {
-	res.render('appointment-receipt');
-});
+router.get(
+	'/appointment-update',
+	appointmentsController.renderUpdateAppointment
+);
 
-router.get('/user-management', function (req, res, next) {
-	res.render('user-management');
+router.get('/payment-methode', function (req, res, next) {
+	res.render('appointment-payment-method');
 });
 
 module.exports = router;

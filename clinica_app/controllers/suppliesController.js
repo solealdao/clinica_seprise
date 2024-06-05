@@ -13,7 +13,7 @@ let controllerSupplies = {
 		res.render('supplies-management');
 	},
 	renderUpdateSupplies: function (req, res, next) {
-		res.render('stock-update');
+		res.render('supplies-update');
 	},
 	renderStockStatus: function (req, res, next) {
 		let stock = loadSupplies();
@@ -25,7 +25,7 @@ let controllerSupplies = {
 			stock[estudioLegible] = stock[estudio];
 			delete stock[estudio];
 		}
-		res.render('supplies-status', { stock });
+		res.render('supplies-search', { stock });
 	},
 	updateSupplies: function (req, res, next) {
 		const selectedOption = req.body['clinical-study'];

@@ -20,10 +20,13 @@ let controllerUsers = {
 		} else if (userlogged.permisos === 'medico') {
 			res.redirect('/home-doctor');
 		} else if (userlogged.permisos === 'tecnico') {
-			res.redirect('/supplies/supplies-management');
+			res.redirect('/home-technical');
 		} else {
 			res.status(403).send('Acceso no autorizado');
 		}
+	},
+	renderUsersManagement: (req, res) => {
+		res.render('user-management');
 	},
 };
 

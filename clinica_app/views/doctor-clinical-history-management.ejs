@@ -13,26 +13,33 @@
 		/>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 
-		<title>Principal Médico</title>
+		<title>Gestión de pacientes</title>
 	</head>
 	<body>
 		<div class="style-header">
-			<span class="nombre_admin">01 - Valentina Gómez</span>
+			<div class="icono_encabezado user"></div>
+			<span class="encabezado">Gestión de pacientes</span>
 		</div>
 		<div class="reloj">
 			<p class="tiempo"></p>
 			<p class="fecha"></p>
 		</div>
-		<div class="foto_doctor"></div>
-		<div class="button-container2 con-foto justificado">
+		<div class="button-container2 sin-foto justificado">
 			<button
 				class="button-gral"
-				onclick="location.href='doctors/doctor-clinical-history-management'"
+				onclick="location.href='/patients/patient-register'"
 			>
-				Gestión de Historias Clínicas
+				Agregar Paciente
 			</button>
+			<button
+				class="button-gral"
+				onclick="location.href='/patients/patient-search'"
+			>
+				Consultar Pacientes
+			</button>
+			<button class="button-gral">Cobrar<br />consulta</button>
 		</div>
-	</body>
 
-	<script src="/scripts/reloj.js"></script>
+		<script src="/scripts/reloj.js"></script>
+	</body>
 </html>

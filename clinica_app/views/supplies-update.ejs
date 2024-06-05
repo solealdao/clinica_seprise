@@ -17,7 +17,7 @@
 		<p class="tiempo"></p>
 		<p class="fecha"></p>
 	</div>	
-        <form id="update-stock-form" action="/supplies/stock-update" method="post">
+        <form id="update-stock-form" action="/supplies/supplies-update" method="post">
             <label for="clinical-study">Seleccionar estudio clínico realizado:</label>
             <select id="clinical-study" name="clinical-study">
                 <option value="hemograma_completo">Hemograma Completo</option>
@@ -46,7 +46,7 @@
             const formData = new FormData(form);
             const data = new URLSearchParams(formData);
 
-            fetch('/supplies/stock-update', {
+            fetch('/supplies/supplies-update', {
                 method: 'POST',
                 body: data
             })
