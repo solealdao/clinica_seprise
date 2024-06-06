@@ -43,44 +43,76 @@
 				<button type="submit" class="button-gral">Buscar</button>
 			</form>
 		</div>
-		<% if (pacienteFiltrado && pacienteFiltrado.length > 0) { %>
-		<div id="pacienteEncontrado" class="paciente-encontrado">
-			<h2>Datos del paciente</h2>
-			<p>
-				<strong>Nombre:</strong> <%= pacienteFiltrado[0].nombreCompleto %>
-			</p>
-			<p><strong>Email:</strong> <%= pacienteFiltrado[0].email %></p>
-			<p>
-				<strong>Fecha de Nacimiento:</strong> <%=
-				pacienteFiltrado[0].fechaNacimiento %>
-			</p>
-			<p><strong>Dirección:</strong> <%= pacienteFiltrado[0].direccion %></p>
-			<p>
-				<strong>Tipo de Cobertura:</strong> <%=
-				pacienteFiltrado[0].tipoCobertura %>
-			</p>
-			<p>
-				<strong>ID del Paciente:</strong> <%= pacienteFiltrado[0].idPaciente
-				%>
-			</p>
-			<p>
-				<strong>DNI del Paciente:</strong> <%=
-				pacienteFiltrado[0].dniPaciente %>
-			</p>
+		<% if (typeof pacienteFiltrado !== 'undefined' && pacienteFiltrado.length
+		> 0) { %>
+		<div class="results">
+			<h2>Resultados de la búsqueda</h2>
+			<ul>
+				<% pacienteFiltrado.forEach(pacienteFiltrado => { %>
+				<li>
+					Nombre: <%= pacienteFiltrado.nombreCompleto %> - Email: <%=
+					pacienteFiltrado.email %> - Fecha de Nacimiento: <%=
+					pacienteFiltrado.fechaNacimiento %>
+					<a
+						href="/patients/patient-update/<%= pacienteFiltrado.idPaciente %>"
+						class="button-edit"
+						>Editar</a
+					>
+					<form
+						id="patient-delete-<%= pacienteFiltrado.idPaciente %>"
+						action="/patients/patient-delete"
+						method="post"
+						style="display: inline"
+					>
+						<input
+							type="hidden"
+							name="idPaciente"
+							value="<%= pacienteFiltrado.idPaciente %>"
+						/>
+						<button type="submit" class="button-delete">Eliminar</button>
+					</form>
+				</li>
+				<% }) %>
+			</ul>
+		</div>
+		<% } else if (typeof paciente !== 'undefined') { %>
+		<div class="no-results">
+			<p>No se encontraron pacientes para el DNI proporcionado</p>
 		</div>
 		<% } %>
 
-		<script src="/scripts/reloj.js"></script>
 		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				const searchForm = document.getElementById('searchPatientForm');
-				const pacienteEncontrado =
-					document.getElementById('pacienteEncontrado');
-				searchForm.addEventListener('submit', function (event) {
+			document
+				.getElementById('patient-delete')
+				.addEventListener('submit', function (event) {
 					event.preventDefault();
-					pacienteEncontrado.style.display = 'block';
+
+					const form = event.target;
+					const formData = new FormData(form);
+					const data = new URLSearchParams(formData);
+
+					fetch('/patients/patient-delete', {
+						method: 'POST',
+						body: data,
+					})
+						.then((response) => {
+							if (!response.ok) {
+								throw new Error(
+									'Error en la solicitud: ' + response.statusText
+								);
+							}
+							return response.json();
+						})
+						.then((result) => {
+							alert(result.message);
+							window.location.href = '/patients/patient-management';
+						})
+						.catch((error) => {
+							console.error('Error:', error);
+							alert('Ocurrió un error al actualizar los suministros.');
+						});
 				});
-			});
 		</script>
+		<script src="/scripts/reloj.js"></script>
 	</body>
 </html>

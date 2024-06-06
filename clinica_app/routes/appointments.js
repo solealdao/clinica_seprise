@@ -27,11 +27,6 @@ router.post('/appointment-delete', appointmentsController.deleteAppointment);
 
 router.get('/reserved', appointmentsController.renderShiftHistory);
 
-router.get(
-	'/appointment-update',
-	appointmentsController.renderUpdateAppointment
-);
-
 router.get('/payment-method', function (req, res, next) {
 	res.render('appointment-payment-method');
 });

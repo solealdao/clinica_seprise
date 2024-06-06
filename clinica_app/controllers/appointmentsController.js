@@ -226,9 +226,6 @@ let controllerAppointment = {
 	renderSearchAppointment: (req, res) => {
 		res.render('appointment-search');
 	},
-	renderUpdateAppointment: (req, res) => {
-		res.render('appointment-update');
-	},
 };
 
 module.exports = controllerAppointment;
