@@ -17,6 +17,14 @@ router.get(
 );
 router.post('/appointment-search', appointmentsController.getAppointmentByDni);
 
+router.get(
+	'/appointment-update/:idTurno',
+	appointmentsController.renderEditAppointmentForm
+);
+
+router.post('/appointment-save', appointmentsController.saveEditedAppointment);
+router.post('/appointment-delete', appointmentsController.deleteAppointment);
+
 router.get('/reserved', appointmentsController.renderShiftHistory);
 
 router.get(
@@ -24,7 +32,7 @@ router.get(
 	appointmentsController.renderUpdateAppointment
 );
 
-router.get('/payment-methode', function (req, res, next) {
+router.get('/payment-method', function (req, res, next) {
 	res.render('appointment-payment-method');
 });
 

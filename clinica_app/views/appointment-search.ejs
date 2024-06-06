@@ -43,36 +43,73 @@
 				<button type="submit" class="button-gral">Buscar</button>
 			</form>
 		</div>
-
-		<% if (turnos.length > 0) { %>
-		<div class="turnos-encontrados">
-			<h2>Turnos encontrados:</h2>
+		<% if (typeof turnos !== 'undefined' && turnos.length > 0) { %>
+		<div class="results">
+			<h2>Resultados de la búsqueda</h2>
 			<ul>
 				<% turnos.forEach(turno => { %>
-				<li class="result-list">
-					<strong>Tipo de turno:</strong> <%= turno.tipoTurno %><br />
-					<strong>Fecha:</strong> <%= turno.fechaTurno %><br />
-					<strong>Hora:</strong> <%= turno.hora %><br />
-					<strong>Médico:</strong> <%= turno.idMedico %><br />
+				<li>
+					Fecha: <%= turno.fecha %> - Hora: <%= turno.hora %> - Médico: <%=
+					turno.medico %>
+					<a
+						href="/appointments/appointment-update/<%= turno.idTurno %>"
+						class="button-edit"
+						>Editar</a
+					>
+					<form
+						id="appointment-delete"
+						action="/appointments/appointment-delete"
+						method="post"
+						style="display: inline"
+					>
+						<input
+							type="hidden"
+							name="turnoId"
+							value="<%= turno.idTurno %>"
+						/>
+						<button type="submit" class="button-delete">Eliminar</button>
+					</form>
 				</li>
-				<% }); %>
+				<% }) %>
 			</ul>
 		</div>
-		<% } else { %>
-		<p>No se encontraron turnos para el DNI proporcionado.</p>
+		<% } else if (typeof turnos !== 'undefined') { %>
+		<div class="no-results">
+			<p>No se encontraron turnos para el DNI proporcionado</p>
+		</div>
 		<% } %>
-
-		<script src="/scripts/reloj.js"></script>
 		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				var formulario = document.getElementById('searchForm');
-				var divTurnos = document.querySelector('.turnos-encontrados');
-
-				formulario.addEventListener('submit', function (event) {
+			document
+				.getElementById('appointment-delete')
+				.addEventListener('submit', function (event) {
 					event.preventDefault();
-					divTurnos.style.display = 'block';
+
+					const form = event.target;
+					const formData = new FormData(form);
+					const data = new URLSearchParams(formData);
+
+					fetch('/appointments/appointment-delete', {
+						method: 'POST',
+						body: data,
+					})
+						.then((response) => {
+							if (!response.ok) {
+								throw new Error(
+									'Error en la solicitud: ' + response.statusText
+								);
+							}
+							return response.json();
+						})
+						.then((result) => {
+							alert(result.message);
+							window.location.href = '/appointments/appointment-search';
+						})
+						.catch((error) => {
+							console.error('Error:', error);
+							alert('Ocurrió un error al actualizar los suministros.');
+						});
 				});
-			});
 		</script>
+		<script src="/scripts/reloj.js"></script>
 	</body>
 </html>

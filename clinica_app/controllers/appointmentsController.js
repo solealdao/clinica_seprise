@@ -99,6 +99,67 @@ let controllerAppointment = {
 			});
 		}
 	},
+	renderEditAppointmentForm: (req, res) => {
+		const turnoId = req.params.idTurno;
+		const appointments = loadAppointments();
+		const turno = appointments.turnosReservados.find(
+			(turno) => turno.idTurno === turnoId
+		);
+
+		if (turno) {
+			res.render('appointment-update', { turno });
+		} else {
+			res.status(404).json({ message: 'Turno no encontrado' });
+		}
+	},
+	saveEditedAppointment: (req, res) => {
+		const { idTurno, fecha, hora, medico } = req.body;
+
+		try {
+			let appointments = loadAppointments();
+			const index = appointments.turnosReservados.findIndex(
+				(turno) => turno.idTurno === idTurno
+			);
+
+			if (index !== -1) {
+				appointments.turnosReservados[index] = {
+					...appointments.turnosReservados[index],
+					fecha,
+					hora,
+					medico,
+				};
+				saveAppointments(appointments);
+				res.status(200).json({ message: 'Turno modificado con éxito' });
+			} else {
+				res.status(404).json({ message: 'Turno no encontrado' });
+			}
+		} catch (error) {
+			console.error(error);
+			res.status(500).json({
+				message: 'Error al editar el turno',
+				error: error.message,
+			});
+		}
+	},
+	deleteAppointment: (req, res) => {
+		const turnoId = req.body.turnoId;
+
+		try {
+			let appointments = loadAppointments();
+			appointments.turnosReservados = appointments.turnosReservados.filter(
+				(turno) => turno.idTurno !== turnoId
+			);
+
+			saveAppointments(appointments);
+			res.status(200).json({ message: 'Turno eliminado con éxito' });
+		} catch (error) {
+			console.error(error);
+			res.status(500).json({
+				message: 'Error al eliminar el turno',
+				error: error.message,
+			});
+		}
+	},
 	renderShiftHistory: (req, res) => {
 		let ReservedAppointments = loadAppointments().turnosReservados;
 		let patients = loadPatients();
