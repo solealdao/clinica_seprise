@@ -1,15 +1,6 @@
 {
   "patients": [
     {
-      "nombreCompleto": "Cosme Fulanito",
-      "email": "cosme@hotmail.com",
-      "fechaNacimiento": "12/04/2000",
-      "direccion": "Av. Siempre Viva 123",
-      "tipoCobertura": "osde",
-      "idPaciente": "P01",
-      "dniPaciente": "34951895"
-    },
-    {
       "nombreCompleto": "Juana Garcia",
       "email": "Juana@hotmail.com",
       "fechaNacimiento": "13/04/2000",
@@ -35,6 +26,15 @@
       "tipoCobertura": "Osde",
       "idPaciente": "P05",
       "dniPaciente": "12345678"
+    },
+    {
+      "nombreCompleto": "Cosme Fulanito",
+      "email": "cosme@gmail.com",
+      "fechaNacimiento": "2013-02-02",
+      "direccion": "siempre via 123",
+      "tipoCobertura": "OSDE",
+      "idPaciente": "P06",
+      "dniPaciente": "34951895"
     }
   ]
 }

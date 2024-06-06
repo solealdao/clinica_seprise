@@ -29,7 +29,6 @@ app.use('/appointments', appointmentsRouter);
 app.use('/doctors', doctorsRouter);
 app.use('/patients', patientsRouter);
 app.use('/supplies', suppliesRouter);
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	next(createError(404));

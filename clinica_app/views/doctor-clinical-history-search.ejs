@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Visualizar historias médicas</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado turnos"></div>
+			<span class="encabezado">Ver historias medicas</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+		<div class="button-container2 sin-foto">
+			<label for="dniPaciente">Ingrese el DNI del paciente</label>
+			<br />
+			<form id="searchForm" action="/doctors/doctor-clinical-history-search" method="post">
+				<input type="text" name="dniPaciente" class="style-input" placeholder="Ingrese el DNI del paciente" required />
+				<button type="submit" class="button-gral">Buscar</button>
+			</form>
+		</div>
+		<script src="/scripts/reloj.js"></script>
+	</body>
+</html>

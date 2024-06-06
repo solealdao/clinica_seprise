@@ -1,0 +1,55 @@
+{
+    "historias_clinicas": [
+      {
+        "idHistoriaClinica": "HC01",
+        "idPaciente": "P02",
+        "dniPaciente": "11111111",
+        "idMedico": "M01",
+        "fechaConsulta": "2023-05-20",
+        "motivoConsulta": "Chequeo anual",
+        "diagnostico": "Salud general óptima",
+        "tratamiento": "Continuar con hábitos saludables"
+      },
+      {
+        "idHistoriaClinica": "HC02",
+        "idPaciente": "P04",
+        "dniPaciente": "35379825",
+        "idMedico": "M02",
+        "fechaConsulta": "2023-06-15",
+        "motivoConsulta": "Dolor en el pecho",
+        "diagnostico": "Angina de pecho",
+        "tratamiento": "Medicación y cambios en el estilo de vida"
+      },
+      {
+        "idHistoriaClinica": "HC03",
+        "idPaciente": "P05",
+        "dniPaciente": "12345678",
+        "idMedico": "M03",
+        "fechaConsulta": "2023-07-10",
+        "motivoConsulta": "Dolor de cabeza recurrente",
+        "diagnostico": "Migraña",
+        "tratamiento": "Medicación específica para migrañas"
+      },
+      {
+        "idHistoriaClinica": "HC04",
+        "idPaciente": "P06",
+        "dniPaciente": "34951895",
+        "idMedico": "M04",
+        "fechaConsulta": "2023-08-22",
+        "motivoConsulta": "Problemas de visión",
+        "diagnostico": "Miopía",
+        "tratamiento": "Receta de lentes"
+      },
+      {
+        "idHistoriaClinica": "HC05",
+        "idPaciente": "P02",
+        "dniPaciente": "11111111",
+        "idMedico": "M05",
+        "fechaConsulta": "2023-09-05",
+        "motivoConsulta": "Dolor de rodilla",
+        "diagnostico": "Tendinitis",
+        "tratamiento": "Fisioterapia y antiinflamatorios"
+      }
+    ]
+  }
+  

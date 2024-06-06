@@ -18,5 +18,8 @@ router.get(
 	'/doctor-clinical-history-search',
 	doctorsController.renderDoctorSearch
 );
+// Nueva ruta POST para buscar historias clínicas
+router.post('/doctor-clinical-history-search',
+doctorsController.searchDoctorClinicalHistory);
 
 module.exports = router;
