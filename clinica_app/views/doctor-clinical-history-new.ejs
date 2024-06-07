@@ -17,41 +17,27 @@
         <p class="tiempo"></p>
         <p class="fecha"></p>
     </div>  
-    <div class="search-container">
-        <label for="patient-id-input">Ingrese el ID del paciente:</label>
-        <input type="text" id="patient-id-input">
-        <button id="search-button">Buscar</button>
-    </div>
-    <div class="table-container">
-        <table id="patients-table">
-            <thead>
-                <tr>
-                    <th>Nombre Completo</th>
-                    <th>Email</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Dirección</th>
-                    <th>Tipo de Cobertura</th>
-                    <th>ID Paciente</th>
-                    <th>DNI Paciente</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Aquí se agregarán las filas de la tabla dinámicamente -->
-            </tbody>
-        </table>
-    </div>
     
-        
+    <form id="medical-record-form" action="/medical-record" method="POST">
         <div class="form-section-hc">
             <h3>Detalles de la Consulta</h3>
+            <label for="medical-record-id">ID Historia Clínica:</label>
+            <input type="text" id="medical-record-id" name="medical-record-id" pattern="[A-Za-z0-9]+" required>
+
+            <label for="patient-id">ID Paciente:</label>
+            <input type="text" id="patient-id" name="patient-id" pattern="[A-Za-z0-9]+" required>
+
+            <label for="patient-dni">DNI del Paciente:</label>
+            <input type="number" id="patient-dni" name="patient-dni" required>
+
+            <label for="doctor-id">ID Médico:</label>
+            <input type="text" id="doctor-id" name="doctor-id" pattern="[A-Za-z0-9]+" required>
+
             <label for="consultation-date">Fecha de la Consulta:</label>
             <input type="date" id="consultation-date" name="consultation-date" required>
             
             <label for="consultation-reason">Motivo de la Consulta:</label>
             <textarea id="consultation-reason" name="consultation-reason" rows="4" required></textarea>
-            
-            <label for="symptoms">Síntomas:</label>
-            <textarea id="symptoms" name="symptoms" rows="4" required></textarea>
             
             <label for="diagnosis">Diagnóstico:</label>
             <textarea id="diagnosis" name="diagnosis" rows="4" required></textarea>
