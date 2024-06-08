@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="style-header">
-        <div class="icono_encabezado user"></div>
+        <div class="icono_encabezado hc"></div>
         <span class="encabezado">Gestión de Historias Clínicas</span>
     </div>
     <div class="reloj">
@@ -18,9 +18,12 @@
         <p class="fecha"></p>
     </div>
     <div class="button-container2 sin-foto justificado">
-        <button class="button-gral">Crear Historia Clínica</button>
+        <button class="button-gral" onclick="location.href='/doctors/doctor-clinical-history-new'">Crear Historia Clínica</button>
         <button class="button-gral" onclick="location.href='/doctors/doctor-clinical-history-search'">Consultar Historia Clínica</button>
-        <button class="button-gral">Modificar Historia Clínica</button>
+        <button class="button-gral" onclick="location.href='/doctors/doctor-clinical-history-update'">Modificar Historia Clínica</button>
+    </div>
+    <div class="button-container4 sin-foto justificado">
+    <button class="button-gral" onclick="location.href='/home-doctor'">Atrás</button> 
     </div>
     <script src="/scripts/reloj.js"></script>
 </body>

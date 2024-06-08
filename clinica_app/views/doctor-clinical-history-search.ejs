@@ -17,20 +17,23 @@
 	</head>
 	<body>
 		<div class="style-header">
-			<div class="icono_encabezado turnos"></div>
+			<div class="icono_encabezado hc"></div>
 			<span class="encabezado">Ver historias medicas</span>
 		</div>
 		<div class="reloj">
 			<p class="tiempo"></p>
 			<p class="fecha"></p>
 		</div>
-		<div class="button-container2 sin-foto">
+		<div class="button-container3 sin-foto">
 			<label for="dniPaciente">Ingrese el DNI del paciente</label>
 			<br />
 			<form id="searchForm" action="/doctors/doctor-clinical-history-search" method="post">
 				<input type="text" name="dniPaciente" class="style-input" placeholder="Ingrese el DNI del paciente" required />
 				<button type="submit" class="button-gral">Buscar</button>
 			</form>
+		</div>
+		<div class="button-container4 sin-foto">
+		<button class="button-gral" onclick="location.href='/doctors/doctor-clinical-history-management'">Atrás</button>
 		</div>
 		<script src="/scripts/reloj.js"></script>
 	</body>
