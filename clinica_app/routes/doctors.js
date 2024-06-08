@@ -14,6 +14,10 @@ router.get(
 	doctorsController.renderDoctorUpdate
 );
 
+router.post('/doctor-clinical-history-search-2', doctorsController.searchDoctorClinicalHistory2);
+
+router.post('/update-clinical-history', doctorsController.updateDoctorClinicalHistory);
+
 router.get(
 	'/doctor-clinical-history-search',
 	doctorsController.renderDoctorSearch
