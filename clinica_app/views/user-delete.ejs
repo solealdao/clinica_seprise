@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <title>Eliminar Usuario</title>
+</head>
+<body>
+    <div class="style-header">
+        <div class="icono_encabezado user"></div>
+        <span class="encabezado">Eliminar Usuario</span>
+    </div>
+    <div class="reloj">
+        <p class="tiempo"></p>
+        <p class="fecha"></p>
+    </div>
+    
+    <form id="delete-user-form" action="/users/delete" method="POST">
+        <div class="form-section2">
+            <label for="email">Email del usuario a eliminar:</label>
+            <select id="email" name="email" required>
+                <% users.forEach(function(user) { %>
+                    <option value="<%= user.email %>"><%= user.email %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="button-container">
+            <button class="button-gral" type="submit">Eliminar Usuario</button>
+        </div>
+    </form>
+    
+    <div class="button-container4">
+        <button class="button-gral" onclick="location.href='/users/user-management'">Atrás</button>
+    </div>
+    
+    <script src="/scripts/reloj.js"></script>
+</body>
+</html>

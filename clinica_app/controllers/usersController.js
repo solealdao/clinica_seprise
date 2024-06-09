@@ -58,6 +58,22 @@ let controllerUsers = {
             console.error(error);
             res.status(500).send('Lo sentimos, ha ocurrido un error.');
         }
+    },
+    renderUserDelete: (req, res) => {
+        const users = loadUsers();
+        res.render('user-delete', { users });
+    },
+    deleteUser: (req, res) => {
+        try {
+            const { email } = req.body;
+            let usuarios = loadUsers();
+            usuarios = usuarios.filter(user => user.email !== email);
+            saveUsers(usuarios);
+            res.redirect('/users/user-management');
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Lo sentimos, ha ocurrido un error.');
+        }
     }
 };
 

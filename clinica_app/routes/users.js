@@ -42,4 +42,10 @@ router.get('/user-management2', usersController.renderUsersManagement2);
 // Ruta para renderizar la vista de nuevo usuario
 router.get('/user-new', usersController.renderUserNew);
 
+// Ruta para renderizar la eliminación de usuarios
+router.get('/user-delete', usersController.renderUserDelete);
+
+// Ruta para manejar la eliminación de usuarios
+router.post('/delete', usersController.deleteUser);
+
 module.exports = router;

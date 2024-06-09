@@ -14,41 +14,6 @@
       "email": "alana@hotmail.com",
       "password": "123",
       "permisos": "tecnico"
-    },
-    {
-      "email": "Sole@hotmail.com",
-      "password": "123",
-      "permisos": "admin"
-    },
-    {
-      "email": "Sole@hotmail.com",
-      "password": "123",
-      "permisos": "admin"
-    },
-    {
-      "email": "Sole@hotmail.com",
-      "password": "123",
-      "permisos": "admin"
-    },
-    {
-      "email": "Sole@hotmail.com",
-      "password": "123",
-      "permisos": "admin"
-    },
-    {
-      "email": "Sole@hotmail.com",
-      "password": "123",
-      "permisos": "admin"
-    },
-    {
-      "email": "Sole@hotmail.com",
-      "password": "123",
-      "permisos": "admin"
-    },
-    {
-      "email": "Sole@hotmail.com",
-      "password": "123",
-      "permisos": "admin"
     }
   ]
 }
