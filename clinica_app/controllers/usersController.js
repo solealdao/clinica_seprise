@@ -74,6 +74,27 @@ let controllerUsers = {
             console.error(error);
             res.status(500).send('Lo sentimos, ha ocurrido un error.');
         }
+    },
+	renderUserUpdate: (req, res) => {
+        res.render('user-update');
+    },
+
+    updateUser: (req, res) => {
+        try {
+            const { email, password, permisos } = req.body;
+            let usuarios = loadUsers();
+            const index = usuarios.findIndex(user => user.email === email);
+            if (index !== -1) {
+                usuarios[index] = { email, password, permisos };
+                saveUsers(usuarios);
+                res.redirect('/users/user-management');
+            } else {
+                res.status(404).send('Usuario no encontrado');
+            }
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Lo sentimos, ha ocurrido un error.');
+        }
     }
 };
 

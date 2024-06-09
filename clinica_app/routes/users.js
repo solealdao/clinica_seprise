@@ -48,4 +48,10 @@ router.get('/user-delete', usersController.renderUserDelete);
 // Ruta para manejar la eliminación de usuarios
 router.post('/delete', usersController.deleteUser);
 
+// Ruta para renderizar la vista de modificar usuario
+router.get('/user-update', usersController.renderUserUpdate);
+
+// Ruta para manejar la actualización de usuarios
+router.post('/update', usersController.updateUser);
+
 module.exports = router;

@@ -2,7 +2,7 @@
   "usuarios": [
     {
       "email": "ana@hotmail.com",
-      "password": "123",
+      "password": "1234",
       "permisos": "admin"
     },
     {

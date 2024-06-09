@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Usuario</title>
+    <link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="style-header">
+        <div class="icono_encabezado user"></div>
+        <span class="encabezado">Modificar Usuario</span>
+    </div>
+    <div class="reloj">
+        <p class="tiempo"></p>
+        <p class="fecha"></p>
+    </div>
+    
+    <form id="update-user-form" action="/users/update" method="POST">
+        <div class="form-section2">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-section2">
+            <label for="password">Nueva Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-section2">
+            <label for="permisos">Nuevo Permisos:</label>
+            <select id="permisos" name="permisos" required>
+                <option value="admin">Admin</option>
+                <option value="medico">Médico</option>
+                <option value="tecnico">Técnico</option>
+            </select>
+        </div>
+        <div class="button-container4">
+        <button class="button-gral" type="submit">Modificar Usuario</button>
+        </div>
+    </form>
+    
+    <div class="button-container4">
+        <button class="button-gral" onclick="location.href='/users/user-management'">Atrás</button>
+    </div>
+    
+    <script src="/scripts/reloj.js"></script>
+</body>
+</html>
