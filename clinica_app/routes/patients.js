@@ -18,6 +18,7 @@ router.get(
 );
 router.post('/patient-save', patientsController.saveEditedPatient);
 
+router.get('/patient-delete', patientsController.renderDeletePatient);
 router.post('/patient-delete', patientsController.deletePatient);
 
 module.exports = router;

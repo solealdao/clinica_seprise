@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <title>Eliminar Paciente</title>
+</head>
+<body>
+    <div class="style-header">
+        <div class="icono_encabezado user"></div>
+        <span class="encabezado">Eliminar Paciente</span>
+    </div>
+    <div class="reloj">
+        <p class="tiempo"></p>
+        <p class="fecha"></p>
+    </div>
+    
+    <form id="delete-patient-form" action="/patients/patient-delete" method="POST">
+        <div class="form-section2">
+            <label for="dniPaciente">DNI del paciente a eliminar:</label>
+            <select id="dniPaciente" name="dniPaciente" required>
+                <% patients.forEach(function(patient) { %>
+                    <option value="<%= patient.dniPaciente %>"><%= patient.nombreCompleto %> - <%= patient.dniPaciente %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="button-container">
+            <button class="button-gral" type="submit">Eliminar Paciente</button>
+        </div>
+    </form>
+    
+    <div class="button-container4">
+        <button class="button-gral" onclick="location.href='/patients/patient-management'">Atrás</button>
+    </div>
+    
+    <script src="/scripts/reloj.js"></script>
+</body>
+</html>

@@ -157,29 +157,21 @@ let controllerPatient = {
 			});
 		}
 	},
-	deletePatient: (req, res) => {
-		const { idPaciente } = req.body;
-
-		try {
-			let patients = loadPatients();
-			const index = patients.findIndex(
-				(paciente) => paciente.idPaciente === idPaciente
-			);
-
-			if (index !== -1) {
-				patients.splice(index, 1);
-				savePatients(patients);
-				res.status(200).json({ message: 'Paciente eliminado con éxito' });
-			} else {
-				res.status(404).json({ message: 'Paciente no encontrado' });
-			}
-		} catch (error) {
-			console.error(error);
-			res.status(500).json({
-				message: 'Error al eliminar el paciente',
-				error: error.message,
-			});
-		}
-	},
+	renderDeletePatient: (req, res) => {
+        const patients = loadPatients();
+        res.render('patient-delete', { patients });
+    },
+    deletePatient: (req, res) => {
+        try {
+            const { dniPaciente } = req.body;
+            let patients = loadPatients();
+            patients = patients.filter(patient => patient.dniPaciente !== dniPaciente);
+            savePatients(patients);
+            res.redirect('/patients/patient-management');
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Lo sentimos, ha ocurrido un error.');
+        }
+    },
 };
 module.exports = controllerPatient;
