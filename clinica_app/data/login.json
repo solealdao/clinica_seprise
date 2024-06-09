@@ -1,19 +1,54 @@
 {
-    "usuarios": [
-        {
-            "email": "ana@hotmail.com",
-            "password": "123",
-            "permisos": "admin"
-        },
-        {
-            "email": "juana@hotmail.com",
-            "password": "123",
-            "permisos": "medico"
-        },
-        {
-            "email": "alana@hotmail.com",
-            "password": "123",
-            "permisos": "tecnico"
-        }
-    ]
+  "usuarios": [
+    {
+      "email": "ana@hotmail.com",
+      "password": "123",
+      "permisos": "admin"
+    },
+    {
+      "email": "juana@hotmail.com",
+      "password": "123",
+      "permisos": "medico"
+    },
+    {
+      "email": "alana@hotmail.com",
+      "password": "123",
+      "permisos": "tecnico"
+    },
+    {
+      "email": "Sole@hotmail.com",
+      "password": "123",
+      "permisos": "admin"
+    },
+    {
+      "email": "Sole@hotmail.com",
+      "password": "123",
+      "permisos": "admin"
+    },
+    {
+      "email": "Sole@hotmail.com",
+      "password": "123",
+      "permisos": "admin"
+    },
+    {
+      "email": "Sole@hotmail.com",
+      "password": "123",
+      "permisos": "admin"
+    },
+    {
+      "email": "Sole@hotmail.com",
+      "password": "123",
+      "permisos": "admin"
+    },
+    {
+      "email": "Sole@hotmail.com",
+      "password": "123",
+      "permisos": "admin"
+    },
+    {
+      "email": "Sole@hotmail.com",
+      "password": "123",
+      "permisos": "admin"
+    }
+  ]
 }
