@@ -317,7 +317,7 @@ a {
 	width: 200px;
 	height: 200px;
 	background-size: cover;
-	margin-top: -3%;
+	margin-top: -1%;
 	left: 5%;
 }
 
@@ -336,6 +336,11 @@ a {
 .hc {
 	background-image: url('../images/hc.png');
 }
+
+.dolar {
+	background-image: url('../images/dolar.png');
+}
+
 /* Establece el padding del body solo para otros elementos */
 body:not(.style-header) {
 	padding: 0px;
