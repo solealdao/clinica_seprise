@@ -8,22 +8,31 @@ router.get(
 );
 
 router.get('/doctor-clinical-history-new', doctorsController.renderDoctorNew);
+//acá se puede poner el POST de medical-record
 
 router.get(
 	'/doctor-clinical-history-update',
 	doctorsController.renderDoctorUpdate
 );
 
-router.post('/doctor-clinical-history-search-2', doctorsController.searchDoctorClinicalHistory2);
+router.post(
+	'/doctor-clinical-history-search-2',
+	doctorsController.searchDoctorClinicalHistory2
+);
 
-router.post('/update-clinical-history', doctorsController.updateDoctorClinicalHistory);
+router.post(
+	'/update-clinical-history',
+	doctorsController.updateDoctorClinicalHistory
+);
 
 router.get(
 	'/doctor-clinical-history-search',
 	doctorsController.renderDoctorSearch
 );
 // Nueva ruta POST para buscar historias clínicas
-router.post('/doctor-clinical-history-search',
-doctorsController.searchDoctorClinicalHistory);
+router.post(
+	'/doctor-clinical-history-search',
+	doctorsController.searchDoctorClinicalHistory
+);
 
 module.exports = router;

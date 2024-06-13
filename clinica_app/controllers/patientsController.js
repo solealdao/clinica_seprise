@@ -89,10 +89,12 @@ let controllerPatient = {
 			};
 			patients.push(newPatient);
 			savePatients(patients);
-			res.redirect('/patients/patient-management');
+			return res.status(200).json({
+				message: 'Paciente agregado con éxito',
+			});
 		} catch (error) {
 			console.error(error);
-			res.status(500).render('/patients/patient-new', {
+			return res.status(500).json({
 				message: 'Error al agregar nuevo paciente',
 				error: error.message,
 			});
@@ -158,20 +160,25 @@ let controllerPatient = {
 		}
 	},
 	renderDeletePatient: (req, res) => {
-        const patients = loadPatients();
-        res.render('patient-delete', { patients });
-    },
-    deletePatient: (req, res) => {
-        try {
-            const { dniPaciente } = req.body;
-            let patients = loadPatients();
-            patients = patients.filter(patient => patient.dniPaciente !== dniPaciente);
-            savePatients(patients);
-            res.redirect('/patients/patient-management');
-        } catch (error) {
-            console.error(error);
-            res.status(500).send('Lo sentimos, ha ocurrido un error.');
-        }
-    },
+		const patients = loadPatients();
+		res.render('patient-delete', { patients });
+	},
+	deletePatient: (req, res) => {
+		const { dniPaciente } = req.body;
+		try {
+			let patients = loadPatients();
+			patients = patients.filter(
+				(patient) => patient.dniPaciente !== dniPaciente
+			);
+			savePatients(patients);
+			res.status(200).json({ message: 'Paciente eliminado con éxito' });
+		} catch (error) {
+			console.error(error);
+			res.status(500).json({
+				message: 'Error al eliminar el paciente',
+				error: error.message,
+			});
+		}
+	},
 };
 module.exports = controllerPatient;

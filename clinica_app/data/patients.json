@@ -13,28 +13,19 @@
       "nombreCompleto": "Laura Rodriguez",
       "email": "Laura@hotmail.com",
       "fechaNacimiento": "15/27/2000",
-      "direccion": "Av. San juan 123",
+      "direccion": "Av. San juan 1234",
       "tipoCobertura": "Particular",
       "idPaciente": "P04",
       "dniPaciente": "35379825"
     },
     {
-      "nombreCompleto": "Dua Lipa",
-      "email": "dlipa@gmail.com",
-      "fechaNacimiento": "1995-06-26",
-      "direccion": "LALALALAL",
-      "tipoCobertura": "Osde",
-      "idPaciente": "P05",
-      "dniPaciente": "12345678"
-    },
-    {
-      "nombreCompleto": "Cosme Fulanito",
-      "email": "cosme@gmail.com",
-      "fechaNacimiento": "2013-02-02",
-      "direccion": "siempre via 123",
-      "tipoCobertura": "OSDE",
-      "idPaciente": "P06",
-      "dniPaciente": "34951895"
+      "nombreCompleto": "Nuevo Paciente",
+      "email": "juan@hotmail.com",
+      "fechaNacimiento": "1998-12-02",
+      "direccion": "Av. San juan 1234",
+      "tipoCobertura": "Swiss Medical",
+      "idPaciente": "P03",
+      "dniPaciente": "22333444"
     }
   ]
 }

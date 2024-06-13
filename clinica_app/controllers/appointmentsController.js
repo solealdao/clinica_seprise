@@ -196,18 +196,22 @@ let controllerAppointment = {
 
 		try {
 			const appointments = loadAppointments();
+			console.log('Appointments:', appointments);
 			const turno = appointments.turnosReservados.find(
 				(turno) => turno.idTurno === idTurno
 			);
-
+			console.log('Turno:', turno);
 			if (!turno) {
 				return res.status(404).send('Turno no encontrado');
 			}
 
 			const doctors = loadDoctors();
 			const doctor = doctors.find((doc) => doc.idMedico === turno.idMedico);
+			console.log('Doctor:', doctor);
 			const patients = loadPatients();
+			console.log('Patients:', patients);
 			const patient = patients.find((pat) => pat.dniPaciente === dni);
+			console.log('Patient:', patient);
 
 			if (!doctor || !patient) {
 				return res.status(404).send('Doctor o Paciente no encontrado');

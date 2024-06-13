@@ -25,56 +25,71 @@
 			<p class="fecha"></p>
 		</div>
 
-		<div class="button-container2 sin-foto">
-			<label for="dniPaciente">Ingrese el DNI del paciente</label>
-			<br />
+		<div class="search-page-container">
+			<label class="page-title" for="dniPaciente"
+				>Ingrese el DNI del paciente</label
+			>
 			<form
 				id="searchPatientForm"
 				action="/patients/patient-search"
 				method="post"
 			>
-				<input
-					type="text"
-					name="dniPaciente"
-					class="style-input"
-					placeholder="Ingrese el DNI del paciente"
-					required
-				/>
-				<button type="submit" class="button-gral">Buscar</button>
+				<div class="search-input-container">
+					<input
+						type="text"
+						name="dniPaciente"
+						placeholder="Ingrese el DNI del paciente"
+						required
+					/>
+				</div>
+				<div class="button-container">
+					<button
+						type="button"
+						class="back-button"
+						onclick="location.href='/patients/patient-management'"
+					>
+						Cancelar
+					</button>
+					<button type="submit" class="button-gral">Buscar</button>
+				</div>
 			</form>
-			<div class="button-container4"><button class="button-gral" onclick="location.href='/patients/patient-management'">Atrás</button></div>
 		</div>
 		<% if (typeof pacienteFiltrado !== 'undefined' && pacienteFiltrado.length
 		> 0) { %>
-		<div class="results">
+		<div class="search-results-container">
 			<h2>Resultados de la búsqueda</h2>
-			<ul>
-				<% pacienteFiltrado.forEach(pacienteFiltrado => { %>
-				<li>
-					Nombre: <%= pacienteFiltrado.nombreCompleto %> - Email: <%=
-					pacienteFiltrado.email %> - Fecha de Nacimiento: <%=
-					pacienteFiltrado.fechaNacimiento %>
-					<a
-						href="/patients/patient-update/<%= pacienteFiltrado.idPaciente %>"
-						class="button-edit"
-						>Editar</a
-					>
-					<form
-						id="patient-delete-<%= pacienteFiltrado.idPaciente %>"
-						action="/patients/patient-delete"
-						method="post"
-						style="display: inline"
-					>
-						<input
-							type="hidden"
-							name="idPaciente"
-							value="<%= pacienteFiltrado.idPaciente %>"
-						/>
-						<button type="submit" class="button-delete">Eliminar</button>
-					</form>
-				</li>
-				<% }) %>
-			</ul>
+			<div class="search-results">
+				<ul>
+					<% pacienteFiltrado.forEach(pacienteFiltrado => { %>
+					<li>
+						<strong>Nombre:</strong> <%= pacienteFiltrado.nombreCompleto
+						%> - <strong>Email: </strong><%= pacienteFiltrado.email %> -
+						<strong>Fecha de Nacimiento:</strong> <%=
+						pacienteFiltrado.fechaNacimiento %>
+						<a
+							href="/patients/patient-update/<%= pacienteFiltrado.idPaciente %>"
+							class="button-edit"
+							>Editar</a
+						>
+						<form
+							id="patient-delete-<%= pacienteFiltrado.idPaciente %>"
+							action="/patients/patient-delete"
+							method="post"
+							style="display: inline"
+						>
+							<input
+								type="hidden"
+								name="dniPaciente"
+								value="<%= pacienteFiltrado.dniPaciente %>"
+							/>
+							<button type="submit" class="button-delete">
+								Eliminar
+							</button>
+						</form>
+					</li>
+					<% }) %>
+				</ul>
+			</div>
 		</div>
 		<% } else if (typeof paciente !== 'undefined') { %>
 		<div class="no-results">
@@ -84,34 +99,35 @@
 
 		<script>
 			document
-				.getElementById('patient-delete')
-				.addEventListener('submit', function (event) {
-					event.preventDefault();
+				.querySelectorAll('form[id^="patient-delete-"]')
+				.forEach((form) => {
+					form.addEventListener('submit', function (event) {
+						event.preventDefault();
 
-					const form = event.target;
-					const formData = new FormData(form);
-					const data = new URLSearchParams(formData);
+						const formData = new FormData(form);
+						const data = new URLSearchParams(formData);
 
-					fetch('/patients/patient-delete', {
-						method: 'POST',
-						body: data,
-					})
-						.then((response) => {
-							if (!response.ok) {
-								throw new Error(
-									'Error en la solicitud: ' + response.statusText
-								);
-							}
-							return response.json();
+						fetch('/patients/patient-delete', {
+							method: 'POST',
+							body: data,
 						})
-						.then((result) => {
-							alert(result.message);
-							window.location.href = '/patients/patient-management';
-						})
-						.catch((error) => {
-							console.error('Error:', error);
-							alert('Ocurrió un error al actualizar los suministros.');
-						});
+							.then((response) => {
+								if (!response.ok) {
+									throw new Error(
+										'Error en la solicitud: ' + response.statusText
+									);
+								}
+								return response.json();
+							})
+							.then((result) => {
+								alert(result.message);
+								window.location.href = '/patients/patient-management';
+							})
+							.catch((error) => {
+								console.error('Error:', error);
+								alert('Ocurrió un error al eliminar el paciente.');
+							});
+					});
 				});
 		</script>
 		<script src="/scripts/reloj.js"></script>

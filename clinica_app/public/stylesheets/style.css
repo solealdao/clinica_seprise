@@ -3,7 +3,9 @@
 	--secondary-color: #ffffff;
 	--yellow-color: #bc9f2d;
 	--dark-green-color: #4b6367;
+	--dark-gray-color: #595b5b;
 	--light-green-color: #199f93;
+	--danger-color: #ac2108;
 	--background-color: #bebebe;
 	/*--font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;*/
 	--font-family: Mulish;
@@ -279,25 +281,23 @@ a {
 }
 
 .button-container3 {
-    display: flex;
-    flex-direction: row; 
-    align-items: center; 
-    justify-content: center; 
-	
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }
 
 .button-container4 {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	margin-top: 70px;
-} 
+}
 
 .fijo {
 	position: fixed;
-	top: 300px; 
-    
+	top: 300px;
 }
 
 .encabezado {
@@ -440,6 +440,7 @@ select {
 	font-size: 20px;
 	padding: 10px;
 	width: 380px;
+	border-radius: 5px;
 }
 .select-container {
 	display: flex;
@@ -506,12 +507,12 @@ select {
 }
 
 .form-section2 {
-    text-align: center;
+	text-align: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	max-width: 400px; 
-    margin: 0 auto;
+	max-width: 400px;
+	margin: 0 auto;
 	margin-top: 50px;
 }
 
@@ -728,34 +729,177 @@ td {
 }
 /* Estilos para visualizar la historia clínica */
 .clinic-history-container {
-    max-width: 800px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+	max-width: 800px;
+	margin: 20px auto;
+	background: white;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
 }
 
 .clinic-history-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
 .clinic-history-list {
-    list-style: none;
-    padding: 0;
+	list-style: none;
+	padding: 0;
 }
 
 .clinic-history-item {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+	margin-bottom: 20px;
+	padding: 15px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background-color: #f9f9f9;
 }
 
 .clinic-history-item strong {
-    display: inline-block;
-    width: 150px;
-    font-weight: bold;
+	display: inline-block;
+	width: 150px;
+	font-weight: bold;
+}
+
+/* Estilos de botones de modificacion y eliminacion */
+.button-edit {
+	text-decoration: none;
+	background-color: var(--yellow-color);
+	color: var(--primary-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	padding: 10px 20px;
+	font-weight: Bold;
+	font-size: 20px;
+	width: 170px;
+	height: 100px;
+	opacity: 1;
+	text-align: center;
+	border-radius: 17px;
+	border: 0px;
+	margin: 5px;
+}
+
+.button-edit:hover {
+	background-color: var(--dark-green-color);
+	color: var(--secondary-color);
+}
+
+.button-delete {
+	background-color: var(--danger-color);
+	color: var(--secondary-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	padding: 10px 20px;
+	font-weight: Bold;
+	font-size: 20px;
+	width: 120px;
+	height: 50px;
+	opacity: 1;
+	text-align: center;
+	border-radius: 17px;
+	border: 0px;
+	margin: 5px;
+}
+
+.button-delete:hover {
+	background-color: var(--dark-green-color);
+}
+
+/* Estilos de resultados de consultas */
+.search-page-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+.search-input-container {
+	display: flex;
+	justify-content: center;
+}
+.search-input-container input {
+	border: 1px solid var(--dark-gray-color);
+	width: 230px;
+	height: 40px;
+	font-size: 16px;
+	padding: 4px;
+	border-radius: 5px;
+}
+
+.page-title {
+	font-size: 30px;
+	font-weight: bold;
+	color: var(--dark-green-color);
+	margin: 20px 0;
+}
+.search-results-container {
+	margin: 50px auto 20px;
+}
+.search-results-container h2 {
+	text-align: center;
+}
+.search-results {
+	display: flex;
+	justify-content: center;
+}
+
+/* Estilos de pagina de edicion */
+.edit-page-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px;
+}
+.edit-page-container form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.edit-input {
+	display: flex;
+	flex-direction: column;
+	margin: 15px 0;
+}
+.edit-input label {
+	font-size: 16px;
+	font-weight: bold;
+	color: var(--dark-gray-color);
+}
+.edit-input input {
+	border: 1px solid var(--dark-gray-color);
+	width: 230px;
+	height: 35px;
+	font-size: 16px;
+	padding: 4px;
+	border-radius: 5px;
+}
+
+/* ESTILOS BOTONES */
+.button-container-management {
+	display: flex;
+	justify-content: center;
+	margin: 40px;
+}
+.button-container-management button {
+	margin: 0 40px;
+}
+.back-button-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
+.back-button {
+	background-color: var(--yellow-color);
+	color: var(--dark-gray-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+.back-button:hover {
+	background-color: var(--dark-green-color);
+	color: var(--secondary-color);
 }

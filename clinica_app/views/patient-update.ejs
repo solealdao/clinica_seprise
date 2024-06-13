@@ -24,7 +24,7 @@
 			<p class="tiempo"></p>
 			<p class="fecha"></p>
 		</div>
-		<div class="button-container2 sin-foto">
+		<div class="edit-page-container">
 			<form
 				id="patient-update"
 				action="/patients/patient-save"
@@ -35,47 +35,68 @@
 					name="idPaciente"
 					value="<%= paciente.idPaciente %>"
 				/>
-				<label for="nombreCompleto">Nombre Completo:</label>
-				<input
-					type="text"
-					id="nombreCompleto"
-					name="nombreCompleto"
-					value="<%= paciente.nombreCompleto %>"
-					required
-				/>
-				<label for="email">Email:</label>
-				<input
-					type="email"
-					id="email"
-					name="email"
-					value="<%= paciente.email %>"
-					required
-				/>
-				<label for="fechaNacimiento">Fecha de Nacimiento:</label>
-				<input
-					type="text"
-					id="fechaNacimiento"
-					name="fechaNacimiento"
-					value="<%= paciente.fechaNacimiento %>"
-					required
-				/>
-				<label for="direccion">Dirección:</label>
-				<input
-					type="text"
-					id="direccion"
-					name="direccion"
-					value="<%= paciente.direccion %>"
-					required
-				/>
-				<label for="tipoCobertura">Tipo de Cobertura:</label>
-				<input
-					type="text"
-					id="tipoCobertura"
-					name="tipoCobertura"
-					value="<%= paciente.tipoCobertura %>"
-					required
-				/>
-				<button type="submit">Guardar Cambios</button>
+				<div class="edit-input">
+					<label for="nombreCompleto">Nombre Completo:</label>
+					<input
+						type="text"
+						id="nombreCompleto"
+						name="nombreCompleto"
+						value="<%= paciente.nombreCompleto %>"
+						required
+					/>
+				</div>
+				<div class="edit-input">
+					<label for="email">Email:</label>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						value="<%= paciente.email %>"
+						required
+					/>
+				</div>
+				<div class="edit-input">
+					<label for="fechaNacimiento">Fecha de Nacimiento:</label>
+					<input
+						type="text"
+						id="fechaNacimiento"
+						name="fechaNacimiento"
+						value="<%= paciente.fechaNacimiento %>"
+						required
+					/>
+				</div>
+				<div class="edit-input">
+					<label for="direccion">Dirección:</label>
+					<input
+						type="text"
+						id="direccion"
+						name="direccion"
+						value="<%= paciente.direccion %>"
+						required
+					/>
+				</div>
+				<div class="edit-input">
+					<label for="tipoCobertura">Tipo de Cobertura:</label>
+					<input
+						type="text"
+						id="tipoCobertura"
+						name="tipoCobertura"
+						value="<%= paciente.tipoCobertura %>"
+						required
+					/>
+				</div>
+				<div class="button-container">
+					<button
+						type="button"
+						class="button-gral"
+						onclick="location.href='/patients/patient-management'"
+					>
+						Volver
+					</button>
+					<button type="submit" class="button-gral">
+						Guardar Cambios
+					</button>
+				</div>
 			</form>
 		</div>
 		<script>

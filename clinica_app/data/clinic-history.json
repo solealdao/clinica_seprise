@@ -59,6 +59,16 @@
       "motivoConsulta": "Fiebre y dolor de garganta",
       "diagnostico": "COVID",
       "tratamiento": "Reposo y medicamentos antipiréticos"
+    },
+    {
+      "idHistoriaClinica": "4567",
+      "idPaciente": "P04",
+      "dniPaciente": "35379710",
+      "idMedico": "M03",
+      "fechaConsulta": "2024-02-04",
+      "motivoConsulta": "Dolor de garganta",
+      "diagnostico": "Gripe",
+      "tratamiento": "Reposo"
     }
   ]
 }

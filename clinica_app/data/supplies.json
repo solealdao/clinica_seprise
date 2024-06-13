@@ -16,19 +16,19 @@
   "electrocardiograma": [
     {
       "insumo": "Electrodos",
-      "cantidad": 98
+      "cantidad": 97
     },
     {
       "insumo": "Gel conductor",
-      "cantidad": 48
+      "cantidad": 47
     },
     {
       "insumo": "Toallitas o alcohol para limpiar la piel",
-      "cantidad": 48
+      "cantidad": 47
     },
     {
       "insumo": "Papel para imprimir los resultados del electrocardiograma",
-      "cantidad": 48
+      "cantidad": 47
     }
   ],
   "radiografia": [
