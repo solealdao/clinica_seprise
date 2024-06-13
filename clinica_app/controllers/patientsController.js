@@ -41,11 +41,12 @@ let controllerPatient = {
 			);
 
 			if (pacienteFiltrado.length === 0) {
-				return res.status(404).json({
-					message: 'No se encontraron datos para el DNI proporcionado',
+				return res.render('patient-search', {
+					pacienteFiltrado: [],
+					noResults: true,
 				});
 			}
-			res.render('patient-search', { pacienteFiltrado });
+			res.render('patient-search', { pacienteFiltrado, noResults: false });
 		} catch (error) {
 			console.error(error);
 			res.status(500).json({

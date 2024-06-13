@@ -219,83 +219,6 @@ a {
 	box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.button-container2 {
-	justify-content: space-between;
-	width: 90%;
-	margin: 0 auto;
-	padding: 20px;
-	position: relative;
-}
-
-.button-container-3 {
-	display: flex;
-	justify-content: space-around;
-	width: 90%;
-	margin: 0 auto;
-	padding: 20px;
-}
-
-.justificado {
-	display: flex;
-}
-
-.centrado {
-	display: block;
-}
-
-.con-foto {
-	top: 200px;
-}
-
-.sin-foto {
-	top: 30px;
-}
-
-.button-gral {
-	background-color: var(--light-green-color);
-	color: var(--yellow-color);
-	cursor: pointer;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-.button-gral-enlaces {
-	display: inline-block;
-	background-color: var(--light-green-color);
-	color: var(--yellow-color);
-	cursor: pointer;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-	padding: 10px 20px;
-	text-decoration: none;
-	border-radius: 5px;
-	transition: background-color 0.3s ease;
-}
-
-.button-gral:hover {
-	background-color: var(--dark-green-color);
-}
-
-.button-gral-index-doc {
-	margin-right: 100px;
-	margin-left: 100px;
-}
-
-.button-container3 {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-}
-
-.button-container4 {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin-top: 70px;
-}
-
 .fijo {
 	position: fixed;
 	top: 300px;
@@ -923,4 +846,85 @@ td {
 .back-button:hover {
 	background-color: var(--dark-green-color);
 	color: var(--secondary-color);
+}
+
+.button-container2 {
+	justify-content: space-between;
+	width: 90%;
+	margin: 170px auto 10px;
+	padding: 20px;
+}
+
+.button-container2 button {
+	margin: 0 35px;
+}
+
+.button-container-3 {
+	display: flex;
+	justify-content: space-around;
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.justificado {
+	display: flex;
+	justify-content: center;
+}
+
+.centrado {
+	display: block;
+}
+
+.con-foto {
+	top: 200px;
+}
+
+.sin-foto {
+	top: 30px;
+}
+
+.button-gral {
+	background-color: var(--light-green-color);
+	color: var(--yellow-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.button-gral-enlaces {
+	display: inline-block;
+	background-color: var(--light-green-color);
+	color: var(--yellow-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	padding: 10px 20px;
+	text-decoration: none;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+.button-gral:hover {
+	background-color: var(--dark-green-color);
+}
+
+.button-gral-index-doc {
+	margin-right: 100px;
+	margin-left: 100px;
+}
+
+.button-container3 {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.button-container4 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 70px;
 }
