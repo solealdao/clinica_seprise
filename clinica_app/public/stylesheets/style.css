@@ -3,6 +3,7 @@
 	--secondary-color: #ffffff;
 	--yellow-color: #bc9f2d;
 	--dark-green-color: #4b6367;
+	--dark-blue-color: #040e43;
 	--dark-gray-color: #595b5b;
 	--light-green-color: #199f93;
 	--danger-color: #ac2108;
@@ -761,53 +762,6 @@ td {
 	font-weight: bold;
 }
 
-/* Estilos de botones de modificacion y eliminacion */
-.button-edit {
-	text-decoration: none;
-	background-color: var(--yellow-color);
-	color: var(--primary-color);
-	cursor: pointer;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-	padding: 10px 20px;
-	font-weight: Bold;
-	font-size: 20px;
-	width: 170px;
-	height: 100px;
-	opacity: 1;
-	text-align: center;
-	border-radius: 17px;
-	border: 0px;
-	margin: 5px;
-}
-
-.button-edit:hover {
-	background-color: var(--dark-green-color);
-	color: var(--secondary-color);
-}
-
-.button-delete {
-	background-color: var(--danger-color);
-	color: var(--secondary-color);
-	cursor: pointer;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-	padding: 10px 20px;
-	font-weight: Bold;
-	font-size: 20px;
-	width: 120px;
-	height: 50px;
-	opacity: 1;
-	text-align: center;
-	border-radius: 17px;
-	border: 0px;
-	margin: 5px;
-}
-
-.button-delete:hover {
-	background-color: var(--dark-green-color);
-}
-
 /* Estilos de resultados de consultas */
 .search-page-container {
 	display: flex;
@@ -879,6 +833,73 @@ td {
 }
 
 /* ESTILOS BOTONES */
+.button-edit {
+	text-decoration: none;
+	background-color: var(--yellow-color);
+	color: var(--primary-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	padding: 10px 20px;
+	font-weight: Bold;
+	font-size: 20px;
+	width: 170px;
+	height: 100px;
+	opacity: 1;
+	text-align: center;
+	border-radius: 17px;
+	border: 0px;
+	margin: 5px;
+}
+
+.button-edit:hover {
+	background-color: var(--dark-green-color);
+	color: var(--secondary-color);
+}
+
+.button-delete {
+	background-color: var(--danger-color);
+	color: var(--secondary-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	padding: 10px 20px;
+	font-weight: Bold;
+	font-size: 20px;
+	width: 120px;
+	height: 50px;
+	opacity: 1;
+	text-align: center;
+	border-radius: 17px;
+	border: 0px;
+	margin: 5px;
+}
+
+.button-delete:hover {
+	background-color: var(--dark-green-color);
+}
+.button-pay {
+	text-decoration: none;
+	background-color: var(--dark-blue-color);
+	color: var(--secondary-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	padding: 10px 20px;
+	font-weight: Bold;
+	font-size: 20px;
+	width: 170px;
+	height: 100px;
+	opacity: 1;
+	text-align: center;
+	border-radius: 17px;
+	border: 0px;
+	margin: 5px;
+}
+
+.button-pay:hover {
+	background-color: var(--dark-green-color);
+}
 .button-container-management {
 	display: flex;
 	justify-content: center;

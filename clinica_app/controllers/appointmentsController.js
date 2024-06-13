@@ -230,6 +230,9 @@ let controllerAppointment = {
 	renderSearchAppointment: (req, res) => {
 		res.render('appointment-search');
 	},
+	renderPaymentMethod: (req, res) => {
+		res.render('appointment-payment-method');
+	},
 };
 
 module.exports = controllerAppointment;
