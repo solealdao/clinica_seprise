@@ -47,6 +47,12 @@ let controllerUsers = {
     renderUserNew: (req, res) => {
         res.render('user-new');
     },
+    renderUserProfile: (req, res) => {
+        res.render('user-profile');
+    },
+    renderPatientProfile : (req, res) => {
+        res.render('patient-profile');
+    },
     createUser: (req, res) => {
         try {
             const { email, password, permisos } = req.body;

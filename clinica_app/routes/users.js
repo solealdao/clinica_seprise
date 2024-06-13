@@ -54,4 +54,12 @@ router.get('/user-update', usersController.renderUserUpdate);
 // Ruta para manejar la actualización de usuarios
 router.post('/update', usersController.updateUser);
 
+// Ruta para renderizar perfil usuario 
+router.get('/user-profile', usersController.renderUserProfile);
+
+// Ruta para renderizar perfil paciente 
+router.get('/patient-profile', usersController.renderPatientProfile);
+
+
+
 module.exports = router;

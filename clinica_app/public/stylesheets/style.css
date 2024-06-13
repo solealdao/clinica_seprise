@@ -659,6 +659,7 @@ td {
 	padding: 20px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	border-radius: 8px;
+	min-height: 400px;
 }
 
 .clinic-history-container h2 {
@@ -928,3 +929,48 @@ td {
 	justify-content: center;
 	margin-top: 70px;
 }
+/* Estilos para la información del usuario */
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image {
+    width: 80px; /* Ajusta el tamaño según sea necesario */
+    height: 80px;
+    border-radius: 50%; /* Para una imagen de perfil redonda */
+    margin-right: 20px;
+}
+
+.user-details {
+    flex: 1; /* Para ocupar el espacio restante */
+    display: flex;
+    flex-direction: column;
+	text-align: center;
+}
+
+.user-details p {
+    margin: 5px 0;
+}
+
+.user-details p:first-child {
+    font-weight: bold;
+}
+
+.user-details p:nth-child(2) {
+    margin-left: auto;
+}
+
+.info-section {
+    text-align: center; /* Centrar el texto */
+    margin-top: 50px; /* Espacio superior */
+}
+
+.info-section div {
+    margin-bottom: 10px; /* Espacio entre cada div */
+}
+
+.info-section p {
+    font-weight: bold; /* Texto en negrita */
+}
+
