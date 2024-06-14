@@ -86,9 +86,13 @@
 								Eliminar
 							</button>
 						</form>
-						<a href="/appointments/payment-method" class="button-pay"
+						<% if (!turno.turnoPagado) { %>
+						<a
+							href="/appointments/payment-method/<%= turno.idTurno %>"
+							class="button-pay"
 							>Pagar consulta</a
 						>
+						<% } %>
 					</li>
 					<% }) %>
 				</ul>

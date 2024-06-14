@@ -28,12 +28,39 @@
 			<p class="fecha"></p>
 		</div>
 		<div class="button-container-management">
-			<button class="button-gral">Efectivo</button>
-			<button class="button-gral">Tarjeta</button>
-			<button class="button-gral">
-				Obra Social / <br />
-				Prepaga
-			</button>
+			<form
+				id="paymentForm"
+				action="/appointments/confirm-payment"
+				method="post"
+			>
+				<input type="hidden" name="turnoId" value="<%= turnoId %>" />
+				<div class="button-container">
+					<button
+						type="submit"
+						name="paymentMethod"
+						value="efectivo"
+						class="button-gral"
+					>
+						Efectivo
+					</button>
+					<button
+						type="submit"
+						name="paymentMethod"
+						value="tarjeta"
+						class="button-gral"
+					>
+						Tarjeta
+					</button>
+					<button
+						type="submit"
+						name="paymentMethod"
+						value="obra_social"
+						class="button-gral"
+					>
+						Obra Social / Prepaga
+					</button>
+				</div>
+			</form>
 		</div>
 		<div class="back-button-container">
 			<button
@@ -43,7 +70,37 @@
 				Cancelar
 			</button>
 		</div>
-	</body>
 
-	<script src="/scripts/reloj.js"></script>
+		<script>
+			document
+				.getElementById('paymentForm')
+				.addEventListener('submit', function (event) {
+					event.preventDefault();
+
+					const form = event.target;
+					const formData = new FormData(form);
+					const data = new URLSearchParams(formData);
+
+					fetch('/appointments/confirm-payment', {
+						method: 'POST',
+						body: data,
+					})
+						.then((response) => response.json())
+						.then((result) => {
+							if (result.success) {
+								alert(result.message);
+								window.location.href =
+									'/appointments/appointment-search';
+							} else {
+								alert('Error: ' + result.message);
+							}
+						})
+						.catch((error) => {
+							console.error('Error:', error);
+							alert('Ocurrió un error al procesar el pago.');
+						});
+				});
+		</script>
+		<script src="/scripts/reloj.js"></script>
+	</body>
 </html>

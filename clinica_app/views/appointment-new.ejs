@@ -181,6 +181,12 @@
 				if (document.querySelector('input[name="tipoTurno"]:checked')) {
 					filterMedicos();
 				}
+
+				const urlParams = new URLSearchParams(window.location.search);
+				const error = urlParams.get('error');
+				if (error) {
+					alert(decodeURIComponent(error));
+				}
 			});
 		</script>
 		<script>

@@ -55,6 +55,17 @@ let controllerAppointment = {
 	submitNewAppointment: (req, res) => {
 		const { dni, tipoTurno, medicos, turnosDisponibles } = req.body;
 
+		const patients = loadPatients();
+		const pacienteExistente = patients.find(
+			(paciente) => paciente.dniPaciente === dni
+		);
+
+		if (!pacienteExistente) {
+			return res.redirect(
+				'/appointments/appointment-new?error=El+DNI+ingresado+no+corresponde+a+ningún+paciente+registrado.'
+			);
+		}
+
 		let appointmentsData = loadAppointments();
 		let turnoSeleccionado = appointmentsData.turnosDisponibles.find(
 			(turno) => turno.idTurno === turnosDisponibles
@@ -62,6 +73,7 @@ let controllerAppointment = {
 
 		if (turnoSeleccionado) {
 			turnoSeleccionado.dniPaciente = dni;
+			turnoSeleccionado.turnoPagado = false;
 			appointmentsData.turnosDisponibles =
 				appointmentsData.turnosDisponibles.filter(
 					(turno) => turno.idTurno !== turnosDisponibles
@@ -231,7 +243,37 @@ let controllerAppointment = {
 		res.render('appointment-search');
 	},
 	renderPaymentMethod: (req, res) => {
-		res.render('appointment-payment-method');
+		const idTurno = req.params.idTurno;
+		res.render('appointment-payment-method', { turnoId: idTurno });
+	},
+
+	confirmPayment: (req, res) => {
+		const { turnoId } = req.body;
+
+		try {
+			let appointments = loadAppointments();
+			const turno = appointments.turnosReservados.find(
+				(turno) => turno.idTurno === turnoId
+			);
+
+			if (turno) {
+				turno.turnoPagado = true;
+				saveAppointments(appointments);
+				res.json({ success: true, message: 'Pago realizado con éxito' });
+			} else {
+				res.status(404).json({
+					success: false,
+					message: 'Turno no encontrado',
+				});
+			}
+		} catch (error) {
+			console.error(error);
+			res.status(500).json({
+				success: false,
+				message: 'Error al actualizar el estado del turno',
+				error: error.message,
+			});
+		}
 	},
 };
 

@@ -51,14 +51,6 @@
             "dniPaciente": "34951895"
         },
         {
-            "idTurno": "T20",
-            "fechaTurno": "10/07/24",
-            "hora": "08:00",
-            "idMedico": "M02",
-            "tipoTurno": "consultorio",
-            "dniPaciente": "34951895"
-        },
-        {
             "idTurno": "T09",
             "fechaTurno": "03/07/24",
             "hora": "10:00",
@@ -67,20 +59,22 @@
             "dniPaciente": "34951895"
         },
         {
-            "idTurno": "T20",
-            "fechaTurno": "10/07/24",
-            "hora": "15:00",
-            "idMedico": "M02",
-            "tipoTurno": "consultorio",
-            "dniPaciente": "35379710"
-        },
-        {
             "idTurno": "T17",
             "fechaTurno": "07/07/24",
             "hora": "13:00",
             "idMedico": "M06",
             "tipoTurno": "estudios",
-            "dniPaciente": "35379710"
+            "dniPaciente": "35379710",
+            "turnoPagado": true
+        },
+        {
+            "idTurno": "T18",
+            "fechaTurno": "07/07/24",
+            "hora": "14:00",
+            "idMedico": "M06",
+            "tipoTurno": "estudios",
+            "dniPaciente": "35379710",
+            "turnoPagado": false
         },
         {
             "idTurno": "T08",
@@ -89,16 +83,27 @@
             "idMedico": "M08",
             "tipoTurno": "estudios",
             "dniPaciente": "32333444"
-        }
-    ],
-    "turnosDisponibles": [
+        },
+        {
+            "idTurno": "T22",
+            "fechaTurno": "12/07/24",
+            "hora": "17:00",
+            "idMedico": "M04",
+            "tipoTurno": "consultorio",
+            "dniPaciente": "35379710",
+            "turnoPagado": false
+        },
         {
             "idTurno": "T15",
             "fechaTurno": "06/07/24",
             "hora": "10:00",
             "idMedico": "M07",
-            "tipoTurno": "estudios"
-        },
+            "tipoTurno": "estudios",
+            "dniPaciente": "35379825",
+            "turnoPagado": false
+        }
+    ],
+    "turnosDisponibles": [
         {
             "idTurno": "T16",
             "fechaTurno": "07/07/24",
@@ -119,13 +124,6 @@
             "hora": "16:00",
             "idMedico": "M03",
             "tipoTurno": "estudios"
-        },
-        {
-            "idTurno": "T22",
-            "fechaTurno": "12/07/24",
-            "hora": "17:00",
-            "idMedico": "M04",
-            "tipoTurno": "consultorio"
         },
         {
             "idTurno": "T23",

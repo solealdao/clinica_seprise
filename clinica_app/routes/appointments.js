@@ -26,6 +26,10 @@ router.post('/appointment-delete', appointmentsController.deleteAppointment);
 
 router.get('/reserved', appointmentsController.renderShiftHistory);
 
-router.get('/payment-method', appointmentsController.renderPaymentMethod);
+router.get(
+	'/payment-method/:idTurno',
+	appointmentsController.renderPaymentMethod
+);
+router.post('/confirm-payment', appointmentsController.confirmPayment);
 
 module.exports = router;
