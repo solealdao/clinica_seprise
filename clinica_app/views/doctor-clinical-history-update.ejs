@@ -10,127 +10,114 @@
 </head>
 <body>
     <div class="style-header">
-        <div class="icono_encabezado hc"></div>
-        <span class="encabezado">Editar Historia Clínica</span>
+        <div class="icono_encabezado turnos"></div>
+        <span class="encabezado">Editar historia clinica</span>
     </div>
-    <div class="reloj">
-        <p class="tiempo"></p>
-        <p class="fecha"></p>
-    </div>
-    <div class="button-container2 sin-foto">
-        <label for="dniPaciente">Ingrese el DNI del paciente</label>
-        <br>
-        <form id="searchForm" action="/doctors/doctor-clinical-history-search-2" method="post">
-            <input type="text" name="dniPaciente" class="style-input" placeholder="Ingrese el DNI del paciente" required />
-            <button type="submit" class="button-gral">Buscar</button>
-        </form>
-    </div>
+    <form
+        id="clinic-history-update"
+        action="/doctors/clinical-history-save"
+        method="post"
+    >
+        <input type="hidden" name="idHistoriaClinica" value="<%= filteredClinicHistory.idHistoriaClinica %>" />
+     <div class="form-section-hc">
+            <h3>Detalles de la historia clínica</h3>            
+            <label for="patient-id">ID Paciente:</label>
+            <input
+                type="text"
+                id="patient-id"
+                name="idPaciente"
+                pattern="[A-Za-z0-9]+"
+                required
+                value="<%= filteredClinicHistory.idPaciente %>"
+            />
+            <label for="patient-dni">DNI del Paciente:</label>
+            <input
+                type="text"
+                id="patient-dni"
+                name="dniPaciente"
+                required
+                value="<%= filteredClinicHistory.dniPaciente %>"
+            />
+            <label for="doctor-id">ID Médico:</label>
+            <input
+                type="text"
+                id="doctor-id"
+                name="idMedico"
+                pattern="[A-Za-z0-9]+"
+                required
+                value="<%= filteredClinicHistory.idMedico %>"
+            />
+            <label for="consultation-date">Fecha de la Consulta:</label>
+            <input
+                type="date"
+                id="consultation-date"
+                name="fechaConsulta"
+                required
+                value="<%= filteredClinicHistory.fechaConsulta %>"
+            />
+            <label for="consultation-reason">Motivo de la Consulta:</label>
+            <textarea
+                id="consultation-reason"
+                name="motivoConsulta"
+                rows="4"
+                required
+            ><%= filteredClinicHistory.motivoConsulta %></textarea>
+            <label for="diagnosis">Diagnóstico:</label>
+            <textarea
+                id="diagnosis"
+                name="diagnostico"
+                rows="4"
+                required
+            ><%= filteredClinicHistory.diagnostico %></textarea>
+            <label for="treatment">Tratamiento:</label>
+            <textarea
+                id="treatment"
+                name="tratamiento"
+                rows="4"
+                required
+            ><%= filteredClinicHistory.tratamiento %></textarea>
+        </div>
+        <div class="button-container">
+            <button type="button" class="back-button" onclick="cancelar()">
+                Cancelar
+            </button>
+            <button class="button-gral" type="submit">
+                Guardar cambios
+            </button>
+        </div>
+    </form>
+</body>
+<script>
+    document
+        .getElementById('clinic-history-update')
+        .addEventListener('submit', function (event) {
+            event.preventDefault();
 
-    <div id="edit-form-container" style="display: none;">
-        <form id="editForm" action="/doctors/update-clinical-history" method="post">
-            <div class="form-section-hc">
-                <h3>Detalles de la Consulta</h3>
-                <label for="edit-medical-record-id">ID Historia Clínica:</label>
-                <input type="text" id="edit-medical-record-id" name="idHistoriaClinica" pattern="[A-Za-z0-9]+" required readonly>
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = new URLSearchParams(formData);
 
-                <label for="edit-patient-id">ID Paciente:</label>
-                <input type="text" id="edit-patient-id" name="idPaciente" pattern="[A-Za-z0-9]+" required readonly>
-
-                <label for="edit-patient-dni">DNI del Paciente:</label>
-                <input type="number" id="edit-patient-dni" name="dniPaciente" required readonly>
-
-                <label for="edit-doctor-id">ID Médico:</label>
-                <input type="text" id="edit-doctor-id" name="idMedico" pattern="[A-Za-z0-9]+" required>
-
-                <label for="edit-consultation-date">Fecha de la Consulta:</label>
-                <input type="date" id="edit-consultation-date" name="fechaConsulta" required>
-                
-                <label for="edit-consultation-reason">Motivo de la Consulta:</label>
-                <textarea id="edit-consultation-reason" name="motivoConsulta" rows="4" required></textarea>
-                
-                <label for="edit-diagnosis">Diagnóstico:</label>
-                <textarea id="edit-diagnosis" name="diagnostico" rows="4" required></textarea>
-                
-                <label for="edit-treatment">Tratamiento:</label>
-                <textarea id="edit-treatment" name="tratamiento" rows="4" required></textarea>
-            </div>
-            
-            <button class="button-gral-hc" type="submit">Actualizar Historia Clínica</button>
-        </form>
-    </div>
-    <div class="button-container4 sin-foto">
-		<button class="button-gral" onclick="location.href='/doctors/doctor-clinical-history-management'">Atrás</button>
-	</div>
-    <script src="/scripts/reloj.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const searchForm = document.getElementById('searchForm');
-            searchForm.addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                const formData = new FormData(searchForm);
-                const dniPaciente = formData.get('dniPaciente');
-
-                fetch('/doctors/doctor-clinical-history-search-2', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ dniPaciente })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        const patient = data.patient;
-                        document.getElementById('edit-medical-record-id').value = patient.idHistoriaClinica;
-                        document.getElementById('edit-patient-id').value = patient.idPaciente;
-                        document.getElementById('edit-patient-dni').value = patient.dniPaciente;
-                        document.getElementById('edit-doctor-id').value = patient.idMedico;
-                        document.getElementById('edit-consultation-date').value = patient.fechaConsulta;
-                        document.getElementById('edit-consultation-reason').value = patient.motivoConsulta;
-                        document.getElementById('edit-diagnosis').value = patient.diagnostico;
-                        document.getElementById('edit-treatment').value = patient.tratamiento;
-
-                        document.getElementById('edit-form-container').style.display = 'block';
-                    } else {
-                        alert("No se encontró ninguna historia clínica para el DNI proporcionado.");
+            fetch('/doctors/clinical-history-save', {
+                method: 'POST',
+                body: data,
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(
+                            'Error en la solicitud: ' + response.statusText
+                        );
                     }
+                    return response.json();
                 })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Ocurrió un error al buscar la historia clínica.');
-                });
-            });
-
-            const editForm = document.getElementById('editForm');
-            editForm.addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                const formData = new FormData(editForm);
-                const data = {};
-                formData.forEach((value, key) => { data[key] = value; });
-
-                fetch('/doctors/update-clinical-history', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
+                .then((result) => {
+                    alert(result.message);
+                    window.location.href = '/doctors/doctor-clinical-history-management';
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert("Historia clínica actualizada correctamente.");
-                    } else {
-                        alert("No se pudo actualizar la historia clínica.");
-                    }
-                })
-                .catch(error => {
+                .catch((error) => {
                     console.error('Error:', error);
                     alert('Ocurrió un error al actualizar la historia clínica.');
                 });
-            });
         });
-    </script>
+</script>
 </body>
 </html>

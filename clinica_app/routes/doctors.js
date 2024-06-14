@@ -7,32 +7,31 @@ router.get(
 	doctorsController.renderDoctorManagement
 );
 
-router.get('/doctor-clinical-history-new', doctorsController.renderDoctorNew);
-//acá se puede poner el POST de medical-record
+router.get('/clinical-history-register', doctorsController.renderDoctorNew);
+router.post('/clinical-history-register', doctorsController.addMedicalRecord);
+
+router.get('/clinical-history-search', doctorsController.renderDoctorSearch);
+router.post(
+	'/clinical-history-search',
+	doctorsController.getClinicalHistoryByDni
+);
 
 router.get(
-	'/doctor-clinical-history-update',
+	'/clinical-history-update/:idHistoriaClinica',
 	doctorsController.renderDoctorUpdate
 );
-
 router.post(
-	'/doctor-clinical-history-search-2',
-	doctorsController.searchDoctorClinicalHistory2
-);
-
-router.post(
-	'/update-clinical-history',
-	doctorsController.updateDoctorClinicalHistory
+	'/clinical-history-save',
+	doctorsController.saveEditedClinicHistory
 );
 
 router.get(
-	'/doctor-clinical-history-search',
-	doctorsController.renderDoctorSearch
+	'/clinical-history-delete',
+	doctorsController.renderDeleteClinicalHistory
 );
-// Nueva ruta POST para buscar historias clínicas
 router.post(
-	'/doctor-clinical-history-search',
-	doctorsController.searchDoctorClinicalHistory
+	'/clinical-history-delete',
+	doctorsController.deleteClinicalHistory
 );
 
 module.exports = router;

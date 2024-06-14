@@ -1,57 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Historia Clínica</title>
-    <link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
-    <div class="style-header">
-        <div class="icono_encabezado hc medical-record"></div>
-        <span class="encabezado">Registrar Historia Clínica</span>
-    </div>
-    <div class="reloj">
-        <p class="tiempo"></p>
-        <p class="fecha"></p>
-    </div>  
-    
-    <form id="medical-record-form" action="/medical-record" method="POST">
-        <div class="form-section-hc">
-            <h3>Detalles de la Consulta</h3>
-            <label for="medical-record-id">ID Historia Clínica:</label>
-            <input type="text" id="medical-record-id" name="medical-record-id" pattern="[A-Za-z0-9]+" required>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registrar Historia Clínica</title>
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado hc medical-record"></div>
+			<span class="encabezado">Registrar Historia Clínica</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
 
-            <label for="patient-id">ID Paciente:</label>
-            <input type="text" id="patient-id" name="patient-id" pattern="[A-Za-z0-9]+" required>
+		<form
+			id="medical-record-form"
+			action="/doctors/clinical-history-register"
+			method="POST"
+		>
+			<div class="form-section-hc">
+				<h3>Detalles de la Consulta</h3>
+				<label for="medical-record-id">ID Historia Clínica:</label>
+				<input
+					type="text"
+					id="medical-record-id"
+					name="medical-record-id"
+					pattern="[A-Za-z0-9]+"
+					required
+					placeholder="HC00"
+				/>
 
-            <label for="patient-dni">DNI del Paciente:</label>
-            <input type="number" id="patient-dni" name="patient-dni" required>
+				<label for="patient-id">ID Paciente:</label>
+				<input
+					type="text"
+					id="patient-id"
+					name="patient-id"
+					pattern="[A-Za-z0-9]+"
+					required
+					placeholder="P00"
+				/>
 
-            <label for="doctor-id">ID Médico:</label>
-            <input type="text" id="doctor-id" name="doctor-id" pattern="[A-Za-z0-9]+" required>
+				<label for="patient-dni">DNI del Paciente:</label>
+				<input
+					type="text"
+					id="patient-dni"
+					name="patient-dni"
+					required
+					placeholder="Ej. 33333333"
+				/>
 
-            <label for="consultation-date">Fecha de la Consulta:</label>
-            <input type="date" id="consultation-date" name="consultation-date" required>
-            
-            <label for="consultation-reason">Motivo de la Consulta:</label>
-            <textarea id="consultation-reason" name="consultation-reason" rows="4" required></textarea>
-            
-            <label for="diagnosis">Diagnóstico:</label>
-            <textarea id="diagnosis" name="diagnosis" rows="4" required></textarea>
-            
-            <label for="treatment">Tratamiento:</label>
-            <textarea id="treatment" name="treatment" rows="4" required></textarea>
-        </div>
-        
-        <button class="button-gral-hc" type="submit">Registrar Historia Clínica</button>
-    </form>
-    <div class="button-container4 sin-foto justificado fijo">
-        <button class="button-gral" onclick="location.href='/doctors/doctor-clinical-history-management'">Atrás</button> 
-    </div>
-    <script src="/scripts/reloj.js"></script>
-    <script src="/scripts/patients.js"></script>
-</body>
+				<label for="doctor-id">ID Médico:</label>
+				<input
+					type="text"
+					id="doctor-id"
+					name="doctor-id"
+					pattern="[A-Za-z0-9]+"
+					required
+					placeholder="M00"
+				/>
+
+				<label for="consultation-date">Fecha de la Consulta:</label>
+				<input
+					type="date"
+					id="consultation-date"
+					name="consultation-date"
+					required
+				/>
+
+				<label for="consultation-reason">Motivo de la Consulta:</label>
+				<textarea
+					id="consultation-reason"
+					name="consultation-reason"
+					rows="4"
+					required
+					placeholder="Complete aquí el motivo de la consulta"
+				></textarea>
+
+				<label for="diagnosis">Diagnóstico:</label>
+				<textarea
+					id="diagnosis"
+					name="diagnosis"
+					rows="4"
+					required
+					placeholder="Complete aquí el diagnóstico del paciente"
+				></textarea>
+
+				<label for="treatment">Tratamiento:</label>
+				<textarea
+					id="treatment"
+					name="treatment"
+					rows="4"
+					required
+					placeholder="Complete aquí el tratamiento indicado"
+				></textarea>
+			</div>
+			<div class="button-container">
+				<button type="button" class="back-button" onclick="cancelar()">
+					Cancelar
+				</button>
+				<button class="button-gral" type="submit">
+					Registrar Historia Clínica
+				</button>
+			</div>
+		</form>
+		<script>
+			function cancelar() {
+				window.location.href =
+					'/doctors/doctor-clinical-history-management';
+			}
+			document
+				.getElementById('medical-record-form')
+				.addEventListener('submit', function (event) {
+					event.preventDefault();
+
+					const formData = new FormData(event.target);
+					const data = new URLSearchParams(formData);
+
+					fetch('/doctors/clinical-history-register', {
+						method: 'POST',
+						body: data,
+					})
+						.then((response) => {
+							if (!response.ok) {
+								return response.json().then((error) => {
+									throw new Error(error.message);
+								});
+							}
+							return response.json();
+						})
+						.then((result) => {
+							alert(result.message);
+							window.location.href =
+								'/doctors/doctor-clinical-history-management';
+						})
+						.catch((error) => {
+							console.error('Error:', error);
+							alert(error.message);
+						});
+				});
+		</script>
+		<script src="/scripts/reloj.js"></script>
+		<script src="/scripts/patients.js"></script>
+	</body>
 </html>

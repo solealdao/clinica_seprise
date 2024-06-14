@@ -562,11 +562,13 @@ td {
 	grid-gap: 5px;
 	justify-items: center;
 	align-items: center;
+	padding: 0 50px;
 }
 
 .form-section-hc h3 {
 	grid-column: 1 / -1;
 	text-align: center;
+	color: var(--dark-green-color);
 }
 
 .form-section-hc label {
@@ -574,24 +576,27 @@ td {
 	grid-row: span 1;
 }
 
-.form-section-hc input,
+.form-section-hc input {
+	grid-column: 2 / 3;
+	grid-row: span 1;
+	width: 80%;
+	border: 1px solid var(--dark-gray-color);
+	height: 35px;
+	font-size: 16px;
+	padding: 4px;
+	border-radius: 5px;
+}
 .form-section-hc textarea {
 	grid-column: 2 / 3;
 	grid-row: span 1;
-	width: 100%;
+	width: 80%;
+	border: 1px solid var(--dark-gray-color);
+	font-size: 16px;
+	padding: 4px;
+	border-radius: 5px;
+	height: 70px;
 }
 
-.button-gral-hc {
-	width: 20%;
-	height: 50px;
-	display: block;
-	margin: 0 auto;
-	margin-top: 20px;
-	font-size: 1em;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
 .RecuadroComprobanteTurno {
 	height: 20cm;
 	width: 100%;
@@ -931,46 +936,45 @@ td {
 }
 /* Estilos para la información del usuario */
 .user-info {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .profile-image {
-    width: 80px; /* Ajusta el tamaño según sea necesario */
-    height: 80px;
-    border-radius: 50%; /* Para una imagen de perfil redonda */
-    margin-right: 20px;
+	width: 80px; /* Ajusta el tamaño según sea necesario */
+	height: 80px;
+	border-radius: 50%; /* Para una imagen de perfil redonda */
+	margin-right: 20px;
 }
 
 .user-details {
-    flex: 1; /* Para ocupar el espacio restante */
-    display: flex;
-    flex-direction: column;
+	flex: 1; /* Para ocupar el espacio restante */
+	display: flex;
+	flex-direction: column;
 	text-align: center;
 }
 
 .user-details p {
-    margin: 5px 0;
+	margin: 5px 0;
 }
 
 .user-details p:first-child {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .user-details p:nth-child(2) {
-    margin-left: auto;
+	margin-left: auto;
 }
 
 .info-section {
-    text-align: center; /* Centrar el texto */
-    margin-top: 50px; /* Espacio superior */
+	text-align: center; /* Centrar el texto */
+	margin-top: 50px; /* Espacio superior */
 }
 
 .info-section div {
-    margin-bottom: 10px; /* Espacio entre cada div */
+	margin-bottom: 10px; /* Espacio entre cada div */
 }
 
 .info-section p {
-    font-weight: bold; /* Texto en negrita */
+	font-weight: bold; /* Texto en negrita */
 }
-

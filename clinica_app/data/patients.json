@@ -17,15 +17,6 @@
       "tipoCobertura": "Particular",
       "idPaciente": "P02",
       "dniPaciente": "35379825"
-    },
-    {
-      "nombreCompleto": "Nuevo Paciente",
-      "email": "juan@hotmail.com",
-      "fechaNacimiento": "1998-12-02",
-      "direccion": "Av. San juan 1234",
-      "tipoCobertura": "Swiss Medical",
-      "idPaciente": "P03",
-      "dniPaciente": "22333444"
     }
   ]
 }

@@ -11,16 +11,6 @@
       "tratamiento": "Continuar con hábitos saludables"
     },
     {
-      "idHistoriaClinica": "HC02",
-      "idPaciente": "P04",
-      "dniPaciente": "35379825",
-      "idMedico": "M02",
-      "fechaConsulta": "2023-06-15",
-      "motivoConsulta": "Dolor en el pecho",
-      "diagnostico": "Angina de pecho",
-      "tratamiento": "Medicación y cambios en el estilo de vida"
-    },
-    {
       "idHistoriaClinica": "HC03",
       "idPaciente": "P05",
       "dniPaciente": "12345678",
@@ -59,16 +49,6 @@
       "motivoConsulta": "Fiebre y dolor de garganta",
       "diagnostico": "COVID",
       "tratamiento": "Reposo y medicamentos antipiréticos"
-    },
-    {
-      "idHistoriaClinica": "4567",
-      "idPaciente": "P04",
-      "dniPaciente": "35379710",
-      "idMedico": "M03",
-      "fechaConsulta": "2024-02-04",
-      "motivoConsulta": "Dolor de garganta",
-      "diagnostico": "Gripe",
-      "tratamiento": "Reposo"
     }
   ]
 }
