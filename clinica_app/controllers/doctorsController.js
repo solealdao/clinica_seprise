@@ -29,7 +29,12 @@ let controllerDoctors = {
         const dniPaciente = req.body.dniPaciente;
         const historiasClinicas = loadClinicHistorys().filter(historia => historia.dniPaciente === dniPaciente);
         
-        res.render('view-medical-history', { clinicHistory: historiasClinicas });
+        if (historiasClinicas.length > 0) {
+            res.render('view-medical-history', { clinicHistory: historiasClinicas });
+        } else {
+            res.render('doctor-clinical-history-search', { errorMessage: 'No se encontró ninguna historia clínica para el DNI proporcionado.' });
+        }
+    
     },
 	searchDoctorClinicalHistory2: (req, res) => {
         const dniPaciente = req.body.dniPaciente;

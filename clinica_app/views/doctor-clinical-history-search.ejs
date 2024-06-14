@@ -31,6 +31,9 @@
 				<input type="text" name="dniPaciente" class="style-input" placeholder="Ingrese el DNI del paciente" required />
 				<button type="submit" class="button-gral">Buscar</button>
 			</form>
+			<% if (typeof errorMessage !== 'undefined') { %>
+                <p class="error-message"><%= errorMessage %></p>
+            <% } %>
 		</div>
 		<div class="button-container4 sin-foto">
 		<button class="button-gral" onclick="location.href='/doctors/doctor-clinical-history-management'">Atrás</button>
