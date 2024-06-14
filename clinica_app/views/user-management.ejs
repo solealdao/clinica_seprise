@@ -1,30 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
-	
-	<title>Gestión Usuarios</title>
-</head>
-<body>
-	<div class="style-header">
-		<div class="icono_encabezado user"></div>
-		<span class="encabezado">Gestión de usuarios</span>
-	</div>
-	<div class="reloj">
-		<p class="tiempo"></p>
-		<p class="fecha"></p>
-	</div>	
-	<div class="button-container2 sin-foto justificado">
-        <button class="button-gral" onclick="location.href='/users/user-new'">Nuevo<br> Usuario</button>
-        <button class="button-gral" onclick="location.href='/users/user-update'">Modificar<br> Usuario</button>
-        <button class="button-gral" onclick="location.href='/users/user-delete'">Eliminar<br> Usuario</button>
-		<button class="button-gral" onclick="location.href='/home-admin'">Atrás</button>
-    </div>
-	
-	<script src="/scripts/reloj.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Gestión Usuarios</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado user"></div>
+			<span class="encabezado">Gestión de usuarios</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+		<div class="button-container-management">
+			<button class="button-gral" onclick="location.href='/users/user-new'">
+				Nuevo<br />
+				Usuario
+			</button>
+			<button
+				class="button-gral"
+				onclick="location.href='/users/user-search'"
+			>
+				Consultar<br />
+				Usuario
+			</button>
+		</div>
+		<div class="back-button-container">
+			<button
+				type="button"
+				class="back-button"
+				onclick="location.href='/home-admin'"
+			>
+				Cancelar
+			</button>
+		</div>
+
+		<script src="/scripts/reloj.js"></script>
+	</body>
 </html>
