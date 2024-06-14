@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Consultar turno</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado turnos"></div>
+			<span class="encabezado">Editar turno</span>
+		</div>
+		<form
+			id="appointment-update"
+			action="/appointments/appointment-save"
+			method="post"
+		>
+			<input type="hidden" name="idTurno" value="<%= turno.idTurno %>" />
+			<label for="fecha">Fecha:</label>
+			<input
+				type="text"
+				id="fecha"
+				name="fecha"
+				value="<%= turno.fechaTurno %>"
+				required
+			/>
+			<label for="hora">Hora:</label>
+			<input
+				type="text"
+				id="hora"
+				name="hora"
+				value="<%= turno.hora %>"
+				required
+			/>
+			<label for="medico">Médico:</label>
+			<input
+				type="text"
+				id="medico"
+				name="medico"
+				value="<%= turno.medico %>"
+				required
+			/>
+			<button type="submit">Guardar cambios</button>
+		</form>
+	</body>
+	<script>
+		document
+			.getElementById('appointment-update')
+			.addEventListener('submit', function (event) {
+				event.preventDefault();
+
+				const form = event.target;
+				const formData = new FormData(form);
+				const data = new URLSearchParams(formData);
+
+				fetch('/appointments/appointment-save', {
+					method: 'POST',
+					body: data,
+				})
+					.then((response) => {
+						if (!response.ok) {
+							throw new Error(
+								'Error en la solicitud: ' + response.statusText
+							);
+						}
+						return response.json();
+					})
+					.then((result) => {
+						alert(result.message);
+						window.location.href = '/appointments/appointment-management';
+					})
+					.catch((error) => {
+						console.error('Error:', error);
+						alert('Ocurrió un error al actualizar los suministros.');
+					});
+			});
+	</script>
+	<script src="/scripts/reloj.js"></script>
+</html>

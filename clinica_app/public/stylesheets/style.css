@@ -3,9 +3,13 @@
 	--secondary-color: #ffffff;
 	--yellow-color: #bc9f2d;
 	--dark-green-color: #4b6367;
+	--dark-blue-color: #040e43;
+	--dark-gray-color: #595b5b;
 	--light-green-color: #199f93;
+	--danger-color: #ac2108;
 	--background-color: #bebebe;
-	--font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+	/*--font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;*/
+	--font-family: Mulish;
 }
 
 body {
@@ -18,7 +22,6 @@ a {
 	color: #00b7ff;
 }
 
-/* Acá empiezo con los estilos para el INDEX (log in) */
 .container {
 	display: flex;
 	width: 100%;
@@ -45,9 +48,15 @@ a {
 	justify-content: center;
 }
 
+.right-section img {
+	max-width: 100%;
+	height: auto;
+}
+
 .image-container {
 	display: flex;
 	justify-content: center;
+	height: 40%;
 }
 
 .right-section h1 {
@@ -76,6 +85,7 @@ a {
 	border-radius: 8px;
 	box-sizing: border-box;
 }
+
 .button-container {
 	display: flex;
 	justify-content: center;
@@ -84,7 +94,7 @@ a {
 
 .right-section button {
 	font-weight: 800;
-	font-size: 16px;
+	font-size: 30px;
 	padding: 10px 70px;
 	background-color: var(--light-green-color);
 	color: var(--yellow-color);
@@ -96,5 +106,875 @@ a {
 }
 
 .right-section button:hover {
-	background-color: darken(var(--primary-color), 10%);
+	background-color: var(--yellow-color);
+	color: var(--dark-green-color);
+}
+
+.right-section .create-account {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--dark-green-color);
+	margin: 40px 0px 10px;
+}
+
+.right-section .create-account p {
+	margin: 0px 10px;
+}
+.right-section .create-account a {
+	cursor: pointer;
+	color: var(--dark-green-color);
+	font-weight: bold;
+}
+/* Estilos que agregue*/
+/*estilos gestion turnos*/
+
+.style-header {
+	width: 100%;
+	height: 150px;
+	background-color: var(--dark-green-color); /* Fondo gris */
+	position: relative;
+	top: 0px;
+	left: 0px;
+
+	border-bottom: 2px solid #ffffff; /* Borde blanco en la parte inferior */
+	border-bottom-left-radius: 200px; /* Radio del borde inferior izquierdo */
+	padding: 50px; /* Ajusta según sea necesario */
+	margin-bottom: 20px; /* Margen inferior para separarlo del contenido siguiente */
+	display: flex;
+	justify-content: space-between;
+	color: #ffffff; /* Color del texto */
+	margin: 0px; /* Elimina los márgenes */
+}
+
+.reloj {
+	font-family: Mulish, monospace;
+	color: #ffffff;
+	position: absolute;
+	left: 90%;
+	top: 5%;
+	transform: translate(-50%);
+	text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
+}
+
+.tiempo {
+	letter-spacing: 0.05em;
+	font-size: 20px;
+	padding: 1px 0;
+}
+
+.fecha {
+	letter-spacing: 0.1em;
+	font-size: 20px;
+}
+
+.nombre_admin {
+	/* Nombre */
+	width: 60%;
+	color: var(--secondary-color);
+	position: absolute;
+	top: 15%;
+	left: 10%;
+	font-family: Mulish;
+	font-weight: Bold;
+	font-size: 50px;
+	opacity: 1;
+	text-align: left;
+}
+
+.foto_admin {
+	/* Chica */
+	width: 300px;
+	height: 300px;
+	background-image: url('../images/chica.png');
+	background-size: cover;
+	border-radius: 50%;
+	margin-top: -150px;
+	margin-left: 41.5%;
+	position: absolute;
+	box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.foto_doctor {
+	width: 300px;
+	height: 300px;
+	background-image: url('../images/doctor.png');
+	background-size: cover;
+	border-radius: 50%;
+	margin-top: -150px;
+	margin-left: 41.5%;
+	position: absolute;
+	box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.foto_tec {
+	width: 300px;
+	height: 300px;
+	background-image: url('../images/Tecnico.jpg');
+	background-size: cover;
+	border-radius: 50%;
+	margin-top: -150px;
+	margin-left: 41.5%;
+	position: absolute;
+	box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.fijo {
+	position: fixed;
+	top: 300px;
+}
+
+.encabezado {
+	width: 50%;
+	color: var(--secondary-color);
+	position: absolute;
+	top: 15%;
+	left: 30%;
+	font-family: Mulish;
+	font-weight: Bold;
+	font-size: 50px;
+	opacity: 1;
+	text-align: left;
+}
+
+.icono_encabezado {
+	width: 200px;
+	height: 200px;
+	background-size: cover;
+	margin-top: -1%;
+	left: 5%;
+}
+
+.user {
+	background-image: url('../images/icono_persona.svg');
+}
+
+.turnos {
+	background-image: url('../images/icono_calendario.svg');
+}
+
+.supplies {
+	background-image: url('../images/jeringa.png');
+}
+
+.hc {
+	background-image: url('../images/hc.png');
+}
+
+.dolar {
+	background-image: url('../images/dolar.png');
+}
+
+/* Establece el padding del body solo para otros elementos */
+body:not(.style-header) {
+	padding: 0px;
+}
+
+button {
+	padding: 10px 20px;
+	color: rgba(243, 167, 18, 1);
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-family: Mulish;
+	font-weight: Bold;
+	font-size: 30px;
+	width: 250px;
+	height: 130px;
+	opacity: 1;
+	text-align: center;
+	background: rgba(31, 199, 184, 1);
+	border-radius: 17px;
+	border: 0px;
+	margin: 10px;
+}
+
+select {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: var(--dark-green-color);
+	color: var(--secondary-color);
+	font-weight: bolder;
+}
+
+/* Para cuando se achica la pantalla */
+@media only screen and (max-width: 768px) {
+	/* Styles for screens smaller than 768px */
+	.nombre_admin {
+		font-size: 40px; /* Adjust font size for smaller screens */
+	}
+
+	.encabezado {
+		font-size: 40px; /* Adjust font size for smaller screens */
+	}
+	.foto_admin {
+		width: 200px;
+		height: 200px;
+		margin-top: -100px; /* Adjust margin for smaller screens */
+	}
+
+	.button-container2 {
+		flex-direction: column; /* Stack buttons vertically */
+		padding: 10px; /* Adjust padding for smaller screens */
+		top: 150px; /* Adjust position for smaller screens */
+		align-items: center;
+	}
+
+	.reloj {
+		visibility: hidden;
+	}
+
+	.icono_encabezado {
+		visibility: hidden;
+	}
+
+	.foto_doctor {
+		visibility: hidden;
+	}
+
+	.foto_admin {
+		visibility: hidden;
+	}
+}
+
+/* NUEVO TURNO- TURNOS DISPONIBLES */
+.dropdown-spacing {
+	margin-bottom: 40px;
+	width: 400px;
+	font-size: 20px;
+}
+.new-appointment-container {
+	width: 80%;
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+}
+.input-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px auto;
+}
+.input-label {
+	color: var(--dark-green-color);
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.input-custom {
+	font-size: 20px;
+	padding: 10px;
+	width: 380px;
+	border-radius: 5px;
+}
+.select-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px auto;
+}
+.radio-button-group-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 20px auto;
+}
+.radio-button-group {
+	display: flex;
+	justify-content: center;
+}
+
+.radio-button {
+	margin: 20px;
+	font-size: 16px;
+}
+
+/* VALIDAR TURNOS */
+.turnos-encontrados {
+	display: none;
+}
+.paciente-encontrado {
+	display: none;
+}
+
+.result-list {
+	margin-top: 10px;
+}
+
+.no-results {
+	color: red;
+}
+
+.form-container {
+	width: 90%;
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.form-input-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px auto;
+}
+
+.form-input-label {
+	color: var(--dark-green-color);
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.form-input-custom {
+	font-size: 20px;
+	padding: 10px;
+	width: 380px;
+	border-radius: 5px;
+}
+
+.form-section2 {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 400px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 15px;
+}
+
+.col-md-6 {
+	flex: 1 0 50%;
+	padding: 5px;
+}
+/* tabla de mostrar turnos*/
+table {
+	width: 100%;
+	border-collapse: separate;
+	margin: 20px 0;
+	border-spacing: 70px 15px;
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid black; /* Black border for the table */
+	border-radius: 15px; /* Rounded corners */
+	overflow: hidden; /* Ensure rounded corners are visible */
+}
+
+.tableGris {
+	width: 100%;
+	border-collapse: separate;
+	margin: 20px 0;
+	border-spacing: 70px 15px;
+	/*text-align: center; 
+	background-color: #fff; */
+	border: 1px solid black; /* Black border for the table */
+	border-radius: 15px; /* Rounded corners */
+	overflow: hidden; /* Ensure rounded corners are visible */
+}
+
+.responsive-table {
+	overflow-x: auto;
+}
+
+/*Estilos de supplies-update*/
+#update-stock-form {
+	margin-top: 20px;
+	padding: 20px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#update-stock-form label {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+#update-stock-form select {
+	width: 50%;
+	padding: 10px;
+	margin-bottom: 50px;
+	margin-right: 10px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+#update-stock-form button {
+	margin-top: 120px;
+}
+
+/* STOCK-STATUS */
+
+.stock-table {
+	border-collapse: collapse;
+	width: 95%;
+}
+
+.stock-table th,
+td {
+	padding: 8px;
+	text-align: center;
+	border-bottom: 1px solid var(--dark-green-color);
+}
+
+.stock-table th {
+	background-color: var(--light-green-color);
+	text-align: center;
+}
+.estudio {
+	padding: 4px;
+	text-align: center;
+}
+
+/*Medical-record*/
+.search-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.search-container label {
+	margin-right: 10px;
+}
+
+.search-container input[type='text'] {
+	padding: 5px;
+	width: 200px;
+}
+
+.search-container button {
+	height: 25px;
+	line-height: 15px;
+	padding: 0 10px;
+	font-size: 14px;
+}
+
+.form-section-hc {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 5px;
+	justify-items: center;
+	align-items: center;
+	padding: 0 50px;
+}
+
+.form-section-hc h3 {
+	grid-column: 1 / -1;
+	text-align: center;
+	color: var(--dark-green-color);
+}
+
+.form-section-hc label {
+	grid-column: 1 / 2;
+	grid-row: span 1;
+}
+
+.form-section-hc input {
+	grid-column: 2 / 3;
+	grid-row: span 1;
+	width: 80%;
+	border: 1px solid var(--dark-gray-color);
+	height: 35px;
+	font-size: 16px;
+	padding: 4px;
+	border-radius: 5px;
+}
+.form-section-hc textarea {
+	grid-column: 2 / 3;
+	grid-row: span 1;
+	width: 80%;
+	border: 1px solid var(--dark-gray-color);
+	font-size: 16px;
+	padding: 4px;
+	border-radius: 5px;
+	height: 70px;
+}
+
+.RecuadroComprobanteTurno {
+	height: 20cm;
+	width: 100%;
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	margin: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+/* Línea horizontal */
+.RecuadroComprobanteTurno::after {
+	content: '';
+	position: absolute;
+	top: 180px; /* Posiciona la línea 60px desde arriba */
+	left: 0;
+	width: 100%;
+	height: 1px; /* Grosor de la línea */
+	background-color: #000; /* Color de la línea */
+	z-index: 1; /* Asegura que la línea esté sobre otros elementos */
+}
+
+.primeros-elementos {
+	display: flex;
+	margin-top: 30px;
+}
+
+.columna {
+	flex: 1;
+	text-align: center;
+}
+
+.logoCompTurno {
+	max-width: 50%;
+	height: auto;
+	margin-left: 10px;
+	margin-right: 1px; /* Ajusta el margen derecho para agregar espacio */
+}
+
+.NombreClinica h2,
+.idturno h2,
+.consultorio h2 {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.profesional h2 {
+	text-align: center;
+	margin-top: 90px;
+}
+
+.textocompTurnos {
+	display: flex;
+	margin-top: 40px;
+	justify-content: space-around;
+	width: 100%;
+}
+/* Estilos para visualizar la historia clínica */
+.clinic-history-container {
+	max-width: 800px;
+	margin: 20px auto;
+	background: white;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	min-height: 400px;
+}
+
+.clinic-history-container h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.clinic-history-list {
+	list-style: none;
+	padding: 0;
+}
+
+.clinic-history-item {
+	margin-bottom: 20px;
+	padding: 15px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+}
+
+.clinic-history-item strong {
+	display: inline-block;
+	width: 150px;
+	font-weight: bold;
+}
+
+/* Estilos de resultados de consultas */
+.search-page-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+.search-input-container {
+	display: flex;
+	justify-content: center;
+}
+.search-input-container input {
+	border: 1px solid var(--dark-gray-color);
+	width: 230px;
+	height: 40px;
+	font-size: 16px;
+	padding: 4px;
+	border-radius: 5px;
+}
+
+.page-title {
+	font-size: 30px;
+	font-weight: bold;
+	color: var(--dark-green-color);
+	margin: 20px 0;
+}
+.search-results-container {
+	margin: 50px auto 20px;
+}
+.search-results-container h2 {
+	text-align: center;
+}
+.search-results {
+	display: flex;
+	justify-content: center;
+}
+
+/* Estilos de pagina de edicion */
+.edit-page-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px;
+}
+.edit-page-container form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.edit-input {
+	display: flex;
+	flex-direction: column;
+	margin: 15px 0;
+}
+.edit-input label {
+	font-size: 16px;
+	font-weight: bold;
+	color: var(--dark-gray-color);
+}
+.edit-input input {
+	border: 1px solid var(--dark-gray-color);
+	width: 230px;
+	height: 35px;
+	font-size: 16px;
+	padding: 4px;
+	border-radius: 5px;
+}
+
+/* ESTILOS BOTONES */
+.button-edit {
+	text-decoration: none;
+	background-color: var(--yellow-color);
+	color: var(--primary-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	padding: 10px 20px;
+	font-weight: Bold;
+	font-size: 20px;
+	width: 170px;
+	height: 100px;
+	opacity: 1;
+	text-align: center;
+	border-radius: 17px;
+	border: 0px;
+	margin: 5px;
+}
+
+.button-edit:hover {
+	background-color: var(--dark-green-color);
+	color: var(--secondary-color);
+}
+
+.button-delete {
+	background-color: var(--danger-color);
+	color: var(--secondary-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	padding: 10px 20px;
+	font-weight: Bold;
+	font-size: 20px;
+	width: 120px;
+	height: 50px;
+	opacity: 1;
+	text-align: center;
+	border-radius: 17px;
+	border: 0px;
+	margin: 5px;
+}
+
+.button-delete:hover {
+	background-color: var(--dark-green-color);
+}
+.button-pay {
+	text-decoration: none;
+	background-color: var(--dark-blue-color);
+	color: var(--secondary-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	padding: 10px 20px;
+	font-weight: Bold;
+	font-size: 20px;
+	width: 170px;
+	height: 100px;
+	opacity: 1;
+	text-align: center;
+	border-radius: 17px;
+	border: 0px;
+	margin: 5px;
+}
+
+.button-pay:hover {
+	background-color: var(--dark-green-color);
+}
+.button-container-management {
+	display: flex;
+	justify-content: center;
+	margin: 40px;
+}
+.button-container-management button {
+	margin: 0 40px;
+}
+.back-button-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
+.back-button {
+	background-color: var(--yellow-color);
+	color: var(--dark-gray-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+.back-button:hover {
+	background-color: var(--dark-green-color);
+	color: var(--secondary-color);
+}
+
+.button-container2 {
+	justify-content: space-between;
+	width: 90%;
+	margin: 170px auto 10px;
+	padding: 20px;
+}
+
+.button-container2 button {
+	margin: 0 35px;
+}
+
+.button-container-3 {
+	display: flex;
+	justify-content: space-around;
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.justificado {
+	display: flex;
+	justify-content: center;
+}
+
+.centrado {
+	display: block;
+}
+
+.con-foto {
+	top: 200px;
+}
+
+.sin-foto {
+	top: 30px;
+}
+
+.button-gral {
+	background-color: var(--light-green-color);
+	color: var(--yellow-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.button-gral-enlaces {
+	display: inline-block;
+	background-color: var(--light-green-color);
+	color: var(--yellow-color);
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	padding: 10px 20px;
+	text-decoration: none;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+.button-gral:hover {
+	background-color: var(--dark-green-color);
+}
+
+.button-gral-index-doc {
+	margin-right: 100px;
+	margin-left: 100px;
+}
+
+.button-container3 {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.button-container4 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 70px;
+}
+/* Estilos para la información del usuario */
+.user-info {
+	display: flex;
+	align-items: center;
+}
+
+.profile-image {
+	width: 80px; /* Ajusta el tamaño según sea necesario */
+	height: 80px;
+	border-radius: 50%; /* Para una imagen de perfil redonda */
+	margin-right: 20px;
+}
+
+.user-details {
+	flex: 1; /* Para ocupar el espacio restante */
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.user-details p {
+	margin: 5px 0;
+}
+
+.user-details p:first-child {
+	font-weight: bold;
+}
+
+.user-details p:nth-child(2) {
+	margin-left: auto;
+}
+
+.info-section {
+	text-align: center; /* Centrar el texto */
+	margin-top: 50px; /* Espacio superior */
+}
+
+.info-section div {
+	margin-bottom: 10px; /* Espacio entre cada div */
+}
+
+.info-section p {
+	font-weight: bold; /* Texto en negrita */
 }

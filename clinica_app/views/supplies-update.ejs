@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <title>Actualizar Stock</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="style-header">
+		<div class="icono_encabezado supplies"></div>
+		<span class="encabezado">Actualización de stock</span>
+	</div>
+	<div class="reloj">
+		<p class="tiempo"></p>
+		<p class="fecha"></p>
+	</div>	
+        <form id="update-stock-form" action="/supplies/supplies-update" method="post">
+            <label for="clinical-study">Seleccionar estudio clínico realizado:</label>
+            <select id="clinical-study" name="clinical-study">
+                <option value="hemograma_completo">Hemograma Completo</option>
+                <option value="electrocardiograma">Electrocardiograma</option>
+                <option value="radiografia">Radiografía</option>
+                <option value="ecografia">Ecografía</option>
+            </select>
+            <div class="button-container">
+				<button type="button" class="back-button" onclick="volver()">
+					Cancelar
+				</button>
+				<button class="button-gral" type="submit">
+					Actualizar Stock
+				</button>
+			</div>
+        </form>
+    </div>
+    <script>
+        function volver() {
+            window.location.href = '/supplies/supplies-management';
+        }
+    </script>
+    <script>
+        document.getElementById('update-stock-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = new URLSearchParams(formData);
+
+            fetch('/supplies/supplies-update', {
+                method: 'POST',
+                body: data
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la solicitud: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(result => {
+                alert(result.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ocurrió un error al actualizar los suministros.');
+            });
+        });
+    </script>
+    <script src="/scripts/reloj.js"></script>
+</body>
+</html>

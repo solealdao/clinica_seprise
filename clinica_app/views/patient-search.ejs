@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Consultar paciente</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado user"></div>
+			<span class="encabezado">Consultar paciente</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+
+		<div class="search-page-container">
+			<label class="page-title" for="dniPaciente"
+				>Ingrese el DNI del paciente</label
+			>
+			<form
+				id="searchPatientForm"
+				action="/patients/patient-search"
+				method="post"
+			>
+				<div class="search-input-container">
+					<input
+						type="text"
+						name="dniPaciente"
+						placeholder="Ingrese el DNI del paciente"
+						required
+					/>
+				</div>
+				<div class="button-container">
+					<button
+						type="button"
+						class="back-button"
+						onclick="location.href='/patients/patient-management'"
+					>
+						Cancelar
+					</button>
+					<button type="submit" class="button-gral">Buscar</button>
+				</div>
+			</form>
+		</div>
+		<% if (typeof pacienteFiltrado !== 'undefined' && pacienteFiltrado.length
+		> 0) { %>
+		<div class="search-results-container">
+			<h2>Resultados de la búsqueda</h2>
+			<div class="search-results">
+				<ul>
+					<% pacienteFiltrado.forEach(pacienteFiltrado => { %>
+					<li>
+						<strong>Nombre:</strong> <%= pacienteFiltrado.nombreCompleto
+						%> - <strong>Email: </strong><%= pacienteFiltrado.email %> -
+						<strong>Fecha de Nacimiento:</strong> <%=
+						pacienteFiltrado.fechaNacimiento %>
+						<a
+							href="/patients/patient-update/<%= pacienteFiltrado.idPaciente %>"
+							class="button-edit"
+							>Editar</a
+						>
+						<form
+							id="patient-delete-<%= pacienteFiltrado.idPaciente %>"
+							action="/patients/patient-delete"
+							method="post"
+							style="display: inline"
+						>
+							<input
+								type="hidden"
+								name="dniPaciente"
+								value="<%= pacienteFiltrado.dniPaciente %>"
+							/>
+							<button type="submit" class="button-delete">
+								Eliminar
+							</button>
+						</form>
+					</li>
+					<% }) %>
+				</ul>
+			</div>
+		</div>
+		<% } %> <% if (typeof noResults !== 'undefined' && noResults) { %>
+		<div class="no-results">
+			<script>
+				alert('No se encontraron pacientes para el DNI proporcionado');
+			</script>
+		</div>
+		<% } %>
+
+		<script>
+			document
+				.querySelectorAll('form[id^="patient-delete-"]')
+				.forEach((form) => {
+					form.addEventListener('submit', function (event) {
+						event.preventDefault();
+
+						const formData = new FormData(form);
+						const data = new URLSearchParams(formData);
+
+						fetch('/patients/patient-delete', {
+							method: 'POST',
+							body: data,
+						})
+							.then((response) => {
+								if (!response.ok) {
+									throw new Error(
+										'Error en la solicitud: ' + response.statusText
+									);
+								}
+								return response.json();
+							})
+							.then((result) => {
+								alert(result.message);
+								window.location.href = '/patients/patient-management';
+							})
+							.catch((error) => {
+								console.error('Error:', error);
+								alert('Ocurrió un error al eliminar el paciente.');
+							});
+					});
+				});
+		</script>
+		<script src="/scripts/reloj.js"></script>
+	</body>
+</html>

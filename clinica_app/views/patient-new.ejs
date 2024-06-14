@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Agregar nuevo paciente</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado turnos"></div>
+			<span class="encabezado">Agregar nuevo paciente</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+		<form
+			id="patient-register-form"
+			action="/patients/patient-register"
+			method="post"
+		>
+			<div class="new-appointment-container">
+				<div class="input-container">
+					<label for="nombreCompleto" class="input-label"
+						>Nombre Completo</label
+					>
+					<input
+						class="input-custom"
+						type="text"
+						id="nombreCompleto"
+						name="nombreCompleto"
+						placeholder="Ejemplo: Cosme Fulanito"
+						required
+					/>
+				</div>
+				<div class="input-container">
+					<label for="email" class="input-label">Email</label>
+					<input
+						class="input-custom"
+						type="email"
+						id="email"
+						name="email"
+						placeholder="Ejemplo: cosme@hotmail.com"
+						required
+					/>
+				</div>
+				<div class="input-container">
+					<label for="fechaNacimiento" class="input-label"
+						>Fecha de Nacimiento</label
+					>
+					<input
+						class="input-custom"
+						type="date"
+						id="fechaNacimiento"
+						name="fechaNacimiento"
+						required
+					/>
+				</div>
+				<div class="input-container">
+					<label for="direccion" class="input-label">Dirección</label>
+					<input
+						class="input-custom"
+						type="text"
+						id="direccion"
+						name="direccion"
+						placeholder="Ejemplo: Av. Siempre Viva 123"
+						required
+					/>
+				</div>
+				<div class="input-container">
+					<label for="tipoCobertura" class="input-label"
+						>Tipo de Cobertura</label
+					>
+					<input
+						class="input-custom"
+						type="text"
+						id="tipoCobertura"
+						name="tipoCobertura"
+						placeholder="Ejemplo: OSDE"
+						required
+					/>
+				</div>
+				<div class="input-container">
+					<label for="dniPaciente" class="input-label"
+						>DNI del paciente</label
+					>
+					<input
+						class="input-custom"
+						type="text"
+						id="dniPaciente"
+						name="dniPaciente"
+						placeholder="Ejemplo: 34356789"
+						required
+					/>
+				</div>
+			</div>
+			<div class="button-container">
+				<button type="button" class="back-button" onclick="cancelar()">
+					Cancelar
+				</button>
+				<button type="submit" class="button-gral">Confirmar</button>
+			</div>
+		</form>
+		<% if (typeof message !== 'undefined') { %>
+		<div class="error-message"><%= message %></div>
+		<% } %>
+		<script>
+			function cancelar() {
+				window.location.href = '/patients/patient-management';
+			}
+
+			document
+				.getElementById('patient-register-form')
+				.addEventListener('submit', function (event) {
+					event.preventDefault();
+
+					const formData = new FormData(event.target);
+					const data = new URLSearchParams(formData);
+
+					fetch('/patients/patient-register', {
+						method: 'POST',
+						body: data,
+					})
+						.then((response) => {
+							if (!response.ok) {
+								return response.json().then((error) => {
+									throw new Error(error.message);
+								});
+							}
+							return response.json();
+						})
+						.then((result) => {
+							alert(result.message);
+							window.location.href = '/patients/patient-management';
+						})
+						.catch((error) => {
+							console.error('Error:', error);
+							alert(error.message);
+						});
+				});
+		</script>
+	</body>
+	<script src="/scripts/reloj.js"></script>
+</html>

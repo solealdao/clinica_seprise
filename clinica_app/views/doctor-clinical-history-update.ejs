@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <title>Editar Historia Clínica</title>
+</head>
+<body>
+    <div class="style-header">
+        <div class="icono_encabezado turnos"></div>
+        <span class="encabezado">Editar historia clinica</span>
+    </div>
+    <form
+        id="clinic-history-update"
+        action="/doctors/clinical-history-save"
+        method="post"
+    >
+        <input type="hidden" name="idHistoriaClinica" value="<%= filteredClinicHistory.idHistoriaClinica %>" />
+     <div class="form-section-hc">
+            <h3>Detalles de la historia clínica</h3>            
+            <label for="patient-id">ID Paciente:</label>
+            <input
+                type="text"
+                id="patient-id"
+                name="idPaciente"
+                pattern="[A-Za-z0-9]+"
+                required
+                value="<%= filteredClinicHistory.idPaciente %>"
+            />
+            <label for="patient-dni">DNI del Paciente:</label>
+            <input
+                type="text"
+                id="patient-dni"
+                name="dniPaciente"
+                required
+                value="<%= filteredClinicHistory.dniPaciente %>"
+            />
+            <label for="doctor-id">ID Médico:</label>
+            <input
+                type="text"
+                id="doctor-id"
+                name="idMedico"
+                pattern="[A-Za-z0-9]+"
+                required
+                value="<%= filteredClinicHistory.idMedico %>"
+            />
+            <label for="consultation-date">Fecha de la Consulta:</label>
+            <input
+                type="date"
+                id="consultation-date"
+                name="fechaConsulta"
+                required
+                value="<%= filteredClinicHistory.fechaConsulta %>"
+            />
+            <label for="consultation-reason">Motivo de la Consulta:</label>
+            <textarea
+                id="consultation-reason"
+                name="motivoConsulta"
+                rows="4"
+                required
+            ><%= filteredClinicHistory.motivoConsulta %></textarea>
+            <label for="diagnosis">Diagnóstico:</label>
+            <textarea
+                id="diagnosis"
+                name="diagnostico"
+                rows="4"
+                required
+            ><%= filteredClinicHistory.diagnostico %></textarea>
+            <label for="treatment">Tratamiento:</label>
+            <textarea
+                id="treatment"
+                name="tratamiento"
+                rows="4"
+                required
+            ><%= filteredClinicHistory.tratamiento %></textarea>
+        </div>
+        <div class="button-container">
+            <button type="button" class="back-button" onclick="cancelar()">
+                Cancelar
+            </button>
+            <button class="button-gral" type="submit">
+                Guardar cambios
+            </button>
+        </div>
+    </form>
+</body>
+<script>
+    document
+        .getElementById('clinic-history-update')
+        .addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = new URLSearchParams(formData);
+
+            fetch('/doctors/clinical-history-save', {
+                method: 'POST',
+                body: data,
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(
+                            'Error en la solicitud: ' + response.statusText
+                        );
+                    }
+                    return response.json();
+                })
+                .then((result) => {
+                    alert(result.message);
+                    window.location.href = '/doctors/doctor-clinical-history-management';
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('Ocurrió un error al actualizar la historia clínica.');
+                });
+        });
+</script>
+</body>
+</html>

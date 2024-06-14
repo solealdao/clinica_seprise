@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Consultar usuario</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado user"></div>
+			<span class="encabezado">Consultar usuario</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+
+		<div class="search-page-container">
+			<label class="page-title" for="email"
+				>Ingrese el email del usuario</label
+			>
+			<form id="searchUserForm" action="/users/user-search" method="post">
+				<div class="search-input-container">
+					<input
+						type="text"
+						name="email"
+						placeholder="Ingrese el email del usuario"
+						required
+					/>
+				</div>
+				<div class="button-container">
+					<button
+						type="button"
+						class="back-button"
+						onclick="location.href='/users/user-management'"
+					>
+						Cancelar
+					</button>
+					<button type="submit" class="button-gral">Buscar</button>
+				</div>
+			</form>
+		</div>
+		<% if (typeof usuarioFiltrado !== 'undefined' && usuarioFiltrado.length >
+		0) { %>
+		<div class="search-results-container">
+			<h2>Resultados de la búsqueda</h2>
+			<div class="search-results">
+				<ul>
+					<% usuarioFiltrado.forEach(usuarioFiltrado => { %>
+					<li>
+						<strong>Email: </strong><%= usuarioFiltrado.email %> -
+						<strong>Permisos</strong> <%= usuarioFiltrado.permisos %>
+						<a
+							href="/users/user-update/<%= usuarioFiltrado.idUser %>"
+							class="button-edit"
+							>Editar</a
+						>
+						<form
+							id="user-delete-<%= usuarioFiltrado.idUser %>"
+							action="/users/user-delete"
+							method="post"
+							style="display: inline"
+						>
+							<input
+								type="hidden"
+								name="idUser"
+								value="<%= usuarioFiltrado.idUser %>"
+							/>
+							<button type="submit" class="button-delete">
+								Eliminar
+							</button>
+						</form>
+					</li>
+					<% }) %>
+				</ul>
+			</div>
+		</div>
+		<% } %> <% if (typeof noResults !== 'undefined' && noResults) { %>
+		<div class="no-results">
+			<script>
+				alert('No se encontraron usuarios para el email proporcionado');
+			</script>
+		</div>
+		<% } %>
+
+		<script>
+			document
+				.querySelectorAll('form[id^="user-delete-"]')
+				.forEach((form) => {
+					form.addEventListener('submit', function (event) {
+						event.preventDefault();
+
+						const formData = new FormData(form);
+						const data = new URLSearchParams(formData);
+
+						fetch('/users/user-delete', {
+							method: 'POST',
+							body: data,
+						})
+							.then((response) => {
+								if (!response.ok) {
+									throw new Error(
+										'Error en la solicitud: ' + response.statusText
+									);
+								}
+								return response.json();
+							})
+							.then((result) => {
+								alert(result.message);
+								window.location.href = '/users/user-management';
+							})
+							.catch((error) => {
+								console.error('Error:', error);
+								alert('Ocurrió un error al eliminar el paciente.');
+							});
+					});
+				});
+		</script>
+		<script src="/scripts/reloj.js"></script>
+	</body>
+</html>

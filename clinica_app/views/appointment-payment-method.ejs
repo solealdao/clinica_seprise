@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Métodos de pago</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado user"></div>
+			<span class="encabezado"
+				>Seleccionar forma <br />
+				de pago</span
+			>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+		<div class="button-container-management">
+			<form
+				id="paymentForm"
+				action="/appointments/confirm-payment"
+				method="post"
+			>
+				<input type="hidden" name="turnoId" value="<%= turnoId %>" />
+				<div class="button-container">
+					<button
+						type="submit"
+						name="paymentMethod"
+						value="efectivo"
+						class="button-gral"
+					>
+						Efectivo
+					</button>
+					<button
+						type="submit"
+						name="paymentMethod"
+						value="tarjeta"
+						class="button-gral"
+					>
+						Tarjeta
+					</button>
+					<button
+						type="submit"
+						name="paymentMethod"
+						value="obra_social"
+						class="button-gral"
+					>
+						Obra Social / Prepaga
+					</button>
+				</div>
+			</form>
+		</div>
+		<div class="back-button-container">
+			<button
+				class="back-button"
+				onclick="location.href='/appointments/appointment-search'"
+			>
+				Cancelar
+			</button>
+		</div>
+
+		<script>
+			document
+				.getElementById('paymentForm')
+				.addEventListener('submit', function (event) {
+					event.preventDefault();
+
+					const form = event.target;
+					const formData = new FormData(form);
+					const data = new URLSearchParams(formData);
+
+					fetch('/appointments/confirm-payment', {
+						method: 'POST',
+						body: data,
+					})
+						.then((response) => response.json())
+						.then((result) => {
+							if (result.success) {
+								alert(result.message);
+								window.location.href =
+									'/appointments/appointment-search';
+							} else {
+								alert('Error: ' + result.message);
+							}
+						})
+						.catch((error) => {
+							console.error('Error:', error);
+							alert('Ocurrió un error al procesar el pago.');
+						});
+				});
+		</script>
+		<script src="/scripts/reloj.js"></script>
+	</body>
+</html>

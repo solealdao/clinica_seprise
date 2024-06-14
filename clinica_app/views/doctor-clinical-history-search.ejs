@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Consultar historias médicas</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado user"></div>
+			<span class="encabezado">Consultar historias médicas</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+
+		<div class="search-page-container">
+			<label class="page-title" for="dniPaciente"
+				>Ingrese el DNI del paciente</label
+			>
+			<form
+				id="searchClinicalHistoryForm"
+				action="/doctors/clinical-history-search"
+				method="post"
+			>
+				<div class="search-input-container">
+					<input
+						type="text"
+						name="dniPaciente"
+						placeholder="Ingrese el DNI del paciente"
+						required
+					/>
+				</div>
+				<div class="button-container">
+					<button
+						type="button"
+						class="back-button"
+						onclick="location.href='/doctors/doctor-clinical-history-management'"
+					>
+						Cancelar
+					</button>
+					<button type="submit" class="button-gral">Buscar</button>
+				</div>
+			</form>
+			<% if (typeof errorMessage !== 'undefined') { %>
+                <p class="error-message"><%= errorMessage %></p>
+            <% } %>
+		</div>
+		<% if (typeof filteredClinicHistory !== 'undefined' && filteredClinicHistory.length > 0) { %>
+			<div class="search-results-container">
+				<h2>Resultados de la búsqueda</h2>
+				<div class="search-results">
+					<ul>
+						<% filteredClinicHistory.forEach(clinicHistory => { %>
+							<li>
+								<strong>ID del paciente:</strong> <%= clinicHistory.idPaciente %> -
+								<strong>Motivo de consulta: </strong><%= clinicHistory.motivoConsulta %> -
+								<strong>Fecha de consulta:</strong> <%= clinicHistory.fechaConsulta %>
+								<a href="/doctors/clinical-history-update/<%= clinicHistory.idHistoriaClinica %>" class="button-edit">Editar</a>
+								<form id="clinical-history-delete<%= clinicHistory.idHistoriaClinica %>" action="/doctors/clinical-history-delete" method="post" style="display: inline">
+									<input type="hidden" name="idHistoriaClinica" value="<%= clinicHistory.idHistoriaClinica %>" />
+									<button type="submit" class="button-delete">Eliminar</button>
+								</form>
+							</li>
+						<% }) %>
+					</ul>
+				</div>
+			</div>
+		<% } %>
+	
+		<% if (typeof noResults !== 'undefined' && noResults) { %>
+			<div class="no-results">
+				<script>
+					alert('No se encontraron pacientes para el DNI proporcionado');
+				</script>
+			</div>
+		<% } %>
+	
+		<script>
+			document.querySelectorAll('form[id^="clinical-history-delete-"]').forEach((form) => {
+				form.addEventListener('submit', function (event) {
+					event.preventDefault();
+	
+					const formData = new FormData(form);
+					const data = new URLSearchParams(formData);
+	
+					fetch('/doctors/clinical-history-delete', {
+						method: 'POST',
+						body: data,
+					})
+					.then((response) => {
+						if (!response.ok) {
+							throw new Error('Error en la solicitud: ' + response.statusText);
+						}
+						return response.json();
+					})
+					.then((result) => {
+						alert(result.message);
+						window.location.href = '/doctors/doctor-clinical-history-management';
+					})
+					.catch((error) => {
+						console.error('Error:', error);
+						alert('Ocurrió un error al eliminar el paciente.');
+					});
+				});
+			});
+		</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Mulish&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <title>Ver Historia Clínica</title>
+</head>
+<body>
+    <div class="style-header">
+        <div class="icono_encabezado user"></div>
+        <span class="encabezado">Historia Clínica</span>
+    </div>
+    <div class="reloj">
+        <p class="tiempo"></p>
+        <p class="fecha"></p>
+    </div>
+
+    <div class="clinic-history-container">
+        <h2>Historia Clínica</h2>
+        <ul class="clinic-history-list">
+            <% clinicHistory.forEach(historia => { %>
+                <li class="clinic-history-item">
+                    <strong>ID Hist Clínica:</strong> <%= historia.idHistoriaClinica %> <br>
+                    <strong>ID Paciente:</strong> <%= historia.idPaciente %> <br>
+                    <strong>ID Médico:</strong> <%= historia.idMedico %> <br>
+                    <strong>Fecha Consulta:</strong> <%= historia.fechaConsulta %> <br>
+                    <strong>Motivo Consulta:</strong> <%= historia.motivoConsulta %> <br>
+                    <strong>Diagnóstico:</strong> <%= historia.diagnostico %> <br>
+                    <strong>Tratamiento:</strong> <%= historia.tratamiento %>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+    <div style="text-align: center;">
+        <button type="button" class="button-gral" onclick="cancelar()">
+            Volver
+        </button>
+    </div>
+    <script>
+        function cancelar() {
+            window.location.href = '/doctors/doctor-clinical-history-search';
+        }
+    </script>
+
+    <script src="/scripts/reloj.js"></script>
+</body>
+</html>
+

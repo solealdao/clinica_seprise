@@ -1,0 +1,22 @@
+{
+  "patients": [
+    {
+      "nombreCompleto": "Juana Garcia",
+      "email": "Juana@hotmail.com",
+      "fechaNacimiento": "13/04/2000",
+      "direccion": "Av. sin nombre 123",
+      "tipoCobertura": "osde",
+      "idPaciente": "P02",
+      "dniPaciente": "11111111"
+    },
+    {
+      "nombreCompleto": "Laura Rodriguez",
+      "email": "Laura@hotmail.com",
+      "fechaNacimiento": "15/27/2000",
+      "direccion": "Av. San juan 1234",
+      "tipoCobertura": "Particular",
+      "idPaciente": "P02",
+      "dniPaciente": "35379825"
+    }
+  ]
+}

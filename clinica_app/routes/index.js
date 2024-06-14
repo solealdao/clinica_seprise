@@ -1,20 +1,20 @@
 var express = require('express');
 var router = express.Router();
-var path = require('path');
+var usersController = require('../controllers/usersController');
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-	res.render('index');
+router.get('/', usersController.renderHome);
+router.post('/', usersController.login);
+
+router.get('/home-admin', function (req, res, next) {
+	res.render('home-admin');
 });
 
-/* GET admin home page. */
-router.get('/admin-home', function (req, res, next) {
-	res.render('admin-home');
+router.get('/home-doctor', function (req, res, next) {
+	res.render('home-doctor');
 });
 
-/* GET doctor home page. */
-router.get('/doctor-home', function (req, res, next) {
-	res.render('doctor-home');
+router.get('/home-technical', function (req, res, next) {
+	res.render('home-technical');
 });
 
 module.exports = router;

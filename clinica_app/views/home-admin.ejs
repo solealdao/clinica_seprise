@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Principal Administrativo</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<span class="nombre_admin">01 - Cristina Pérez</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+		<div class="foto_admin"></div>
+		<div class="button-container2 con-foto justificado">
+			<button type="button" class="button-gral" onclick="appointmentsPage()">
+				Gestión de Turnos
+			</button>
+			<button class="button-gral" onclick="usersPage()">
+				Gestión de Usuarios
+			</button>
+			<button class="button-gral" onclick="patientsPage()">
+				Gestión de Pacientes
+			</button>
+		</div>
+		<div class="back-button-container">
+			<button class="back-button" onclick="location.href='/'">
+				Cerrar Sesión
+			</button>
+		</div>
+		<script>
+			function appointmentsPage() {
+				window.location.href = '/appointments/appointment-management';
+			}
+
+			function usersPage() {
+				window.location.href = '/users/user-management';
+			}
+
+			function patientsPage() {
+				window.location.href = '/patients/patient-management';
+			}
+		</script>
+
+		<script src="/scripts/reloj.js"></script>
+	</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Mulish&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+		<title>Editar pacientes</title>
+	</head>
+	<body>
+		<div class="style-header">
+			<div class="icono_encabezado user"></div>
+			<span class="encabezado">Editar Paciente</span>
+		</div>
+		<div class="reloj">
+			<p class="tiempo"></p>
+			<p class="fecha"></p>
+		</div>
+		<div class="edit-page-container">
+			<form
+				id="patient-update"
+				action="/patients/patient-save"
+				method="post"
+			>
+				<input
+					type="hidden"
+					name="idPaciente"
+					value="<%= paciente.idPaciente %>"
+				/>
+				<div class="edit-input">
+					<label for="nombreCompleto">Nombre Completo:</label>
+					<input
+						type="text"
+						id="nombreCompleto"
+						name="nombreCompleto"
+						value="<%= paciente.nombreCompleto %>"
+						required
+					/>
+				</div>
+				<div class="edit-input">
+					<label for="email">Email:</label>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						value="<%= paciente.email %>"
+						required
+					/>
+				</div>
+				<div class="edit-input">
+					<label for="fechaNacimiento">Fecha de Nacimiento:</label>
+					<input
+						type="text"
+						id="fechaNacimiento"
+						name="fechaNacimiento"
+						value="<%= paciente.fechaNacimiento %>"
+						required
+					/>
+				</div>
+				<div class="edit-input">
+					<label for="direccion">Dirección:</label>
+					<input
+						type="text"
+						id="direccion"
+						name="direccion"
+						value="<%= paciente.direccion %>"
+						required
+					/>
+				</div>
+				<div class="edit-input">
+					<label for="tipoCobertura">Tipo de Cobertura:</label>
+					<input
+						type="text"
+						id="tipoCobertura"
+						name="tipoCobertura"
+						value="<%= paciente.tipoCobertura %>"
+						required
+					/>
+				</div>
+				<div class="button-container">
+					<button
+						type="button"
+						class="back-button"
+						onclick="location.href='/patients/patient-management'"
+					>
+						Volver
+					</button>
+					<button type="submit" class="button-gral">
+						Guardar Cambios
+					</button>
+				</div>
+			</form>
+		</div>
+		<script>
+			document
+				.getElementById('patient-update')
+				.addEventListener('submit', function (event) {
+					event.preventDefault();
+
+					const form = event.target;
+					const formData = new FormData(form);
+					const data = new URLSearchParams(formData);
+
+					fetch('/patients/patient-save', {
+						method: 'POST',
+						body: data,
+					})
+						.then((response) => {
+							if (!response.ok) {
+								throw new Error(
+									'Error en la solicitud: ' + response.statusText
+								);
+							}
+							return response.json();
+						})
+						.then((result) => {
+							alert(result.message);
+							window.location.href = '/patients/patient-management';
+						})
+						.catch((error) => {
+							console.error('Error:', error);
+							alert('Ocurrió un error al actualizar los suministros.');
+						});
+				});
+		</script>
+	</body>
+</html>
