@@ -106,8 +106,8 @@
 							data-tipo="<%= turno.tipoTurno %>"
 							data-medico="<%= turno.idMedico %>"
 						>
-							<%= turno.fechaTurno %> - <%= turno.hora %> - <%= doctor ?
-							doctor.apellido : 'Desconocido' %>
+							<%= turno.fechaTurno %> - <%= turno.hora %> - <%=
+							turno.idMedico %>
 						</option>
 						<% }); %>
 					</select>
